@@ -15,7 +15,7 @@ struct HomeScreen: View {
             }
         }
         .listStyle(PlainListStyle())
-        .navigationTitle("Home")
+        .navigationTitle("Cinexandria")
         .navigationWrapper()
     }
 
