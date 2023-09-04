@@ -1,0 +1,444 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2AF4E57B2AA5D6A900ABE68C /* CinexandriaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF4E57A2AA5D6A900ABE68C /* CinexandriaApp.swift */; };
+		2AF4E57F2AA5D6AA00ABE68C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AF4E57E2AA5D6AA00ABE68C /* Assets.xcassets */; };
+		2AF4E5822AA5D6AA00ABE68C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AF4E5812AA5D6AA00ABE68C /* Preview Assets.xcassets */; };
+		2AF4E5C02AA5D70B00ABE68C /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF4E5B02AA5D70B00ABE68C /* WebService.swift */; };
+		2AF4E5C12AA5D70B00ABE68C /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF4E5B22AA5D70B00ABE68C /* ImageLoader.swift */; };
+		2AF4E5C22AA5D70B00ABE68C /* URLImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF4E5B42AA5D70B00ABE68C /* URLImage.swift */; };
+		2AF4E5C32AA5D70B00ABE68C /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF4E5B62AA5D70B00ABE68C /* HomeScreen.swift */; };
+		2AF4E5C42AA5D70B00ABE68C /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF4E5B92AA5D70B00ABE68C /* String+.swift */; };
+		2AF4E5C52AA5D70B00ABE68C /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF4E5BA2AA5D70B00ABE68C /* View+.swift */; };
+		2AF4E5C62AA5D70B00ABE68C /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF4E5BB2AA5D70B00ABE68C /* Date+.swift */; };
+		2AF4E5C72AA5D70B00ABE68C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF4E5BF2AA5D70B00ABE68C /* Constants.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2AF4E5772AA5D6A900ABE68C /* Cinexandria.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cinexandria.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2AF4E57A2AA5D6A900ABE68C /* CinexandriaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinexandriaApp.swift; sourceTree = "<group>"; };
+		2AF4E57E2AA5D6AA00ABE68C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2AF4E5812AA5D6AA00ABE68C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2AF4E5B02AA5D70B00ABE68C /* WebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
+		2AF4E5B22AA5D70B00ABE68C /* ImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		2AF4E5B42AA5D70B00ABE68C /* URLImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLImage.swift; sourceTree = "<group>"; };
+		2AF4E5B62AA5D70B00ABE68C /* HomeScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
+		2AF4E5B92AA5D70B00ABE68C /* String+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		2AF4E5BA2AA5D70B00ABE68C /* View+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
+		2AF4E5BB2AA5D70B00ABE68C /* Date+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
+		2AF4E5BF2AA5D70B00ABE68C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2AF4E5742AA5D6A900ABE68C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2AF4E56E2AA5D6A900ABE68C = {
+			isa = PBXGroup;
+			children = (
+				2AF4E5792AA5D6A900ABE68C /* Cinexandria */,
+				2AF4E5782AA5D6A900ABE68C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2AF4E5782AA5D6A900ABE68C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2AF4E5772AA5D6A900ABE68C /* Cinexandria.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2AF4E5792AA5D6A900ABE68C /* Cinexandria */ = {
+			isa = PBXGroup;
+			children = (
+				2AF4E57A2AA5D6A900ABE68C /* CinexandriaApp.swift */,
+				2AF4E57E2AA5D6AA00ABE68C /* Assets.xcassets */,
+				2AF4E5B82AA5D70B00ABE68C /* Extensions */,
+				2AF4E5BC2AA5D70B00ABE68C /* Global State */,
+				2AF4E5B12AA5D70B00ABE68C /* Loaders */,
+				2AF4E5B72AA5D70B00ABE68C /* Models */,
+				2AF4E5B52AA5D70B00ABE68C /* Screens */,
+				2AF4E5AF2AA5D70B00ABE68C /* Services */,
+				2AF4E5BE2AA5D70B00ABE68C /* Utils */,
+				2AF4E5BD2AA5D70B00ABE68C /* ViewModels */,
+				2AF4E5B32AA5D70B00ABE68C /* Views */,
+				2AF4E5802AA5D6AA00ABE68C /* Preview Content */,
+			);
+			path = Cinexandria;
+			sourceTree = "<group>";
+		};
+		2AF4E5802AA5D6AA00ABE68C /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				2AF4E5812AA5D6AA00ABE68C /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2AF4E5AF2AA5D70B00ABE68C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				2AF4E5B02AA5D70B00ABE68C /* WebService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		2AF4E5B12AA5D70B00ABE68C /* Loaders */ = {
+			isa = PBXGroup;
+			children = (
+				2AF4E5B22AA5D70B00ABE68C /* ImageLoader.swift */,
+			);
+			path = Loaders;
+			sourceTree = "<group>";
+		};
+		2AF4E5B32AA5D70B00ABE68C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2AF4E5B42AA5D70B00ABE68C /* URLImage.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2AF4E5B52AA5D70B00ABE68C /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				2AF4E5B62AA5D70B00ABE68C /* HomeScreen.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		2AF4E5B72AA5D70B00ABE68C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2AF4E5B82AA5D70B00ABE68C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2AF4E5B92AA5D70B00ABE68C /* String+.swift */,
+				2AF4E5BA2AA5D70B00ABE68C /* View+.swift */,
+				2AF4E5BB2AA5D70B00ABE68C /* Date+.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		2AF4E5BC2AA5D70B00ABE68C /* Global State */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Global State";
+			sourceTree = "<group>";
+		};
+		2AF4E5BD2AA5D70B00ABE68C /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		2AF4E5BE2AA5D70B00ABE68C /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				2AF4E5BF2AA5D70B00ABE68C /* Constants.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2AF4E5762AA5D6A900ABE68C /* Cinexandria */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2AF4E5852AA5D6AA00ABE68C /* Build configuration list for PBXNativeTarget "Cinexandria" */;
+			buildPhases = (
+				2AF4E5732AA5D6A900ABE68C /* Sources */,
+				2AF4E5742AA5D6A900ABE68C /* Frameworks */,
+				2AF4E5752AA5D6A900ABE68C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Cinexandria;
+			productName = Cinexandria;
+			productReference = 2AF4E5772AA5D6A900ABE68C /* Cinexandria.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2AF4E56F2AA5D6A900ABE68C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					2AF4E5762AA5D6A900ABE68C = {
+						CreatedOnToolsVersion = 14.2;
+					};
+				};
+			};
+			buildConfigurationList = 2AF4E5722AA5D6A900ABE68C /* Build configuration list for PBXProject "Cinexandria" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2AF4E56E2AA5D6A900ABE68C;
+			productRefGroup = 2AF4E5782AA5D6A900ABE68C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2AF4E5762AA5D6A900ABE68C /* Cinexandria */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2AF4E5752AA5D6A900ABE68C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2AF4E5822AA5D6AA00ABE68C /* Preview Assets.xcassets in Resources */,
+				2AF4E57F2AA5D6AA00ABE68C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2AF4E5732AA5D6A900ABE68C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2AF4E5C62AA5D70B00ABE68C /* Date+.swift in Sources */,
+				2AF4E5C02AA5D70B00ABE68C /* WebService.swift in Sources */,
+				2AF4E5C32AA5D70B00ABE68C /* HomeScreen.swift in Sources */,
+				2AF4E5C12AA5D70B00ABE68C /* ImageLoader.swift in Sources */,
+				2AF4E5C72AA5D70B00ABE68C /* Constants.swift in Sources */,
+				2AF4E5C52AA5D70B00ABE68C /* View+.swift in Sources */,
+				2AF4E5C22AA5D70B00ABE68C /* URLImage.swift in Sources */,
+				2AF4E5C42AA5D70B00ABE68C /* String+.swift in Sources */,
+				2AF4E57B2AA5D6A900ABE68C /* CinexandriaApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		2AF4E5832AA5D6AA00ABE68C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2AF4E5842AA5D6AA00ABE68C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2AF4E5862AA5D6AA00ABE68C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Cinexandria/Preview Content\"";
+				DEVELOPMENT_TEAM = 7UWKX6V9JV;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = jusang.Cinexandria;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2AF4E5872AA5D6AA00ABE68C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Cinexandria/Preview Content\"";
+				DEVELOPMENT_TEAM = 7UWKX6V9JV;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = jusang.Cinexandria;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2AF4E5722AA5D6A900ABE68C /* Build configuration list for PBXProject "Cinexandria" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2AF4E5832AA5D6AA00ABE68C /* Debug */,
+				2AF4E5842AA5D6AA00ABE68C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2AF4E5852AA5D6AA00ABE68C /* Build configuration list for PBXNativeTarget "Cinexandria" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2AF4E5862AA5D6AA00ABE68C /* Debug */,
+				2AF4E5872AA5D6AA00ABE68C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2AF4E56F2AA5D6A900ABE68C /* Project object */;
+}
