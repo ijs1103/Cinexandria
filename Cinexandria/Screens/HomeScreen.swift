@@ -9,14 +9,21 @@ import SwiftUI
 
 struct HomeScreen: View {
     var body: some View {
-        List {
-            ForEach(1...10, id:\.self) { index in
-                Text("\(index)")
+        TabView {
+            HomeView()
+                .tabItem {
+                    Label("홈", systemImage: "house.fill")
+                }
+            HomeView().tabItem {
+                Label("검색", systemImage: "magnifyingglass")
             }
-        }
-        .listStyle(PlainListStyle())
-        .navigationTitle("Cinexandria")
-        .navigationWrapper()
+            HomeView().tabItem {
+                Label("한줄평", systemImage: "bubble.left.fill")
+            }
+            HomeView().tabItem {
+                Label("마이페이지", systemImage: "person.fill")
+            }
+        }.accentColor(.white)
     }
 
 }

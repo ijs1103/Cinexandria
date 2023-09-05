@@ -25,6 +25,7 @@
 		2AF4E5D22AA5F86C00ABE68C /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 2AF4E5D12AA5F86C00ABE68C /* FirebaseFirestore */; };
 		2AF4E5D42AA5F86C00ABE68C /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2AF4E5D32AA5F86C00ABE68C /* FirebaseFirestoreSwift */; };
 		2AF4E5D62AA5F86C00ABE68C /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 2AF4E5D52AA5F86C00ABE68C /* FirebaseStorage */; };
+		2AF4E5DA2AA6418800ABE68C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF4E5D92AA6418800ABE68C /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		2AF4E5BB2AA5D70B00ABE68C /* Date+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
 		2AF4E5BF2AA5D70B00ABE68C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2AF4E5C82AA5EEFA00ABE68C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2AF4E5D92AA6418800ABE68C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				2AF4E5B42AA5D70B00ABE68C /* URLImage.swift */,
+				2AF4E5D92AA6418800ABE68C /* HomeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 				2AF4E5C02AA5D70B00ABE68C /* WebService.swift in Sources */,
 				2AF4E5C32AA5D70B00ABE68C /* HomeScreen.swift in Sources */,
 				2AF4E5C12AA5D70B00ABE68C /* ImageLoader.swift in Sources */,
+				2AF4E5DA2AA6418800ABE68C /* HomeView.swift in Sources */,
 				2AF4E5C72AA5D70B00ABE68C /* Constants.swift in Sources */,
 				2AF4E5C52AA5D70B00ABE68C /* View+.swift in Sources */,
 				2AF4E5C22AA5D70B00ABE68C /* URLImage.swift in Sources */,
@@ -322,7 +326,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -376,7 +380,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

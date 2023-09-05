@@ -22,6 +22,13 @@ struct CinexandriaApp: App {
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
+    init() {
+        UITabBar.appearance().backgroundColor = UIColor(Color("BgPrimary"))
+        UITabBar.appearance().barTintColor = UIColor(Color("FontPrimary"))
+        UINavigationBar.appearance().backgroundColor = .black
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(Color("FontPrimary"))]
+    }
+    
     var body: some Scene {
         WindowGroup {
             HomeScreen()
