@@ -17,10 +17,14 @@ enum DataType {
 
 struct HomeView: View {
     var body: some View {
-        VStack {
-           TrendingSection()
+        ScrollView {
+            VStack {
+                TrendingSection()
+                ReviewSection()
+            }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .padding()
         .background(.black)
         .navigationTitle("Cinexandria")
         .navigationWrapper()

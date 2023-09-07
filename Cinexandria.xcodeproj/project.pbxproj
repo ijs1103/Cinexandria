@@ -36,6 +36,11 @@
 		2AF4E5F72AA8E5BF00ABE68C /* TrendingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF4E5F62AA8E5BF00ABE68C /* TrendingViewModel.swift */; };
 		2AF4E5F92AA8E81D00ABE68C /* PosterCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF4E5F82AA8E81D00ABE68C /* PosterCard.swift */; };
 		2AF4E5FD2AA9CE9F00ABE68C /* Image+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF4E5FC2AA9CE9F00ABE68C /* Image+.swift */; };
+		2AF4E5FF2AAA164C00ABE68C /* ReviewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF4E5FE2AAA164C00ABE68C /* ReviewSection.swift */; };
+		2AF4E6012AAA193300ABE68C /* ReviewListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF4E6002AAA193300ABE68C /* ReviewListViewModel.swift */; };
+		2AF4E6032AAA1BEE00ABE68C /* ReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF4E6022AAA1BEE00ABE68C /* ReviewViewModel.swift */; };
+		2AF4E6052AAA1DAA00ABE68C /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF4E6042AAA1DAA00ABE68C /* Review.swift */; };
+		2AF4E6072AAA258C00ABE68C /* ReviewCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF4E6062AAA258C00ABE68C /* ReviewCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +68,11 @@
 		2AF4E5F62AA8E5BF00ABE68C /* TrendingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingViewModel.swift; sourceTree = "<group>"; };
 		2AF4E5F82AA8E81D00ABE68C /* PosterCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterCard.swift; sourceTree = "<group>"; };
 		2AF4E5FC2AA9CE9F00ABE68C /* Image+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+.swift"; sourceTree = "<group>"; };
+		2AF4E5FE2AAA164C00ABE68C /* ReviewSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewSection.swift; sourceTree = "<group>"; };
+		2AF4E6002AAA193300ABE68C /* ReviewListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReviewListViewModel.swift; path = ../../../../../Desktop/ReviewListViewModel.swift; sourceTree = "<group>"; };
+		2AF4E6022AAA1BEE00ABE68C /* ReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewModel.swift; sourceTree = "<group>"; };
+		2AF4E6042AAA1DAA00ABE68C /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		2AF4E6062AAA258C00ABE68C /* ReviewCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +162,7 @@
 				2AF4E5E12AA72DEB00ABE68C /* WorkList.swift */,
 				2AF4E5E32AA72DF700ABE68C /* ReviewList.swift */,
 				2AF4E5F82AA8E81D00ABE68C /* PosterCard.swift */,
+				2AF4E6062AAA258C00ABE68C /* ReviewCard.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -169,6 +180,7 @@
 			children = (
 				2AF4E5EC2AA7892200ABE68C /* Movie.swift */,
 				2AF4E5F42AA8D3EF00ABE68C /* TV.swift */,
+				2AF4E6042AAA1DAA00ABE68C /* Review.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -196,6 +208,8 @@
 			children = (
 				2AF4E5F22AA891FD00ABE68C /* WorkViewModel.swift */,
 				2AF4E5F62AA8E5BF00ABE68C /* TrendingViewModel.swift */,
+				2AF4E6002AAA193300ABE68C /* ReviewListViewModel.swift */,
+				2AF4E6022AAA1BEE00ABE68C /* ReviewViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -212,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				2AF4E5E82AA733B900ABE68C /* TrendingSection.swift */,
+				2AF4E5FE2AAA164C00ABE68C /* ReviewSection.swift */,
 			);
 			path = Sections;
 			sourceTree = "<group>";
@@ -312,10 +327,15 @@
 				2AF4E5C22AA5D70B00ABE68C /* URLImage.swift in Sources */,
 				2AF4E5E92AA733B900ABE68C /* TrendingSection.swift in Sources */,
 				2AF4E5C42AA5D70B00ABE68C /* String+.swift in Sources */,
+				2AF4E6012AAA193300ABE68C /* ReviewListViewModel.swift in Sources */,
 				2AF4E57B2AA5D6A900ABE68C /* CinexandriaApp.swift in Sources */,
+				2AF4E6032AAA1BEE00ABE68C /* ReviewViewModel.swift in Sources */,
+				2AF4E6072AAA258C00ABE68C /* ReviewCard.swift in Sources */,
+				2AF4E6052AAA1DAA00ABE68C /* Review.swift in Sources */,
 				2AF4E5F72AA8E5BF00ABE68C /* TrendingViewModel.swift in Sources */,
 				2AF4E5F52AA8D3EF00ABE68C /* TV.swift in Sources */,
 				2AF4E5FD2AA9CE9F00ABE68C /* Image+.swift in Sources */,
+				2AF4E5FF2AAA164C00ABE68C /* ReviewSection.swift in Sources */,
 				2AF4E5F92AA8E81D00ABE68C /* PosterCard.swift in Sources */,
 				2AF4E5E02AA72DD800ABE68C /* ListTitleView.swift in Sources */,
 			);

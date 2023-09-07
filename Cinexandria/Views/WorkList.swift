@@ -18,6 +18,6 @@ struct WorkList: View {
                     PosterCard(work: work)
                 }
             }
-        }
+        }.frame(maxHeight: 320)
     }
 }
