@@ -7,16 +7,23 @@
 
 import SwiftUI
 
+enum WorkType {
+    case movie, tv
+}
+
+enum DataType {
+    case trending, topRated, reviews
+}
+
 struct HomeView: View {
     var body: some View {
         VStack {
-            Text("Home")
+           TrendingSection()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color("BgPrimary"))
+        .background(.black)
         .navigationTitle("Cinexandria")
         .navigationWrapper()
-        
     }
 }
 

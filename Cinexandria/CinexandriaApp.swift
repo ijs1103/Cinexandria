@@ -25,13 +25,13 @@ struct CinexandriaApp: App {
     init() {
         UITabBar.appearance().backgroundColor = UIColor(Color("BgPrimary"))
         UITabBar.appearance().barTintColor = UIColor(Color("FontPrimary"))
-        UINavigationBar.appearance().backgroundColor = .black
+        UINavigationBar.appearance().backgroundColor = UIColor(Color("BgPrimary"))
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(Color("FontPrimary"))]
     }
     
     var body: some Scene {
         WindowGroup {
-            HomeScreen()
+            HomeScreen().foregroundColor(Color("FontPrimary"))
         }
     }
 }
