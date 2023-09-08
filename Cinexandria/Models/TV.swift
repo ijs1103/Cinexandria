@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct TrendingTvResponse: Codable {
+struct TvResponse: Codable {
     let page: Int
     let tvs: [Tv]
     let totalPages, totalResults: Int
@@ -22,13 +22,13 @@ struct TrendingTvResponse: Codable {
 
 // MARK: - Result
 struct Tv: Codable {
-    let adult: Bool
+    let adult: Bool? = nil
     let backdropPath: String
     let id: Int
     let name: String
     let originalLanguage: String
     let originalName, overview, posterPath: String
-    let mediaType: MediaType
+    let mediaType: MediaType? = nil
     let genreIDS: [Int]
     let popularity: Double
     let firstAirDate: String

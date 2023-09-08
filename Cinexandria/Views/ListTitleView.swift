@@ -11,7 +11,7 @@ struct ListTitleView: View {
     let title: String
     var body: some View {
         HStack {
-            Text("\(title)").font(.system(size: 18, weight: .heavy))
+            Text("\(title)").font(.system(size: 22, weight: .heavy))
             Spacer()
             Image(systemName: "chevron.right").tint(Color("FontPrimary"))
         }

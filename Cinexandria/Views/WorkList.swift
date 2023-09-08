@@ -13,11 +13,12 @@ struct WorkList: View {
         
     var body: some View {
         ScrollView(.horizontal) {
-            LazyHStack(spacing: 18) {
+            // LazyHStack 버그 : 이미지 크기가 스크롤 하면 변함 
+            HStack(spacing: 18) {
                 ForEach(works, id: \.id) { work in
                     PosterCard(work: work)
                 }
             }
-        }.frame(maxHeight: 320)
+        }
     }
 }

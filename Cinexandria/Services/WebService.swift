@@ -36,7 +36,7 @@ final class Webservice {
                 return completion(.failure(.noData))
             }
             
-            let response = try? JSONDecoder().decode(TrendingMovieResponse.self, from: data)
+            let response = try? JSONDecoder().decode(MovieResponse.self, from: data)
             if let response = response {
                 completion(.success(response.movies))
             }
@@ -60,7 +60,54 @@ final class Webservice {
                 return completion(.failure(.noData))
             }
             
-            let response = try? JSONDecoder().decode(TrendingTvResponse.self, from: data)
+            let response = try? JSONDecoder().decode(TvResponse.self, from: data)
+            if let response = response {
+                completion(.success(response.tvs))
+            }
+            
+        }.resume()
+    }
+    
+    func getTopRatedMovie(completion: @escaping ((Result<[Movie]?, NetworkError>) -> Void)) {
+        guard let url = Constants.Urls.topRated(media: .movie) else {
+            return completion(.failure(.badURL))
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.setValue("application/json", forHTTPHeaderField: "accept")
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+        URLSession.shared.dataTask(with: request) { (data, _, error) in
+            guard let data = data, error == nil else {
+                return completion(.failure(.noData))
+            }
+            
+            let response = try? JSONDecoder().decode(MovieResponse.self, from: data)
+            if let response = response {
+                completion(.success(response.movies))
+            }
+            
+        }.resume()
+    }
+    
+    func getTopRatedTv(completion: @escaping ((Result<[Tv]?, NetworkError>) -> Void)) {
+        guard let url = Constants.Urls.topRated(media: .tv) else {
+            return completion(.failure(.badURL))
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.setValue("application/json", forHTTPHeaderField: "accept")
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+        URLSession.shared.dataTask(with: request) { (data, _, error) in
+            
+            guard let data = data, error == nil else {
+                return completion(.failure(.noData))
+            }
+            
+            let response = try? JSONDecoder().decode(TvResponse.self, from: data)
             if let response = response {
                 completion(.success(response.tvs))
             }

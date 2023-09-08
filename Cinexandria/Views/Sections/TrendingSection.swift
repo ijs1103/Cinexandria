@@ -19,7 +19,7 @@ struct TrendingSection: View {
         return VStack<TupleView<(ListTitleView, WorkList, Spacer, ListTitleView, WorkList)>> {
             ListTitleView(title: Constants.SectionTitle.trending.movie)
             WorkList(works: self.trendingVM.trendingMovies)
-            Spacer()
+            Spacer(minLength: 30)
             ListTitleView(title: Constants.SectionTitle.trending.tv)
             WorkList(works: self.trendingVM.trendingTvs)
         }

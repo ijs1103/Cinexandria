@@ -13,8 +13,8 @@ struct Constants {
             URL(string: "https://api.themoviedb.org/3/trending/\(media.rawValue)/week?language=ko-KR")
         }
         
-        static func topRated(pageNum: Int = 1) -> URL? {
-            URL(string: "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=\(pageNum)")
+        static func topRated(media: MediaType, pageNum: Int = 1) -> URL? {
+            URL(string: "https://api.themoviedb.org/3/\(media.rawValue)/top_rated?language=ko-KR&page=\(pageNum)")
         }
         
         static func detail(media: MediaType, id: String) -> URL? {

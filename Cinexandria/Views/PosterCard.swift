@@ -37,7 +37,7 @@ struct PosterCard: View {
             .background(Color("BgSecond"))
             .cornerRadius(10, corners: .bottomLeft)
             .cornerRadius(10, corners: .bottomRight)
-        }.frame(maxWidth: 150)
+        }.frame(width: 150).frame(maxHeight: .infinity)
     }
 }
 

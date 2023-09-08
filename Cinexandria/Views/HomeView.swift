@@ -20,7 +20,10 @@ struct HomeView: View {
         ScrollView {
             VStack {
                 TrendingSection()
+                Spacer(minLength: 30)
                 ReviewSection()
+                Spacer(minLength: 30)
+                TopRatedSection()
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
