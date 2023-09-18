@@ -69,7 +69,18 @@ struct WorkDetailViewModel {
     }
     
     var rating: String {
-        return (media == .movie) ? "\(round(movie!.voteAverage * 10))%" : "\(round(tv!.voteAverage * 10))%"
+        if media == .movie {
+            return "\(round(movie!.voteAverage * 10))%"
+        } else {
+            switch tv!.voteAverage.self {
+            case .double(let voteAverage):
+                return "\(round((voteAverage * 10)))%"
+            case .int(let voteAverage):
+                return "\((voteAverage * 10))%"
+            }
+        }
+        
+        
     }
     
     var hashTagItems: [String]? {

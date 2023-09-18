@@ -81,7 +81,7 @@ struct TvDetailResponse: Codable {
     let seasons: [Season]?
     let spokenLanguages: [SpokenLanguage]?
     let status, tagline, type: String
-    let voteAverage: Double
+    let voteAverage: DoubleOrInt
     let voteCount: Int
 
     enum CodingKeys: String, CodingKey {
@@ -168,7 +168,7 @@ struct CreatedBy: Codable {
     let id: Int
     let creditID, name: String
     let gender: Int
-    let profilePath: String
+    let profilePath: String?
 
     enum CodingKeys: String, CodingKey {
         case id
