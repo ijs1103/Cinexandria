@@ -12,7 +12,7 @@ struct ReviewList: View {
     let reviews: [ReviewViewModel]
     
     var body: some View {
-        ScrollView(.horizontal) {
+        ScrollView(.horizontal, showsIndicators: false) {
             LazyHStack(spacing: 10) {
                 ForEach(reviews, id: \.id) { review in
                     ReviewCard(review: review)

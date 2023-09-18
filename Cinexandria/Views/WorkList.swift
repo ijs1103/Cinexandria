@@ -8,15 +8,17 @@
 import SwiftUI
 
 struct WorkList: View {
-        
+    
     let works: [WorkViewModel]
-        
+    
     var body: some View {
-        ScrollView(.horizontal) {
-            // LazyHStack 버그 : 이미지 크기가 스크롤 하면 변함 
+        ScrollView(.horizontal, showsIndicators: false) {
+            // LazyHStack 버그 : 이미지 크기가 스크롤 하면 변함
             HStack(spacing: 18) {
                 ForEach(works, id: \.id) { work in
-                    PosterCard(work: work)
+                    NavigationLink(destination: DetailScreen(work: work)) {
+                        PosterCard(work: work)
+                    }
                 }
             }
         }

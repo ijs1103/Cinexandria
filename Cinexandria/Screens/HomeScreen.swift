@@ -14,13 +14,13 @@ struct HomeScreen: View {
                 .tabItem {
                     Label("홈", systemImage: "house.fill")
                 }
-            HomeView().tabItem {
+            EmptyView().tabItem {
                 Label("검색", systemImage: "magnifyingglass")
             }
-            HomeView().tabItem {
+            EmptyView().tabItem {
                 Label("한줄평", systemImage: "bubble.left.fill")
             }
-            HomeView().tabItem {
+            EmptyView().tabItem {
                 Label("마이페이지", systemImage: "person.fill")
             }
         }.accentColor(.white)

@@ -12,8 +12,16 @@ struct ReviewViewModel {
     
     let id = UUID()
     
-    var reviewer: String {
-        return review.reviewer
+    var reviewerId: String {
+        return review.reviewerId
+    }
+    
+    var reviewerAvatar: URL? {
+        return URL(string: review.reviewerAvatarString) ?? nil
+    }
+    
+    var reviewerName: String {
+        return review.reviewerName
     }
     
     var workId: Int {

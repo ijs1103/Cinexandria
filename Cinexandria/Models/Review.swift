@@ -8,7 +8,9 @@
 import Foundation
 
 struct Review: Codable {
-    let reviewer: String
+    let reviewerId: String
+    let reviewerName: String
+    let reviewerAvatarString: String
     let workId: Int
     let workTitle: String
     let title: String

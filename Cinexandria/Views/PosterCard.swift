@@ -26,11 +26,14 @@ struct PosterCard: View {
                 
             })
             
-            VStack(alignment: .center, spacing: 0) {
+            VStack(spacing: 0) {
                 Text("\(work.title)").font(.system(size: 16, weight: .semibold)).lineLimit(1).foregroundColor(.white).padding(EdgeInsets(top: 4, leading: 10, bottom: 0, trailing: 10))
                 HStack {
-                    Image(systemName: "star.fill").resizable().frame(width: 14, height: 14)
-                    Text("\(work.rating)").font(.system(size: 14, weight: .bold))
+                    Label {
+                        Text("\(work.rating)").customFont(color: .yellow, size: 14, weight: .bold)
+                    } icon: {
+                        Image(systemName: "star.fill").resizable().frame(width: 14, height: 14)
+                    }
                     Spacer()
                 }.padding(10).foregroundColor(.yellow)
             }

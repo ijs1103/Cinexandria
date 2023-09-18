@@ -21,7 +21,7 @@ struct ReviewCard: View {
                 }.foregroundColor(.teal)
             }
             Text(review.title).font(.system(size: 16, weight: .bold)).foregroundColor(.white).padding(EdgeInsets(top: 4, leading: 0, bottom: 10, trailing: 0)).lineLimit(2)
-            Text("\(review.reviewer)님의 리뷰").font(.system(size: 12, weight: .semibold)).lineLimit(1).foregroundColor(.gray)
+            Text("\(review.reviewerName)님의 리뷰").font(.system(size: 12, weight: .semibold)).lineLimit(1).foregroundColor(.gray)
         }
         .frame(maxWidth: 250)
         .padding()

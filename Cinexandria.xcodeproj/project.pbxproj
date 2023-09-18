@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2AC8BAE22AB4A04A00143D2D /* CustomEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC8BAE12AB4A04A00143D2D /* CustomEmptyView.swift */; };
 		2AF4E57B2AA5D6A900ABE68C /* CinexandriaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF4E57A2AA5D6A900ABE68C /* CinexandriaApp.swift */; };
 		2AF4E57F2AA5D6AA00ABE68C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AF4E57E2AA5D6AA00ABE68C /* Assets.xcassets */; };
 		2AF4E5822AA5D6AA00ABE68C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AF4E5812AA5D6AA00ABE68C /* Preview Assets.xcassets */; };
@@ -43,9 +44,20 @@
 		2AF4E6072AAA258C00ABE68C /* ReviewCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF4E6062AAA258C00ABE68C /* ReviewCard.swift */; };
 		2AF4E6092AAB01FC00ABE68C /* TopRatedSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF4E6082AAB01FC00ABE68C /* TopRatedSection.swift */; };
 		2AF4E60B2AAB048C00ABE68C /* TopRatedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF4E60A2AAB048C00ABE68C /* TopRatedViewModel.swift */; };
+		2AF4E60D2AAB1DFD00ABE68C /* WorkDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF4E60C2AAB1DFD00ABE68C /* WorkDetailViewModel.swift */; };
+		2AF4E60F2AAB812200ABE68C /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF4E60E2AAB812200ABE68C /* DetailViewModel.swift */; };
+		2AF4E6132AAB902C00ABE68C /* DetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF4E6122AAB902C00ABE68C /* DetailScreen.swift */; };
+		2AF4E6152AADD46C00ABE68C /* UINavigationController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF4E6142AADD46C00ABE68C /* UINavigationController+.swift */; };
+		2AF4E6172AB09A5200ABE68C /* Text+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF4E6162AB09A5200ABE68C /* Text+.swift */; };
+		2AF4E61A2AB1B0DD00ABE68C /* YouTubePlayerKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2AF4E6192AB1B0DD00ABE68C /* YouTubePlayerKit */; };
+		2AF4E61E2AB203CF00ABE68C /* CreditList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF4E61D2AB203CF00ABE68C /* CreditList.swift */; };
+		2AF4E6202AB206E800ABE68C /* CreditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF4E61F2AB206E700ABE68C /* CreditViewModel.swift */; };
+		2AF4E6222AB2ECE700ABE68C /* AllReviewList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF4E6212AB2ECE700ABE68C /* AllReviewList.swift */; };
+		2AF4E6242AB2EE0600ABE68C /* AllReviewCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF4E6232AB2EE0600ABE68C /* AllReviewCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2AC8BAE12AB4A04A00143D2D /* CustomEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEmptyView.swift; sourceTree = "<group>"; };
 		2AF4E5772AA5D6A900ABE68C /* Cinexandria.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cinexandria.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AF4E57A2AA5D6A900ABE68C /* CinexandriaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinexandriaApp.swift; sourceTree = "<group>"; };
 		2AF4E57E2AA5D6AA00ABE68C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -77,6 +89,15 @@
 		2AF4E6062AAA258C00ABE68C /* ReviewCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCard.swift; sourceTree = "<group>"; };
 		2AF4E6082AAB01FC00ABE68C /* TopRatedSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopRatedSection.swift; sourceTree = "<group>"; };
 		2AF4E60A2AAB048C00ABE68C /* TopRatedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopRatedViewModel.swift; sourceTree = "<group>"; };
+		2AF4E60C2AAB1DFD00ABE68C /* WorkDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkDetailViewModel.swift; sourceTree = "<group>"; };
+		2AF4E60E2AAB812200ABE68C /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		2AF4E6122AAB902C00ABE68C /* DetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreen.swift; sourceTree = "<group>"; };
+		2AF4E6142AADD46C00ABE68C /* UINavigationController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+.swift"; sourceTree = "<group>"; };
+		2AF4E6162AB09A5200ABE68C /* Text+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+.swift"; sourceTree = "<group>"; };
+		2AF4E61D2AB203CF00ABE68C /* CreditList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditList.swift; sourceTree = "<group>"; };
+		2AF4E61F2AB206E700ABE68C /* CreditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditViewModel.swift; sourceTree = "<group>"; };
+		2AF4E6212AB2ECE700ABE68C /* AllReviewList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllReviewList.swift; sourceTree = "<group>"; };
+		2AF4E6232AB2EE0600ABE68C /* AllReviewCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllReviewCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AF4E61A2AB1B0DD00ABE68C /* YouTubePlayerKit in Frameworks */,
 				2AF4E5D42AA5F86C00ABE68C /* FirebaseFirestoreSwift in Frameworks */,
 				2AF4E5D02AA5F86C00ABE68C /* FirebaseDatabaseSwift in Frameworks */,
 				2AF4E5D22AA5F86C00ABE68C /* FirebaseFirestore in Frameworks */,
@@ -167,6 +189,10 @@
 				2AF4E5E32AA72DF700ABE68C /* ReviewList.swift */,
 				2AF4E5F82AA8E81D00ABE68C /* PosterCard.swift */,
 				2AF4E6062AAA258C00ABE68C /* ReviewCard.swift */,
+				2AF4E61D2AB203CF00ABE68C /* CreditList.swift */,
+				2AF4E6212AB2ECE700ABE68C /* AllReviewList.swift */,
+				2AF4E6232AB2EE0600ABE68C /* AllReviewCard.swift */,
+				2AC8BAE12AB4A04A00143D2D /* CustomEmptyView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -175,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				2AF4E5B62AA5D70B00ABE68C /* HomeScreen.swift */,
+				2AF4E6122AAB902C00ABE68C /* DetailScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -196,6 +223,8 @@
 				2AF4E5BA2AA5D70B00ABE68C /* View+.swift */,
 				2AF4E5BB2AA5D70B00ABE68C /* Date+.swift */,
 				2AF4E5FC2AA9CE9F00ABE68C /* Image+.swift */,
+				2AF4E6142AADD46C00ABE68C /* UINavigationController+.swift */,
+				2AF4E6162AB09A5200ABE68C /* Text+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -215,6 +244,9 @@
 				2AF4E6002AAA193300ABE68C /* ReviewListViewModel.swift */,
 				2AF4E6022AAA1BEE00ABE68C /* ReviewViewModel.swift */,
 				2AF4E60A2AAB048C00ABE68C /* TopRatedViewModel.swift */,
+				2AF4E60C2AAB1DFD00ABE68C /* WorkDetailViewModel.swift */,
+				2AF4E60E2AAB812200ABE68C /* DetailViewModel.swift */,
+				2AF4E61F2AB206E700ABE68C /* CreditViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -260,6 +292,7 @@
 				2AF4E5D12AA5F86C00ABE68C /* FirebaseFirestore */,
 				2AF4E5D32AA5F86C00ABE68C /* FirebaseFirestoreSwift */,
 				2AF4E5D52AA5F86C00ABE68C /* FirebaseStorage */,
+				2AF4E6192AB1B0DD00ABE68C /* YouTubePlayerKit */,
 			);
 			productName = Cinexandria;
 			productReference = 2AF4E5772AA5D6A900ABE68C /* Cinexandria.app */;
@@ -291,6 +324,7 @@
 			mainGroup = 2AF4E56E2AA5D6A900ABE68C;
 			packageReferences = (
 				2AF4E5CA2AA5F86C00ABE68C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				2AF4E6182AB1B0DD00ABE68C /* XCRemoteSwiftPackageReference "YouTubePlayerKit" */,
 			);
 			productRefGroup = 2AF4E5782AA5D6A900ABE68C /* Products */;
 			projectDirPath = "";
@@ -319,10 +353,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AF4E6152AADD46C00ABE68C /* UINavigationController+.swift in Sources */,
 				2AF4E5C62AA5D70B00ABE68C /* Date+.swift in Sources */,
+				2AF4E61E2AB203CF00ABE68C /* CreditList.swift in Sources */,
 				2AF4E5E22AA72DEB00ABE68C /* WorkList.swift in Sources */,
+				2AF4E60F2AAB812200ABE68C /* DetailViewModel.swift in Sources */,
 				2AF4E5F32AA891FD00ABE68C /* WorkViewModel.swift in Sources */,
+				2AC8BAE22AB4A04A00143D2D /* CustomEmptyView.swift in Sources */,
 				2AF4E5C02AA5D70B00ABE68C /* WebService.swift in Sources */,
+				2AF4E6202AB206E800ABE68C /* CreditViewModel.swift in Sources */,
 				2AF4E5C32AA5D70B00ABE68C /* HomeScreen.swift in Sources */,
 				2AF4E5C12AA5D70B00ABE68C /* ImageLoader.swift in Sources */,
 				2AF4E5ED2AA7892200ABE68C /* Movie.swift in Sources */,
@@ -337,6 +376,10 @@
 				2AF4E57B2AA5D6A900ABE68C /* CinexandriaApp.swift in Sources */,
 				2AF4E6032AAA1BEE00ABE68C /* ReviewViewModel.swift in Sources */,
 				2AF4E6072AAA258C00ABE68C /* ReviewCard.swift in Sources */,
+				2AF4E60D2AAB1DFD00ABE68C /* WorkDetailViewModel.swift in Sources */,
+				2AF4E6242AB2EE0600ABE68C /* AllReviewCard.swift in Sources */,
+				2AF4E6132AAB902C00ABE68C /* DetailScreen.swift in Sources */,
+				2AF4E6172AB09A5200ABE68C /* Text+.swift in Sources */,
 				2AF4E6052AAA1DAA00ABE68C /* Review.swift in Sources */,
 				2AF4E5F72AA8E5BF00ABE68C /* TrendingViewModel.swift in Sources */,
 				2AF4E5F52AA8D3EF00ABE68C /* TV.swift in Sources */,
@@ -346,6 +389,7 @@
 				2AF4E5FF2AAA164C00ABE68C /* ReviewSection.swift in Sources */,
 				2AF4E5F92AA8E81D00ABE68C /* PosterCard.swift in Sources */,
 				2AF4E5E02AA72DD800ABE68C /* ListTitleView.swift in Sources */,
+				2AF4E6222AB2ECE700ABE68C /* AllReviewList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -558,6 +602,14 @@
 				kind = branch;
 			};
 		};
+		2AF4E6182AB1B0DD00ABE68C /* XCRemoteSwiftPackageReference "YouTubePlayerKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SvenTiigi/YouTubePlayerKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -590,6 +642,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2AF4E5CA2AA5F86C00ABE68C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		2AF4E6192AB1B0DD00ABE68C /* YouTubePlayerKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2AF4E6182AB1B0DD00ABE68C /* XCRemoteSwiftPackageReference "YouTubePlayerKit" */;
+			productName = YouTubePlayerKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

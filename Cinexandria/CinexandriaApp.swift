@@ -25,7 +25,6 @@ struct CinexandriaApp: App {
     init() {
         UITabBar.appearance().backgroundColor = UIColor(Color("BgPrimary"))
         UITabBar.appearance().barTintColor = UIColor(Color("FontPrimary"))
-        UINavigationBar.appearance().backgroundColor = UIColor(Color("BgPrimary"))
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(Color("FontPrimary"))]
     }
     
