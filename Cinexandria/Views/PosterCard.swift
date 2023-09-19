@@ -9,8 +9,6 @@ import SwiftUI
 
 struct PosterCard: View {
     
-    @EnvironmentObject private var appState: AppState
-    
     let work: WorkViewModel
     
     var body: some View {
@@ -20,14 +18,14 @@ struct PosterCard: View {
                        , content: { phase in
                 
                 if let image = phase.image {
-                    image.ImageModifier().cornerRadius(10, corners: .topLeft).cornerRadius(10, corners: .topRight).clipped()
+                    image.resizable().scaledToFill().cornerRadius(10, corners: .topLeft).cornerRadius(10, corners: .topRight).clipped()
                 } else if phase.error != nil {
-                    Image("NoPoster").ImageModifier().cornerRadius(10, corners: .topLeft).cornerRadius(10, corners: .topRight).clipped() // Indicates an error.
+                    Image("NoPoster").scaledToFill().cornerRadius(10, corners: .topLeft).cornerRadius(10, corners: .topRight).clipped() // Indicates an error.
                 } else {
                     ProgressView() // Acts as a placeholder.
                 }
                 
-            })
+            }).frame(height: 200)
             
             VStack(spacing: 0) {
                 Text("\(work.title)").font(.system(size: 16, weight: .semibold)).lineLimit(1).foregroundColor(.white).padding(EdgeInsets(top: 4, leading: 10, bottom: 0, trailing: 10))
@@ -40,10 +38,11 @@ struct PosterCard: View {
                     Spacer()
                 }.padding(10).foregroundColor(.yellow)
             }
+            .frame(height: 60)
             .background(Color("BgSecond"))
             .cornerRadius(10, corners: .bottomLeft)
             .cornerRadius(10, corners: .bottomRight)
-        }.frame(width: 150).frame(maxHeight: .infinity).redacted(reason: appState.loadingState == .loading ? .placeholder : []).allowsHitTesting(!(appState.loadingState == .loading))
+        }.frame(width: 140, height: 260)
     }
 }
 

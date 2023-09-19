@@ -10,6 +10,8 @@ import YouTubePlayerKit
 
 struct DetailScreen: View {
     
+    @EnvironmentObject private var appState: AppState
+    
     @ObservedObject private var detailVM = DetailViewModel()
     
     let work: WorkViewModel
@@ -134,10 +136,11 @@ struct DetailScreen: View {
         }
         .background(.black)
         .navigationBarTitleDisplayMode(.inline)
-        .onAppear {
+        .task {
+            appState.loadingState = .loading
             detailVM.load(media: work.mediaType, id: work.id)
-        }
-        
+            //appState.loadingState = .idle
+        }.loadingWrapper(appState.loadingState)
     }
 }
 

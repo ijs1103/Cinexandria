@@ -20,7 +20,7 @@ struct TrendingSection: View {
             Spacer(minLength: 30)
             ListTitleView(title: Constants.SectionTitle.trending.tv)
             WorkList(works: self.trendingVM.trendingTvs)
-        }.task {
+        }.loadingWrapper(appState.loadingState).task {
             appState.loadingState = .loading
             await trendingVM.load()
             appState.loadingState = .idle
