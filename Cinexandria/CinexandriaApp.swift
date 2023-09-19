@@ -21,6 +21,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 struct CinexandriaApp: App {
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    @StateObject private var appState = AppState()
     
     init() {
         UITabBar.appearance().backgroundColor = UIColor(Color("BgPrimary"))
@@ -28,9 +29,27 @@ struct CinexandriaApp: App {
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(Color("FontPrimary"))]
     }
     
+    
     var body: some Scene {
         WindowGroup {
-            HomeScreen().foregroundColor(Color("FontPrimary"))
+            if #available(iOS 16.0, *) {
+                NavigationStack(path: $appState.routes) {
+                    HomeScreen()
+                }.navigationDestination(for: Route.self) { route in
+                    switch route {
+                    case .main:
+                        HomeScreen()
+                    case .login:
+                        EmptyView()
+                    case .signup:
+                        EmptyView()
+                    }
+                }.foregroundColor(Color("FontPrimary")).environmentObject(appState)
+            }
+            else {
+                EmptyView()
+            }
         }
+        
     }
 }

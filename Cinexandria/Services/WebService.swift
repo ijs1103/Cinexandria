@@ -21,28 +21,26 @@ final class Webservice {
     
     let token = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwNmZjYjczNTFhMzQyMWE1Yzc0MmExMmIyZWZiOWQzNSIsInN1YiI6IjVmZDQ2ZWE0ZWNjN2U4MDAzZWQyMWE1NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Ce2Pa2eE_aV2erPv8KAllyGH50yhdXM_yj0y-CN9c3Y"
     
-    func getTrendingMovies(completion: @escaping ((Result<[Movie]?, NetworkError>) -> Void)) {
-        guard let url = Constants.Urls.trending(media: .movie) else {
-            return completion(.failure(.badURL))
-        }
+    func getTrendingMovies() async throws -> [Movie] {
         
+        guard let url = Constants.Urls.trending(media: .movie) else {
+            throw NetworkError.badURL
+        }
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.setValue("application/json", forHTTPHeaderField: "accept")
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         
-        URLSession.shared.dataTask(with: request) { (data, _, error) in
-            
-            guard let data = data, error == nil else {
-                return completion(.failure(.noData))
-            }
-            
-            let response = try? JSONDecoder().decode(MovieResponse.self, from: data)
-            if let response = response {
-                completion(.success(response.movies))
-            }
-            
-        }.resume()
+        let (data, response) = try await URLSession.shared.data(for: request)
+
+        guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+            throw NetworkError.badServer
+        }
+        guard let decoded = try? JSONDecoder().decode([Movie].self, from: data) else {
+            throw NetworkError.badDecoding
+        }
+        
+        return decoded
     }
     
     func getTrendingTv(completion: @escaping ((Result<[Tv]?, NetworkError>) -> Void)) {

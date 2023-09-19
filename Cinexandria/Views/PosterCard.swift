@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct PosterCard: View {
+    
+    @EnvironmentObject private var appState: AppState
+    
     let work: WorkViewModel
     
     var body: some View {
@@ -40,7 +43,7 @@ struct PosterCard: View {
             .background(Color("BgSecond"))
             .cornerRadius(10, corners: .bottomLeft)
             .cornerRadius(10, corners: .bottomRight)
-        }.frame(width: 150).frame(maxHeight: .infinity)
+        }.frame(width: 150).frame(maxHeight: .infinity).redacted(reason: appState.loadingState == .loading ? .placeholder : []).allowsHitTesting(!(appState.loadingState == .loading))
     }
 }
 

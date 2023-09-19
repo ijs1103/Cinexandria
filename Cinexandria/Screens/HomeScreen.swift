@@ -10,10 +10,9 @@ import SwiftUI
 struct HomeScreen: View {
     var body: some View {
         TabView {
-            HomeView()
-                .tabItem {
-                    Label("홈", systemImage: "house.fill")
-                }
+            HomeView().tabItem {
+                Label("홈", systemImage: "house.fill")
+            }
             EmptyView().tabItem {
                 Label("검색", systemImage: "magnifyingglass")
             }
@@ -25,7 +24,7 @@ struct HomeScreen: View {
             }
         }.accentColor(.white)
     }
-
+    
 }
 
 struct HomeScreen_Previews: PreviewProvider {

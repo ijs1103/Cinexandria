@@ -8,12 +8,10 @@
 import SwiftUI
 
 struct TrendingSection: View {
-        
-    @ObservedObject private var trendingVM = TrendingViewModel()
     
-    init() {
-        trendingVM.load()
-    }
+    @EnvironmentObject private var appState: AppState
+    
+    @ObservedObject var trendingVM = TrendingViewModel()
     
     var body: some View {
         return VStack<TupleView<(ListTitleView, WorkList, Spacer, ListTitleView, WorkList)>> {
@@ -22,6 +20,10 @@ struct TrendingSection: View {
             Spacer(minLength: 30)
             ListTitleView(title: Constants.SectionTitle.trending.tv)
             WorkList(works: self.trendingVM.trendingTvs)
+        }.task {
+            appState.loadingState = .loading
+            trendingVM.load() // <- 이거 async/await으로 바꾸기
+            appState.loadingState = .idle
         }
     }
 }
