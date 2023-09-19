@@ -22,19 +22,22 @@ final class DetailViewModel: ObservableObject {
     
     private func fetchWorkDetail(media: MediaType, id: Int) {
         if media == .movie {
-            Webservice.shared.getMovieDetail(id: id) { result in
-                switch result {
-                case .success(let detail):
-                    guard let detail = detail else { return }
+            Task {
+                do {
+                    let detail = try await Webservice.shared.getMovieDetail(id: id)
                     DispatchQueue.main.async {
                         self.workDetail = WorkDetailViewModel(movie: detail, media: media)
                     }
                     self.fetchImdbRating(id: detail.imdbID)
                     self.configYoutube(id: detail.videos.results.last?.key)
-                case .failure(let error):
-                    print(error.localizedDescription)
+                } catch NetworkError.badDecoding {
+                    print("tv error - badDecoding")
+                } catch NetworkError.badServer {
+                    print("tv error - badServer")
                 }
             }
+            
+            
         } else {
             Task {
                 do {
@@ -56,13 +59,14 @@ final class DetailViewModel: ObservableObject {
     }
 
     private func fetchTvVideos(id: Int) {
-        Webservice.shared.getTvVideos(id: id) { result in
-            switch result {
-            case .success(let key):
-                guard let key = key else { return }
-                self.configYoutube(id: key)
-            case .failure(let error):
-                print(error.localizedDescription)
+        Task {
+            do {
+                let youtubeKey = try await Webservice.shared.getTvVideos(id: id)
+                self.configYoutube(id: youtubeKey)
+            } catch NetworkError.badDecoding {
+                print("tv error - badDecoding")
+            } catch NetworkError.badServer {
+                print("tv error - badServer")
             }
         }
     }
@@ -78,15 +82,16 @@ final class DetailViewModel: ObservableObject {
     }
     
     private func fetchImdbRating(id: String) {
-        Webservice.shared.getImdbRating(id: id) { result in
-            switch result {
-            case .success(let rating):
-                guard let rating = rating else { return }
+        Task {
+            do {
+                let rating = try await Webservice.shared.getImdbRating(id: id)
                 DispatchQueue.main.async {
                     self.imdbRating = rating
                 }
-            case .failure(let error):
-                print(error.localizedDescription)
+            } catch NetworkError.badDecoding {
+                print("imdb error - badDecoding")
+            } catch NetworkError.badServer {
+                print("imdb error - badServer")
             }
         }
     }

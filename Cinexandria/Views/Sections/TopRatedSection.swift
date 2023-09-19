@@ -9,11 +9,7 @@ import SwiftUI
 
 struct TopRatedSection: View {
     @ObservedObject private var topRatedVM = TopRatedViewModel()
-    
-    init() {
-        topRatedVM.load()
-    }
-    
+
     var body: some View {
         return VStack<TupleView<(ListTitleView, WorkList, Spacer, ListTitleView, WorkList)>> {
             ListTitleView(title: Constants.SectionTitle.topRated.movie)
@@ -21,6 +17,8 @@ struct TopRatedSection: View {
             Spacer(minLength: 30)
             ListTitleView(title: Constants.SectionTitle.topRated.tv)
             WorkList(works: self.topRatedVM.tvs)
+        }.task {
+            await topRatedVM.load()
         }
     }
 }

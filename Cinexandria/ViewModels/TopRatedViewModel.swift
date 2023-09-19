@@ -11,39 +11,41 @@ final class TopRatedViewModel: ObservableObject {
     @Published var movies: [WorkViewModel] = []
     @Published var tvs: [WorkViewModel] = []
     
-    func load() {
-        fetchTopRatedMovies()
-        fetchTopRatedTv()
+    func load() async {
+        await fetchTopRatedMovies()
+        await fetchTopRatedTv()
     }
     
-    private func fetchTopRatedMovies() {
-        Webservice.shared.getTopRatedMovie { result in
-            switch result {
-            case .success(let movies):
-                guard let movies = movies else { return }
+    private func fetchTopRatedMovies() async {
+        Task {
+            do {
+                let movies = try await Webservice.shared.getTopRatedMovie().map({ movie in
+                    WorkViewModel(movie: movie, mediaType: .movie)
+                })
                 DispatchQueue.main.async {
-                    self.movies = movies.map({ movie in
-                        WorkViewModel(movie: movie, mediaType: .movie)
-                    })
+                    self.movies = movies
                 }
-            case .failure(let error):
-                print(error.localizedDescription)
+            } catch NetworkError.badDecoding {
+                print("topRated movie error - badDecoding")
+            } catch NetworkError.badServer {
+                print("topRated movie error - badServer")
             }
         }
     }
     
-    private func fetchTopRatedTv() {
-        Webservice.shared.getTopRatedTv { result in
-            switch result {
-            case .success(let tvs):
-                guard let tvs = tvs else { return }
+    private func fetchTopRatedTv() async {
+        Task {
+            do {
+                let tvs = try await Webservice.shared.getTopRatedTv().map({ tv in
+                    WorkViewModel(tv: tv, mediaType: .tv)
+                })
                 DispatchQueue.main.async {
-                    self.tvs = tvs.map({ tv in
-                        WorkViewModel(tv: tv, mediaType: .tv)
-                    })
+                    self.tvs = tvs
                 }
-            case .failure(let error):
-                print(error.localizedDescription)
+            } catch NetworkError.badDecoding {
+                print("topRated tv error - badDecoding")
+            } catch NetworkError.badServer {
+                print("topRated tv error - badServer")
             }
         }
     }

@@ -22,7 +22,7 @@ struct TrendingSection: View {
             WorkList(works: self.trendingVM.trendingTvs)
         }.task {
             appState.loadingState = .loading
-            trendingVM.load() // <- 이거 async/await으로 바꾸기
+            await trendingVM.load()
             appState.loadingState = .idle
         }
     }

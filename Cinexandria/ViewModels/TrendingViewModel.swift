@@ -12,39 +12,41 @@ final class TrendingViewModel: ObservableObject {
     @Published var trendingMovies: [WorkViewModel] = []
     @Published var trendingTvs: [WorkViewModel] = []
     
-    func load() {
-        fetchTrendingMovies()
-        fetchTrendingTv()
+    func load() async {
+        await fetchTrendingMovies()
+        await fetchTrendingTv()
     }
     
-    private func fetchTrendingMovies() {
-        Webservice.shared.getTrendingMovies { result in
-            switch result {
-            case .success(let movies):
-                guard let movies = movies else { return }
+    private func fetchTrendingMovies() async {
+        Task {
+            do {
+                let trendingMovies = try await Webservice.shared.getTrendingMovies().map({ movie in
+                    WorkViewModel(movie: movie, mediaType: .movie)
+                })
                 DispatchQueue.main.async {
-                    self.trendingMovies = movies.map({ movie in
-                        WorkViewModel(movie: movie, mediaType: .movie)
-                    })
+                    self.trendingMovies = trendingMovies
                 }
-            case .failure(let error):
-                print(error.localizedDescription)
+            } catch NetworkError.badDecoding {
+                print("trending movie error - badDecoding")
+            } catch NetworkError.badServer {
+                print("trending movie error - badServer")
             }
         }
     }
     
-    private func fetchTrendingTv() {
-        Webservice.shared.getTrendingTv { result in
-            switch result {
-            case .success(let tvs):
-                guard let tvs = tvs else { return }
+    private func fetchTrendingTv() async {
+        Task {
+            do {
+                let trendingTvs = try await Webservice.shared.getTrendingTv().map({ tv in
+                    WorkViewModel(tv: tv, mediaType: .tv)
+                })
                 DispatchQueue.main.async {
-                    self.trendingTvs = tvs.map({ tv in
-                        WorkViewModel(tv: tv, mediaType: .tv)
-                    })
+                    self.trendingTvs = trendingTvs
                 }
-            case .failure(let error):
-                print(error.localizedDescription)
+            } catch NetworkError.badDecoding {
+                print("trending tv error - badDecoding")
+            } catch NetworkError.badServer {
+                print("trending tv error - badServer")
             }
         }
     }
