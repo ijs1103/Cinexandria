@@ -24,15 +24,13 @@ struct DetailScreen: View {
                            , content: { phase in
                     
                     if let image = phase.image {
-                        image.resizable()
-                            .scaledToFill().BackDropFilter()
+                        image.resizable().scaledToFill().BackDropFilter()
                     } else if phase.error != nil {
-                        Image("NoPoster").resizable()
-                            .scaledToFill()
+                        Image("NoPoster").resizable().scaledToFill()
                     } else {
                         ProgressView()
                     }
-                })
+                }).frame(height: 240)
                 HStack {
                     VStack(alignment: .leading) {
                         Text(detailVM.workDetail?.title ?? "").customFont(color: .white, size: 20, weight: .bold).padding(.bottom, 6)
@@ -139,7 +137,7 @@ struct DetailScreen: View {
         .task {
             appState.loadingState = .loading
             detailVM.load(media: work.mediaType, id: work.id)
-            //appState.loadingState = .idle
+            appState.loadingState = .idle
         }.loadingWrapper(appState.loadingState)
     }
 }
