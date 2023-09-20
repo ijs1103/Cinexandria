@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2AC8BAE22AB4A04A00143D2D /* CustomEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC8BAE12AB4A04A00143D2D /* CustomEmptyView.swift */; };
 		2AC8BAE42AB8AD8400143D2D /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC8BAE32AB8AD8400143D2D /* AppState.swift */; };
+		2AC8BAE62AB9FF5200143D2D /* GridScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC8BAE52AB9FF5200143D2D /* GridScreen.swift */; };
 		2AF4E57B2AA5D6A900ABE68C /* CinexandriaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF4E57A2AA5D6A900ABE68C /* CinexandriaApp.swift */; };
 		2AF4E57F2AA5D6AA00ABE68C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AF4E57E2AA5D6AA00ABE68C /* Assets.xcassets */; };
 		2AF4E5822AA5D6AA00ABE68C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AF4E5812AA5D6AA00ABE68C /* Preview Assets.xcassets */; };
@@ -60,6 +61,7 @@
 /* Begin PBXFileReference section */
 		2AC8BAE12AB4A04A00143D2D /* CustomEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEmptyView.swift; sourceTree = "<group>"; };
 		2AC8BAE32AB8AD8400143D2D /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		2AC8BAE52AB9FF5200143D2D /* GridScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridScreen.swift; sourceTree = "<group>"; };
 		2AF4E5772AA5D6A900ABE68C /* Cinexandria.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cinexandria.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AF4E57A2AA5D6A900ABE68C /* CinexandriaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinexandriaApp.swift; sourceTree = "<group>"; };
 		2AF4E57E2AA5D6AA00ABE68C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 			children = (
 				2AF4E5B62AA5D70B00ABE68C /* HomeScreen.swift */,
 				2AF4E6122AAB902C00ABE68C /* DetailScreen.swift */,
+				2AC8BAE52AB9FF5200143D2D /* GridScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -387,6 +390,7 @@
 				2AF4E6052AAA1DAA00ABE68C /* Review.swift in Sources */,
 				2AF4E5F72AA8E5BF00ABE68C /* TrendingViewModel.swift in Sources */,
 				2AF4E5F52AA8D3EF00ABE68C /* TV.swift in Sources */,
+				2AC8BAE62AB9FF5200143D2D /* GridScreen.swift in Sources */,
 				2AF4E5FD2AA9CE9F00ABE68C /* Image+.swift in Sources */,
 				2AF4E60B2AAB048C00ABE68C /* TopRatedViewModel.swift in Sources */,
 				2AF4E6092AAB01FC00ABE68C /* TopRatedSection.swift in Sources */,

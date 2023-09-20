@@ -17,7 +17,7 @@ struct ReviewSection: View {
     
     var body: some View {
         return VStack {
-            ListTitleView(title: Constants.SectionTitle.reviews)
+            ListTitleView(title: Constants.SectionTitle.reviews, contents: reviewListVM.reviews)
             Spacer(minLength: 30)
             ReviewList(reviews: reviewListVM.reviews)
         }

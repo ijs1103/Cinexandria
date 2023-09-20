@@ -9,18 +9,22 @@ import SwiftUI
 
 struct ListTitleView: View {
     let title: String
+    let contents: Any
+    private func getDestination(from contents: Any) -> AnyView {
+        if contents is [WorkViewModel] {
+            return AnyView(GridScreen(works: contents as! [WorkViewModel]))
+        }
+        return AnyView(EmptyView())
+    }
+
     var body: some View {
         HStack {
             Text("\(title)").font(.system(size: 22, weight: .heavy))
             Spacer()
-            Image(systemName: "chevron.right").tint(Color("FontPrimary"))
+            NavigationLink(destination: getDestination(from: contents)){
+                Image(systemName: "chevron.right").tint(Color("FontPrimary"))
+            }
         }
-        
     }
 }
 
-struct ListTitleView_Previews: PreviewProvider {
-    static var previews: some View {
-        ListTitleView(title: Constants.SectionTitle.trending.movie)
-    }
-}

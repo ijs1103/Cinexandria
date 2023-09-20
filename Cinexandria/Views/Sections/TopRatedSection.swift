@@ -12,10 +12,10 @@ struct TopRatedSection: View {
 
     var body: some View {
         return VStack<TupleView<(ListTitleView, WorkList, Spacer, ListTitleView, WorkList)>> {
-            ListTitleView(title: Constants.SectionTitle.topRated.movie)
+            ListTitleView(title: Constants.SectionTitle.topRated.movie, contents: self.topRatedVM.movies)
             WorkList(works: self.topRatedVM.movies)
             Spacer(minLength: 30)
-            ListTitleView(title: Constants.SectionTitle.topRated.tv)
+            ListTitleView(title: Constants.SectionTitle.topRated.tv, contents: self.topRatedVM.tvs)
             WorkList(works: self.topRatedVM.tvs)
         }.task {
             await topRatedVM.load()

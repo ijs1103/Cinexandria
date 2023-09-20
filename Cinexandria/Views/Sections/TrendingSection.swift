@@ -15,10 +15,10 @@ struct TrendingSection: View {
     
     var body: some View {
         return VStack<TupleView<(ListTitleView, WorkList, Spacer, ListTitleView, WorkList)>> {
-            ListTitleView(title: Constants.SectionTitle.trending.movie)
+            ListTitleView(title: Constants.SectionTitle.trending.movie, contents: self.trendingVM.trendingMovies)
             WorkList(works: self.trendingVM.trendingMovies)
             Spacer(minLength: 30)
-            ListTitleView(title: Constants.SectionTitle.trending.tv)
+            ListTitleView(title: Constants.SectionTitle.trending.tv, contents: self.trendingVM.trendingTvs)
             WorkList(works: self.trendingVM.trendingTvs)
         }.loadingWrapper(appState.loadingState).task {
             appState.loadingState = .loading
