@@ -11,6 +11,13 @@ struct PosterCard: View {
     
     let work: WorkViewModel
     
+    let isBig: Bool
+    
+    init(work: WorkViewModel, isBig: Bool = false) {
+        self.work = work
+        self.isBig = isBig
+    }
+    
     var body: some View {
         VStack(spacing: 0) {
             
@@ -25,10 +32,10 @@ struct PosterCard: View {
                     ProgressView() // Acts as a placeholder.
                 }
                 
-            }).frame(height: 200)
+            }).frame(width: isBig ? 180 : 140, height: isBig ? 270 : 210)
             
             VStack(spacing: 0) {
-                Text("\(work.title)").font(.system(size: 16, weight: .semibold)).lineLimit(1).foregroundColor(.white).padding(EdgeInsets(top: 4, leading: 10, bottom: 0, trailing: 10))
+                Text("\(work.title)").font(.system(size: 14, weight: .semibold)).lineLimit(1).foregroundColor(.white).padding(EdgeInsets(top: 10, leading: 10, bottom: 0, trailing: 10))
                 HStack {
                     Label {
                         Text("\(work.rating)").customFont(color: .yellow, size: 14, weight: .bold)
@@ -38,11 +45,11 @@ struct PosterCard: View {
                     Spacer()
                 }.padding(10).foregroundColor(.yellow)
             }
-            .frame(height: 60)
+            .frame(height: isBig ? 60 : 50)
             .background(Color("BgSecond"))
             .cornerRadius(10, corners: .bottomLeft)
             .cornerRadius(10, corners: .bottomRight)
-        }.frame(width: 140, height: 260)
+        }
     }
 }
 

@@ -17,8 +17,8 @@ enum NetworkError: Error {
 final class Webservice {
     
     static let shared = Webservice()
-    private init() {} 
-    
+    private init() {}
+
     private let token = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwNmZjYjczNTFhMzQyMWE1Yzc0MmExMmIyZWZiOWQzNSIsInN1YiI6IjVmZDQ2ZWE0ZWNjN2U4MDAzZWQyMWE1NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Ce2Pa2eE_aV2erPv8KAllyGH50yhdXM_yj0y-CN9c3Y"
     
     private func urlToRequest(url: URL) -> URLRequest {
@@ -29,9 +29,9 @@ final class Webservice {
         return request
     }
     
-    func getTrendingMovies() async throws -> [Movie] {
+    func getTrendingMovies(pageNum: Int = 1) async throws -> [Movie] {
         
-        guard let url = Constants.Urls.trending(media: .movie) else {
+        guard let url = Constants.Urls.trending(media: .movie, pageNum: pageNum) else {
             throw NetworkError.badURL
         }
         
@@ -49,9 +49,9 @@ final class Webservice {
         return decoded.movies
     }
     
-    func getTrendingTv() async throws -> [Tv] {
+    func getTrendingTv(pageNum: Int = 1) async throws -> [Tv] {
         
-        guard let url = Constants.Urls.trending(media: .tv) else {
+        guard let url = Constants.Urls.trending(media: .tv, pageNum: pageNum) else {
             throw NetworkError.badURL
         }
         
@@ -70,9 +70,9 @@ final class Webservice {
        
     }
     
-    func getTopRatedMovie() async throws -> [Movie] {
+    func getTopRatedMovie(pageNum: Int = 1) async throws -> [Movie] {
         
-        guard let url = Constants.Urls.topRated(media: .movie) else {
+        guard let url = Constants.Urls.topRated(media: .movie, pageNum: pageNum) else {
             throw NetworkError.badURL
         }
         
@@ -90,9 +90,9 @@ final class Webservice {
         return decoded.movies
     }
     
-    func getTopRatedTv() async throws -> [Tv] {
+    func getTopRatedTv(pageNum: Int = 1) async throws -> [Tv] {
         
-        guard let url = Constants.Urls.topRated(media: .tv) else {
+        guard let url = Constants.Urls.topRated(media: .tv, pageNum: pageNum) else {
             throw NetworkError.badURL
         }
         

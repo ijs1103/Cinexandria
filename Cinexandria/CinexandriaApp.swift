@@ -24,9 +24,8 @@ struct CinexandriaApp: App {
     @StateObject private var appState = AppState()
     
     init() {
-        UITabBar.appearance().backgroundColor = UIColor(Color("BgPrimary"))
-        UITabBar.appearance().barTintColor = UIColor(Color("FontPrimary"))
-        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(Color("FontPrimary"))]
+        Theme.navigationBarColors(background: UIColor(Color("BgPrimary")), titleColor: UIColor(Color("FontPrimary")))
+        Theme.tabBarColors(background: UIColor(Color("BgPrimary")), tintColor: UIColor(Color("FontPrimary")))
     }
     
     
@@ -44,7 +43,7 @@ struct CinexandriaApp: App {
                     case .signup:
                         EmptyView()
                     }
-                }.foregroundColor(Color("FontPrimary")).environmentObject(appState)
+                }.tint(.white).foregroundColor(Color("FontPrimary")).environmentObject(appState)
             }
             else {
                 EmptyView()

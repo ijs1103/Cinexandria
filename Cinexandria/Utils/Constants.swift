@@ -8,9 +8,12 @@
 import Foundation
 
 struct Constants {
+    
+    static let PAGE_LIMIT = 5
+    
     struct Urls {
-        static func trending(media: MediaType) -> URL? {
-            URL(string: "https://api.themoviedb.org/3/trending/\(media.rawValue)/week?language=ko-KR")
+        static func trending(media: MediaType, pageNum: Int = 1) -> URL? {
+            URL(string: "https://api.themoviedb.org/3/trending/\(media.rawValue)/week?language=ko-KR&page=\(pageNum)")
         }
         
         static func topRated(media: MediaType, pageNum: Int = 1) -> URL? {

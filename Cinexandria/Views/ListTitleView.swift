@@ -7,12 +7,31 @@
 
 import SwiftUI
 
+enum DataType {
+    case trendingMovie, trendingTv, topRatedMovie, topRatedTv
+}
+
 struct ListTitleView: View {
     let title: String
     let contents: Any
+    var dataType: DataType {
+        switch self.title {
+        case Constants.SectionTitle.trending.movie:
+            return .trendingMovie
+        case Constants.SectionTitle.trending.tv:
+            return .trendingTv
+        case Constants.SectionTitle.topRated.movie:
+            return .topRatedMovie
+        case Constants.SectionTitle.topRated.tv:
+            return .topRatedTv
+        default:
+            return .trendingMovie
+        }
+    }
+    
     private func getDestination(from contents: Any) -> AnyView {
         if contents is [WorkViewModel] {
-            return AnyView(GridScreen(works: contents as! [WorkViewModel]))
+            return AnyView(GridScreen(title: title, dataType: dataType))
         }
         return AnyView(EmptyView())
     }
