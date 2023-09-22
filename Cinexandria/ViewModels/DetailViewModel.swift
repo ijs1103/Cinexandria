@@ -12,14 +12,24 @@ final class DetailViewModel: ObservableObject {
     static let shared = DetailViewModel()
     private init() {}
     
-    @Published var workDetail: WorkDetailViewModel? 
+    @Published var workDetail: WorkDetailViewModel?
     @Published var reviews: [ReviewViewModel] = []
     @Published var imdbRating: String?
     @Published var youTubePlayer: YouTubePlayer?
     
     func load(media: MediaType, id: Int) async {
+        await MainActor.run {
+            clear()
+        }
         await fetchWorkDetail(media: media, id: id)
         await fetchReviews(media: media, id: id)
+    }
+    
+    private func clear() {
+        workDetail = nil
+        reviews = []
+        imdbRating = nil
+        youTubePlayer = nil
     }
     
     private func fetchWorkDetail(media: MediaType, id: Int) async {
@@ -31,7 +41,7 @@ final class DetailViewModel: ObservableObject {
                         self.workDetail = WorkDetailViewModel(movie: detail, media: media)
                     }
                     self.fetchImdbRating(id: detail.imdbID)
-                    self.configYoutube(id: detail.videos.results.last?.key)
+                    await self.configYoutube(id: detail.videos.results.last?.key)
                 } catch NetworkError.badDecoding {
                     print("tv error - badDecoding")
                 } catch NetworkError.badServer {
@@ -45,7 +55,7 @@ final class DetailViewModel: ObservableObject {
                 do {
                     let detail = try await Webservice.shared.getTvDetail(id: id)
                     let tvCredits = try await Webservice.shared.getTvCredits(id: id)
-                    DispatchQueue.main.async {
+                    await MainActor.run {
                         self.workDetail = WorkDetailViewModel(tv: detail, media: media)
                         self.workDetail?.setTvCredits(credits: tvCredits)
                     }
@@ -59,12 +69,12 @@ final class DetailViewModel: ObservableObject {
         }
         
     }
-
+    
     private func fetchTvVideos(id: Int) {
         Task {
             do {
                 let youtubeKey = try await Webservice.shared.getTvVideos(id: id)
-                self.configYoutube(id: youtubeKey)
+                await self.configYoutube(id: youtubeKey)
             } catch NetworkError.badDecoding {
                 print("tv error - badDecoding")
             } catch NetworkError.badServer {
@@ -73,9 +83,9 @@ final class DetailViewModel: ObservableObject {
         }
     }
     
-    private func configYoutube(id: String?) {
+    private func configYoutube(id: String?) async {
         guard let youtubeId = id else { return }
-        DispatchQueue.main.async {
+        await MainActor.run {
             self.youTubePlayer = YouTubePlayer(
                 source: .video(id: youtubeId),
                 configuration: .init()
@@ -87,7 +97,7 @@ final class DetailViewModel: ObservableObject {
         Task {
             do {
                 let rating = try await Webservice.shared.getImdbRating(id: id)
-                DispatchQueue.main.async {
+                await MainActor.run {
                     self.imdbRating = rating
                 }
             } catch NetworkError.badDecoding {
@@ -101,7 +111,7 @@ final class DetailViewModel: ObservableObject {
     private func fetchReviews(media: MediaType, id: Int) async {
         // get reviews by 작품 id
         // 초기 호출에는 최신 3개의 리뷰만 get, 더보기 페이지 들어갈때엔 모든 리뷰를 get
-        DispatchQueue.main.async {
+        await MainActor.run {
             self.reviews = [ReviewViewModel(review: Review(reviewerId: "1", reviewerName: "귀요미", reviewerAvatarString: "", workId: 1, workTitle: "스타워즈: 라스트 제다이", title: "흠잡을데 없는 완성도의 오락", rating: "4.5", text: "장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽", createdAt: "1년전")), ReviewViewModel(review: Review(reviewerId: "1", reviewerName: "귀요미", reviewerAvatarString: "", workId: 1, workTitle: "스타워즈: 라스트 제다이", title: "흠잡을데 없는 완성도의 오락", rating: "4.5", text: "장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽", createdAt: "1년전")), ReviewViewModel(review: Review(reviewerId: "1", reviewerName: "귀요미", reviewerAvatarString: "", workId: 1, workTitle: "스타워즈: 라스트 제다이", title: "흠잡을데 없는 완성도의 오락", rating: "4.5", text: "장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽", createdAt: "1년전")), ReviewViewModel(review: Review(reviewerId: "1", reviewerName: "귀요미", reviewerAvatarString: "", workId: 1, workTitle: "스타워즈: 라스트 제다이", title: "흠잡을데 없는 완성도의 오락", rating: "4.5", text: "장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽", createdAt: "1년전")) ]
         }
     }

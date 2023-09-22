@@ -45,7 +45,7 @@ struct PosterCard: View {
                     Spacer()
                 }.padding(10).foregroundColor(.yellow)
             }
-            .frame(height: isBig ? 60 : 50)
+            .frame(width: isBig ? 180 : 140, height: isBig ? 60 : 50)
             .background(Color("BgSecond"))
             .cornerRadius(10, corners: .bottomLeft)
             .cornerRadius(10, corners: .bottomRight)
