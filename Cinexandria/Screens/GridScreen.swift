@@ -20,7 +20,7 @@ struct GridScreen: View {
     @State private var ScrollViewOffset: CGFloat = 0
     
     @State private var StartOffset: CGFloat = 0
-    
+        
     init(title: String, dataType: DataType) {
         self.title = title
         self.dataType = dataType
@@ -30,6 +30,14 @@ struct GridScreen: View {
     private func shouldFetchMore(id: Int) -> Bool {
         if gridVM.pageNum >= Constants.PAGE_LIMIT { return false }
         return gridVM.works[gridVM.works.endIndex-1].id == id
+    }
+    
+    private func calcOffset(_ proxy: GeometryProxy) {
+        if StartOffset == 0 {
+            StartOffset = proxy.frame(in: .global).minY
+        }
+        let offset = proxy.frame(in: .global).minY
+        ScrollViewOffset = offset - StartOffset
     }
     
     var body: some View {
@@ -50,11 +58,7 @@ struct GridScreen: View {
                     .overlay(
                         GeometryReader { proxy -> Color in
                             DispatchQueue.main.async {
-                                if StartOffset == 0 {
-                                    StartOffset = proxy.frame(in: .global).minY
-                                }
-                                let offset = proxy.frame(in: .global).minY
-                                ScrollViewOffset = offset - StartOffset
+                                calcOffset(proxy)
                             }
                             return Color.clear
                         }
@@ -72,22 +76,11 @@ struct GridScreen: View {
                     appState.loadingState = .idle
                 }
                 .overlay(
-                    Button(action: {
+                    ScrollTopButton(onClick: {
                         withAnimation(.default) {
                             proxyReader.scrollTo("ScrollToTop", anchor: .top)
                         }
-                    }, label: {
-                        Image(systemName: "arrow.up")
-                            .font(.system(size: 30))
-                            .foregroundColor(.white)
-                            .padding()
-                            .background(Color("BgThird"))
-                            .clipShape(Circle())
-                            .shadow(color: Color.black.opacity(0.1), radius: 5, x: 5, y: 5)
-                    }).padding(.trailing)
-                        .padding(.bottom, Theme.getSafeArea().bottom == 0 ? 12 : 0)
-                    // 시작점에서 450미만으로 떨어져 있으면 버튼 숨김
-                        .opacity(-ScrollViewOffset > 450 ? 1 : 0)
+                    }).opacity(-ScrollViewOffset > 450 ? 1 : 0) // 스크롤한 수치가 450미만이면 버튼 숨기기
                     ,alignment: .bottomTrailing
                 )
         }

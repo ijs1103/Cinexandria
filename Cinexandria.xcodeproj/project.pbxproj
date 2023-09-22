@@ -12,6 +12,7 @@
 		2AC8BAE62AB9FF5200143D2D /* GridScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC8BAE52AB9FF5200143D2D /* GridScreen.swift */; };
 		2AC8BAE82ABB4B2300143D2D /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC8BAE72ABB4B2300143D2D /* Theme.swift */; };
 		2AC8BAEA2ABC386D00143D2D /* GridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC8BAE92ABC386D00143D2D /* GridViewModel.swift */; };
+		2AC8BAEE2ABDA3DA00143D2D /* ScrollTopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC8BAED2ABDA3DA00143D2D /* ScrollTopButton.swift */; };
 		2AF4E57B2AA5D6A900ABE68C /* CinexandriaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF4E57A2AA5D6A900ABE68C /* CinexandriaApp.swift */; };
 		2AF4E57F2AA5D6AA00ABE68C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AF4E57E2AA5D6AA00ABE68C /* Assets.xcassets */; };
 		2AF4E5822AA5D6AA00ABE68C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AF4E5812AA5D6AA00ABE68C /* Preview Assets.xcassets */; };
@@ -66,6 +67,7 @@
 		2AC8BAE52AB9FF5200143D2D /* GridScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridScreen.swift; sourceTree = "<group>"; };
 		2AC8BAE72ABB4B2300143D2D /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		2AC8BAE92ABC386D00143D2D /* GridViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewModel.swift; sourceTree = "<group>"; };
+		2AC8BAED2ABDA3DA00143D2D /* ScrollTopButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollTopButton.swift; sourceTree = "<group>"; };
 		2AF4E5772AA5D6A900ABE68C /* Cinexandria.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cinexandria.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AF4E57A2AA5D6A900ABE68C /* CinexandriaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinexandriaApp.swift; sourceTree = "<group>"; };
 		2AF4E57E2AA5D6AA00ABE68C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 				2AF4E6212AB2ECE700ABE68C /* AllReviewList.swift */,
 				2AF4E6232AB2EE0600ABE68C /* AllReviewCard.swift */,
 				2AC8BAE12AB4A04A00143D2D /* CustomEmptyView.swift */,
+				2AC8BAED2ABDA3DA00143D2D /* ScrollTopButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -393,6 +396,7 @@
 				2AF4E60D2AAB1DFD00ABE68C /* WorkDetailViewModel.swift in Sources */,
 				2AF4E6242AB2EE0600ABE68C /* AllReviewCard.swift in Sources */,
 				2AF4E6132AAB902C00ABE68C /* DetailScreen.swift in Sources */,
+				2AC8BAEE2ABDA3DA00143D2D /* ScrollTopButton.swift in Sources */,
 				2AF4E6172AB09A5200ABE68C /* Text+.swift in Sources */,
 				2AF4E6052AAA1DAA00ABE68C /* Review.swift in Sources */,
 				2AC8BAEA2ABC386D00143D2D /* GridViewModel.swift in Sources */,
