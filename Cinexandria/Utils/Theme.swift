@@ -29,4 +29,15 @@ final class Theme {
         UITabBar.appearance().backgroundColor = background
         UITabBar.appearance().barTintColor = tintColor
     }
+    
+    // iphone x 이전/이후, 베젤의 유무 차이에 따른 패딩을 고려하기 위한
+    static func getSafeArea() ->UIEdgeInsets  {
+        let keyWindow = UIApplication.shared.connectedScenes
+                .filter({$0.activationState == .foregroundActive})
+                .map({$0 as? UIWindowScene})
+                .compactMap({$0})
+                .first?.windows
+                .filter({$0.isKeyWindow}).first
+        return keyWindow?.safeAreaInsets ?? UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    }
 }
