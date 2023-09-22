@@ -52,7 +52,9 @@ final class GridViewModel: ObservableObject {
     }
     
     func fetchMore() async {
-        pageNum += 1
+        await MainActor.run {
+            self.pageNum += 1
+        }
         
         Task {
             do {

@@ -12,7 +12,7 @@ struct DetailScreen: View {
     
     @EnvironmentObject private var appState: AppState
     
-    @ObservedObject private var detailVM = DetailViewModel()
+    @ObservedObject private var detailVM = DetailViewModel.shared
     
     let work: WorkViewModel
 
@@ -136,7 +136,7 @@ struct DetailScreen: View {
         .navigationBarTitleDisplayMode(.inline)
         .task {
             appState.loadingState = .loading
-            detailVM.load(media: work.mediaType, id: work.id)
+            await detailVM.load(media: work.mediaType, id: work.id)
             appState.loadingState = .idle
         }.loadingWrapper(appState.loadingState)
     }

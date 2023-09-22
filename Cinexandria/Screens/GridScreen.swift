@@ -46,13 +46,15 @@ struct GridScreen: View {
                 LazyVGrid(columns: [GridItem(.fixed(180), spacing: 20), GridItem(.fixed(180), spacing: 20)], spacing: 20) {
                     
                     ForEach(gridVM.works, id: \.id) { work in
-                        PosterCard(work: work, isBig: true).onAppear(perform: {
-                            if shouldFetchMore(id: work.id) {
-                                Task {
-                                    await gridVM.fetchMore()
+                        NavigationLink(destination: DetailScreen(work: work)) {
+                            PosterCard(work: work, isBig: true).onAppear(perform: {
+                                if shouldFetchMore(id: work.id) {
+                                    Task {
+                                        await gridVM.fetchMore()
+                                    }
                                 }
-                            }
-                        })
+                            })
+                        }
                     }
                 }.padding().id("ScrollToTop")
                     .overlay(
