@@ -46,7 +46,7 @@ struct GridScreen: View {
                 LazyVGrid(columns: [GridItem(.fixed(180), spacing: 20), GridItem(.fixed(180), spacing: 20)], spacing: 20) {
                     
                     ForEach(gridVM.works, id: \.id) { work in
-                        NavigationLink(destination: DetailScreen(work: work)) {
+                        NavigationLink(destination: DetailScreen(media: work.mediaType, id: work.id)) {
                             PosterCard(work: work, isBig: true).onAppear(perform: {
                                 if shouldFetchMore(id: work.id) {
                                     Task {

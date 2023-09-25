@@ -207,5 +207,24 @@ final class Webservice {
         
         return String(decoded.rating.star)
     }
+    
+    func getSearching(keyword: String) async throws -> [SearchResult] {
+        guard let url = Constants.Urls.searching(keyword: keyword) else {
+            throw NetworkError.badURL
+        }
+        
+        let request = urlToRequest(url: url)
+        
+        let (data, response) = try await URLSession.shared.data(for: request)
+        
+        guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+            throw NetworkError.badServer
+        }
+        guard let decoded = try? JSONDecoder().decode(SearchResponse.self, from: data) else {
+            throw NetworkError.badDecoding
+        }
+        
+        return decoded.results
+    }
 }
 

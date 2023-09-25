@@ -52,6 +52,7 @@ struct Movie: Codable {
 enum MediaType: String, Codable {
     case movie = "movie"
     case tv = "tv"
+    case person = "person"
 }
 
 // MARK: - MovieDetailResponse

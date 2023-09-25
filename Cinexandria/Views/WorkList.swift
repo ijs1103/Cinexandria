@@ -16,7 +16,7 @@ struct WorkList: View {
             // LazyHStack 버그 : 이미지 크기가 스크롤 하면 변함
             HStack(spacing: 18) {
                 ForEach(works, id: \.id) { work in
-                    NavigationLink(destination: DetailScreen(work: work)) {
+                    NavigationLink(destination: DetailScreen(media: work.mediaType, id: work.id)) {
                         PosterCard(work: work)
                     }
                 }

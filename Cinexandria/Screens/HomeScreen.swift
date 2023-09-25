@@ -13,7 +13,7 @@ struct HomeScreen: View {
             HomeView().tabItem {
                 Label("홈", systemImage: "house.fill")
             }
-            EmptyView().tabItem {
+            SearchScreen().tabItem {
                 Label("검색", systemImage: "magnifyingglass")
             }
             EmptyView().tabItem {

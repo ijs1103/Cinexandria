@@ -32,6 +32,8 @@ struct ListTitleView: View {
     private func getDestination(from contents: Any) -> AnyView {
         if contents is [WorkViewModel] {
             return AnyView(GridScreen(title: title, dataType: dataType))
+        } else if contents is [SearchResultViewModel] {
+            return AnyView(SearchGridScreen(title: title, works: contents as! [SearchResultViewModel]))
         }
         return AnyView(EmptyView())
     }

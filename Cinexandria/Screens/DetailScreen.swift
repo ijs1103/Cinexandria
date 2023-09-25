@@ -14,8 +14,10 @@ struct DetailScreen: View {
     
     @ObservedObject private var detailVM = DetailViewModel.shared
     
-    let work: WorkViewModel
-
+    let media: MediaType
+    
+    let id: Int
+    
     var body: some View {
         
         ScrollView(showsIndicators: false) {
@@ -136,7 +138,7 @@ struct DetailScreen: View {
         .navigationBarTitleDisplayMode(.inline)
         .task {
             appState.loadingState = .loading
-            await detailVM.load(media: work.mediaType, id: work.id)
+            await detailVM.load(media: self.media, id: self.id)
             appState.loadingState = .idle
         }.loadingWrapper(appState.loadingState)
     }
