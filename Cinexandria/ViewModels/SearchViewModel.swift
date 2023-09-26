@@ -8,8 +8,14 @@
 import SwiftUI
 
 final class SearchViewModel: ObservableObject {
+    
+    static let shared = SearchViewModel()
+    private init(){}
+    
     @Published var searchingMovies: [SearchResultViewModel] = []
     @Published var searchingTvs: [SearchResultViewModel] = []
+    // SearchScreen에서 검색/미검색 시 화면전환을 위한 flag 변수 
+    @Published var isSearchDone: Bool = false
     
     func fetchSearching(keyword: String) async{
         Task {
@@ -20,6 +26,7 @@ final class SearchViewModel: ObservableObject {
                 DispatchQueue.main.async {
                     self.searchingMovies = movies
                     self.searchingTvs = tvs
+                    self.isSearchDone = true
                 }
             } catch NetworkError.badDecoding {
                 print("searching error - badDecoding")

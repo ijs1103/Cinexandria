@@ -9,24 +9,25 @@ import SwiftUI
 
 struct SearchScreen: View {
     
-    @ObservedObject var searchVM = SearchViewModel()
+    @ObservedObject var searchVM = SearchViewModel.shared
+    @Environment(\.isSearching) private var isSearching: Bool
     @State var searchedText = ""
     
     private func isKeywordValid(keyword: String) -> Bool {
         return !keyword.trimmed().isEmpty && keyword.trimmed().count > 0
     }
-    
     var body: some View {
         ScrollView {
-            if !searchedText.isEmpty {
+            if searchVM.isSearchDone {
                 ListTitleView(title: "\(Constants.SectionTitle.search.movie) \(searchVM.searchingMovies.count)", contents: searchVM.searchingMovies)
                 SearchList(works: searchVM.searchingMovies)
                 ListTitleView(title: "\(Constants.SectionTitle.search.tv) \(searchVM.searchingTvs.count)", contents: searchVM.searchingTvs)
                 SearchList(works: searchVM.searchingTvs)
-            } 
+            } else {
+                RecentSearchView()
+            }
         }
         .padding()
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(.black)
         .searchable(text: $searchedText, placement: .navigationBarDrawer, prompt: "영화/TV 제목 검색")
         .onSubmit(of: .search) {
@@ -34,6 +35,13 @@ struct SearchScreen: View {
                 Task {
                     await searchVM.fetchSearching(keyword: searchedText)
                 }
+                LocalData.shared.setSearchedWords(keyword: searchedText)
+            }
+        }
+        // 검색창 cancel 버튼을 눌렀을때 
+        .onChange(of: searchedText) { value in
+            if searchedText.isEmpty && !isSearching {
+                searchVM.isSearchDone = false
             }
         }
         .navigationWrapper()

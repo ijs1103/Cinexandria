@@ -20,6 +20,8 @@
 		2AC8BAF82ABF0B9F00143D2D /* SearchList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC8BAF72ABF0B9F00143D2D /* SearchList.swift */; };
 		2AC8BAFA2AC0452E00143D2D /* SearchResultCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC8BAF92AC0452E00143D2D /* SearchResultCard.swift */; };
 		2AC8BAFC2AC191CE00143D2D /* SearchGridScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC8BAFB2AC191CE00143D2D /* SearchGridScreen.swift */; };
+		2AC8BAFE2AC1F52500143D2D /* RecentSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC8BAFD2AC1F52500143D2D /* RecentSearchView.swift */; };
+		2AC8BB002AC2C52B00143D2D /* LocalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC8BAFF2AC2C52B00143D2D /* LocalData.swift */; };
 		2AF4E57B2AA5D6A900ABE68C /* CinexandriaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF4E57A2AA5D6A900ABE68C /* CinexandriaApp.swift */; };
 		2AF4E57F2AA5D6AA00ABE68C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AF4E57E2AA5D6AA00ABE68C /* Assets.xcassets */; };
 		2AF4E5822AA5D6AA00ABE68C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AF4E5812AA5D6AA00ABE68C /* Preview Assets.xcassets */; };
@@ -82,6 +84,8 @@
 		2AC8BAF72ABF0B9F00143D2D /* SearchList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchList.swift; sourceTree = "<group>"; };
 		2AC8BAF92AC0452E00143D2D /* SearchResultCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCard.swift; sourceTree = "<group>"; };
 		2AC8BAFB2AC191CE00143D2D /* SearchGridScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchGridScreen.swift; sourceTree = "<group>"; };
+		2AC8BAFD2AC1F52500143D2D /* RecentSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentSearchView.swift; sourceTree = "<group>"; };
+		2AC8BAFF2AC2C52B00143D2D /* LocalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalData.swift; sourceTree = "<group>"; };
 		2AF4E5772AA5D6A900ABE68C /* Cinexandria.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cinexandria.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AF4E57A2AA5D6A900ABE68C /* CinexandriaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinexandriaApp.swift; sourceTree = "<group>"; };
 		2AF4E57E2AA5D6AA00ABE68C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -190,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				2AF4E5B02AA5D70B00ABE68C /* WebService.swift */,
+				2AC8BAFF2AC2C52B00143D2D /* LocalData.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -220,6 +225,7 @@
 				2AC8BAED2ABDA3DA00143D2D /* ScrollTopButton.swift */,
 				2AC8BAF72ABF0B9F00143D2D /* SearchList.swift */,
 				2AC8BAF92AC0452E00143D2D /* SearchResultCard.swift */,
+				2AC8BAFD2AC1F52500143D2D /* RecentSearchView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -396,6 +402,7 @@
 				2AF4E61E2AB203CF00ABE68C /* CreditList.swift in Sources */,
 				2AF4E5E22AA72DEB00ABE68C /* WorkList.swift in Sources */,
 				2AF4E60F2AAB812200ABE68C /* DetailViewModel.swift in Sources */,
+				2AC8BAFE2AC1F52500143D2D /* RecentSearchView.swift in Sources */,
 				2AF4E5F32AA891FD00ABE68C /* WorkViewModel.swift in Sources */,
 				2AC8BAF42ABEEF2C00143D2D /* SearchViewModel.swift in Sources */,
 				2AC8BAE22AB4A04A00143D2D /* CustomEmptyView.swift in Sources */,
@@ -403,6 +410,7 @@
 				2AF4E6202AB206E800ABE68C /* CreditViewModel.swift in Sources */,
 				2AF4E5C32AA5D70B00ABE68C /* HomeScreen.swift in Sources */,
 				2AF4E5C12AA5D70B00ABE68C /* ImageLoader.swift in Sources */,
+				2AC8BB002AC2C52B00143D2D /* LocalData.swift in Sources */,
 				2AF4E5ED2AA7892200ABE68C /* Movie.swift in Sources */,
 				2AF4E5DA2AA6418800ABE68C /* HomeView.swift in Sources */,
 				2AF4E5E42AA72DF700ABE68C /* ReviewList.swift in Sources */,
