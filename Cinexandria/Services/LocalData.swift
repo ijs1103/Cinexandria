@@ -16,7 +16,6 @@ final class LocalData {
     var searchedWords: Data = Data()
     
     func getSearchedWords() -> [String] {
-        print("get 실행")
         guard let decoded = try? JSONDecoder().decode([String].self, from: searchedWords) else {
             return []
         }
@@ -24,7 +23,6 @@ final class LocalData {
     }
     
     func setSearchedWords(keyword: String) {
-        print("set 실행")
         var searchedWords = getSearchedWords()
         if searchedWords.contains(keyword) { return }
         searchedWords.append(keyword)
@@ -33,7 +31,6 @@ final class LocalData {
     }
     
     func deleteSearchedWords(keyword: String? = nil, isAll: Bool = false) {
-        print("삭제 실행")
         let searchedWords = getSearchedWords()
         if searchedWords.isEmpty { return }
         if isAll {
@@ -43,14 +40,5 @@ final class LocalData {
             guard let encoded = try? JSONEncoder().encode(newSearchedWords) else { return }
             self.searchedWords = encoded
         }
-    }
-}
-
-extension Data {
-    func decode() -> [String] {
-        guard let decoded = try? JSONDecoder().decode([String].self, from: self) else {
-            return []
-        }
-        return decoded
     }
 }
