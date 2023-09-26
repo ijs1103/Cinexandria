@@ -44,7 +44,7 @@ struct ListTitleView: View {
             Spacer()
             NavigationLink(destination: getDestination(from: contents)){
                 Image(systemName: "chevron.right").tint(Color("FontPrimary"))
-            }
+            }.disabled((contents as AnyObject).count == 0)
         }
     }
 }
