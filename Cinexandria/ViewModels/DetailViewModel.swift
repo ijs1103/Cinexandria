@@ -33,6 +33,7 @@ final class DetailViewModel: ObservableObject {
     }
     
     private func fetchWorkDetail(media: MediaType, id: Int) async {
+        print(id)
         if media == .movie {
             Task {
                 do {
@@ -40,12 +41,17 @@ final class DetailViewModel: ObservableObject {
                     DispatchQueue.main.async {
                         self.workDetail = WorkDetailViewModel(movie: detail, media: media)
                     }
-                    self.fetchImdbRating(id: detail.imdbID)
-                    await self.configYoutube(id: detail.videos.results.last?.key)
+                    if let imdbId = detail.imdbID {
+                        self.fetchImdbRating(id: imdbId)
+                    }
+                    if let videos = detail.videos {
+                        await self.configYoutube(id: videos.results.last?.key)
+                    }
+
                 } catch NetworkError.badDecoding {
-                    print("tv error - badDecoding")
+                    print("movie error - badDecoding")
                 } catch NetworkError.badServer {
-                    print("tv error - badServer")
+                    print("movie error - badServer")
                 }
             }
             

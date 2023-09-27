@@ -28,7 +28,7 @@ struct DetailScreen: View {
                     if let image = phase.image {
                         image.resizable().scaledToFill().BackDropFilter()
                     } else if phase.error != nil {
-                        Image("NoPoster").resizable().scaledToFill()
+                        Image("NoPoster").resizable().scaledToFill().BackDropFilter()
                     } else {
                         ProgressView()
                     }

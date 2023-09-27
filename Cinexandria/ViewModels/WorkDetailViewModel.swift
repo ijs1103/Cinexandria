@@ -70,7 +70,12 @@ struct WorkDetailViewModel {
     
     var rating: String {
         if media == .movie {
-            return "\(round(movie!.voteAverage * 10))%"
+            switch movie!.voteAverage.self {
+            case .double(let voteAverage):
+                return "\(round((voteAverage * 10)))%"
+            case .int(let voteAverage):
+                return "\((voteAverage * 10))%"
+            }
         } else {
             switch tv!.voteAverage.self {
             case .double(let voteAverage):
@@ -104,7 +109,7 @@ struct WorkDetailViewModel {
     }
     
     var movieActors: [CreditViewModel]? {
-        if let movieCast = movie?.credits.cast {
+        if let movieCast = movie?.credits?.cast {
             return movieCast.map { person in
                 CreditViewModel(id: person.creditID, name: person.name, role: person.character ?? "", url: person.profilePath != nil ? URL(string: "\(Constants.Urls.imageBase())\(person.profilePath!)") : nil)
             }
@@ -115,7 +120,7 @@ struct WorkDetailViewModel {
     var tvActors: [CreditViewModel]?
     
     var movieStaffs: [CreditViewModel]? {
-        if let movieCrew = movie?.credits.crew {
+        if let movieCrew = movie?.credits?.crew {
             return movieCrew.map { person in
                 CreditViewModel(id: person.creditID, name: person.name, role: person.job ?? "", url: person.profilePath != nil ? URL(string: "\(Constants.Urls.imageBase())\(person.profilePath!)") : nil)
             }

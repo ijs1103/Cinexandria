@@ -111,7 +111,6 @@ final class Webservice {
     }
     
     func getMovieDetail(id: Int) async throws -> MovieDetailResponse {
- 
         guard let url = Constants.Urls.detail(media: .movie, id: id) else {
             throw NetworkError.badURL
         }

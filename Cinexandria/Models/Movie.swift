@@ -58,15 +58,16 @@ enum MediaType: String, Codable {
 // MARK: - MovieDetailResponse
 struct MovieDetailResponse: Codable {
     let adult: Bool
-    let backdropPath: String
+    let backdropPath: String?
     let belongsToCollection: BelongsToCollection?
     let budget: Int
     let genres: [Genre]
     let homepage: String
     let id: Int
-    let imdbID, originalLanguage, originalTitle, overview: String
+    let imdbID: String?
+    let originalLanguage, originalTitle, overview: String
     let popularity: Double
-    let posterPath: String
+    let posterPath: String?
     let productionCompanies: [ProductionCompany]
     let productionCountries: [ProductionCountry]
     let releaseDate: String
@@ -74,10 +75,10 @@ struct MovieDetailResponse: Codable {
     let spokenLanguages: [SpokenLanguage]
     let status, tagline, title: String
     let video: Bool
-    let voteAverage: Double
+    let voteAverage: DoubleOrInt
     let voteCount: Int
-    let videos: Videos
-    let credits: Credits
+    let videos: Videos?
+    let credits: Credits?
 
     enum CodingKeys: String, CodingKey {
         case adult
@@ -224,7 +225,7 @@ struct ImdbResponse: Codable {
     let plot: String
     let rating: Rating
     let award: Award
-    let contentRating: String
+    let contentRating: String?
     let genre: [String]
     let releaseDetailed: ReleaseDetailed
     let year: Int
