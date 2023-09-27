@@ -24,7 +24,7 @@ struct SearchScreen: View {
                 ListTitleView(title: "\(Constants.SectionTitle.search.tv) \(searchVM.searchingTvs.count)", contents: searchVM.searchingTvs)
                 SearchList(works: searchVM.searchingTvs)
             } else {
-                RecentSearchView()
+                RecentSearchView(searchedText: $searchedText)
             }
         }
         .padding()

@@ -40,4 +40,9 @@ final class Theme {
                 .filter({$0.isKeyWindow}).first
         return keyWindow?.safeAreaInsets ?? UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
+    
+    static func searchBarColors(background: UIColor, tintColor: UIColor) {
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).backgroundColor = background
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).tintColor = tintColor
+    }
 }

@@ -26,6 +26,7 @@ struct CinexandriaApp: App {
     init() {
         Theme.navigationBarColors(background: UIColor(Color("BgPrimary")), titleColor: UIColor(Color("FontPrimary")))
         Theme.tabBarColors(background: UIColor(Color("BgPrimary")), tintColor: UIColor(Color("FontPrimary")))
+        Theme.searchBarColors(background: UIColor(Color("BgThird")), tintColor: .white)
     }
     
     

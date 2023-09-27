@@ -9,6 +9,8 @@ import SwiftUI
 
 struct RecentSearchView: View {
     
+    @Binding var searchedText: String
+    
     @ObservedObject var searchVM = SearchViewModel.shared
     
     @State private var searchedWords: [String] = LocalData.shared.getSearchedWords()
@@ -39,6 +41,7 @@ struct RecentSearchView: View {
                             Task {
                                 await searchVM.fetchSearching(keyword: word)
                             }
+                            self.searchedText = word
                         }) {
                             HStack(spacing: 4) {
                                 Text(word).customFont(color: .gray, size: 14, weight: .bold)
