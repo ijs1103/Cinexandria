@@ -50,7 +50,7 @@ struct Constants {
         }
         
         static func searching(keyword: String) -> URL? {
-            return URL(string: "\(baseUrl)/search/multi?include_adult=false&language=ko-KR&page=1&query=\(keyword)")
+            return URL(string: "\(baseUrl)/search/multi?include_adult=false&language=ko-KR&page=1&query=\(keyword.escaped())")
         }
     }
     

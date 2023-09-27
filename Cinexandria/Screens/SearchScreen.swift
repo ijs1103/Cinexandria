@@ -14,7 +14,7 @@ struct SearchScreen: View {
     @State var searchedText = ""
     
     private func isKeywordValid(keyword: String) -> Bool {
-        return !keyword.trimmed().isEmpty && keyword.trimmed().count > 0
+        return !keyword.isEmpty && keyword.count > 0
     }
     var body: some View {
         ScrollView {
@@ -25,13 +25,16 @@ struct SearchScreen: View {
                 SearchList(works: searchVM.searchingTvs)
             } else {
                 RecentSearchView(searchedText: $searchedText)
+                if searchVM.isResultsEmpty {
+                    Text("검색 결과가 없습니다.").customFont(size: 22, weight: .bold).padding(20).frame(maxWidth: .infinity)
+                }
             }
         }
         .padding()
         .background(.black)
         .searchable(text: $searchedText, placement: .navigationBarDrawer, prompt: "영화/TV 제목 검색")
         .onSubmit(of: .search) {
-            if isKeywordValid(keyword: searchedText) {
+            if isKeywordValid(keyword: searchedText.trimmed()) {
                 Task {
                     await searchVM.fetchSearching(keyword: searchedText)
                 }
