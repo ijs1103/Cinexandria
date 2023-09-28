@@ -21,7 +21,7 @@ struct HomeView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding()
         .background(.black)
-        .navigationTitle("Cinexandria")
+        .navigationTitle(Constants.mainTitle)
         .navigationWrapper()
     }
 }

@@ -47,7 +47,7 @@ struct CinexandriaApp: App {
                 }.tint(.white).foregroundColor(Color("FontPrimary")).environmentObject(appState)
             }
             else {
-                EmptyView()
+                HomeScreen()
             }
         }
         

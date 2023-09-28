@@ -19,7 +19,7 @@ struct HomeScreen: View {
             EmptyView().tabItem {
                 Label("한줄평", systemImage: "bubble.left.fill")
             }
-            EmptyView().tabItem {
+            MyPageScreen().tabItem {
                 Label("마이페이지", systemImage: "person.fill")
             }
         }.accentColor(.white)

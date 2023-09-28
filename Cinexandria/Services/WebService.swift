@@ -12,6 +12,7 @@ enum NetworkError: Error {
     case badURL
     case badServer
     case noData
+    case badCredential
 }
 
 final class Webservice {

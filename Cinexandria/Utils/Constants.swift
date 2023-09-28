@@ -9,6 +9,8 @@ import Foundation
 
 struct Constants {
     
+    static let mainTitle = "🍿 Cinexandria"
+    
     static let PAGE_LIMIT = 5
     
     struct Urls {
