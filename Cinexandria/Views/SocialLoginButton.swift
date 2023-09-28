@@ -28,6 +28,8 @@ struct SocialLoginButton: View {
                         print("Cannot get credential")
                     }
                 }
+            case .apple:
+                loginVM.appleSignIn()
             default:
                 break
             }

@@ -9,6 +9,8 @@ import SwiftUI
 import FirebaseCore
 import FirebaseAuth
 import GoogleSignIn
+import AuthenticationServices
+import CryptoKit
 
 struct AuthProfileViewModel {
     let name: String
@@ -22,6 +24,16 @@ final class LoginViewModel: ObservableObject {
     private init() {}
     
     @Published var authProfile: AuthProfileViewModel?
+    
+    private var currentNonce: String?
+    
+    func logOut() {
+        do {
+            try Auth.auth().signOut()
+        } catch let signOutError as NSError {
+          print("Error signing out: %@", signOutError)
+        }
+    }
     
     func setupGoogleConfig() {
         guard let clientID = FirebaseApp.app()?.options.clientID else { return }
@@ -45,6 +57,15 @@ final class LoginViewModel: ObservableObject {
             self.authProfile = AuthProfileViewModel(name: displayName, photoURL: photoURL)
         }
     }
+    
+    func appleSignIn() {
+        AppleSignIn.shared.appleSignIn()
+        DispatchQueue.main.async {
+            self.authProfile = AuthProfileViewModel(name: "애플 유저", photoURL: nil)
+        }
+    }
+    
+    
 }
 
 
