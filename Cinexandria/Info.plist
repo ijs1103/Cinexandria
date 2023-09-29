@@ -12,6 +12,14 @@
 				<string>com.googleusercontent.apps.946886035487-rqamk7334ee50grc3i2sn1brardtk16m</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>cinexandria</string>
+			</array>
+		</dict>
 	</array>
 </dict>
 </plist>

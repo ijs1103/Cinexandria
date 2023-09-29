@@ -33,7 +33,7 @@ final class DetailViewModel: ObservableObject {
     }
     
     private func fetchWorkDetail(media: MediaType, id: Int) async {
-        print(id)
+        
         if media == .movie {
             Task {
                 do {

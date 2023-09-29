@@ -31,6 +31,8 @@
 		2AC8BB102AC486E700143D2D /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2AC8BB0F2AC486E700143D2D /* GoogleSignInSwift */; };
 		2AC8BB132AC48AAB00143D2D /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC8BB122AC48AAB00143D2D /* Utils.swift */; };
 		2AC8BB162AC57D7700143D2D /* AppleSignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC8BB152AC57D7700143D2D /* AppleSignIn.swift */; };
+		2AC8BB182AC7249F00143D2D /* NaverInfoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC8BB172AC7249F00143D2D /* NaverInfoResponse.swift */; };
+		2AC8BB192AC72FB400143D2D /* Pods_Cinexandria.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FD7126E202110B6B27110D /* Pods_Cinexandria.framework */; };
 		2AF4E57B2AA5D6A900ABE68C /* CinexandriaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF4E57A2AA5D6A900ABE68C /* CinexandriaApp.swift */; };
 		2AF4E57F2AA5D6AA00ABE68C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AF4E57E2AA5D6AA00ABE68C /* Assets.xcassets */; };
 		2AF4E5822AA5D6AA00ABE68C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AF4E5812AA5D6AA00ABE68C /* Preview Assets.xcassets */; };
@@ -45,9 +47,7 @@
 		2AF4E5C92AA5EEFA00ABE68C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2AF4E5C82AA5EEFA00ABE68C /* GoogleService-Info.plist */; };
 		2AF4E5CC2AA5F86C00ABE68C /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 2AF4E5CB2AA5F86C00ABE68C /* FirebaseAuth */; };
 		2AF4E5CE2AA5F86C00ABE68C /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 2AF4E5CD2AA5F86C00ABE68C /* FirebaseDatabase */; };
-		2AF4E5D02AA5F86C00ABE68C /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2AF4E5CF2AA5F86C00ABE68C /* FirebaseDatabaseSwift */; };
 		2AF4E5D22AA5F86C00ABE68C /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 2AF4E5D12AA5F86C00ABE68C /* FirebaseFirestore */; };
-		2AF4E5D42AA5F86C00ABE68C /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2AF4E5D32AA5F86C00ABE68C /* FirebaseFirestoreSwift */; };
 		2AF4E5D62AA5F86C00ABE68C /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 2AF4E5D52AA5F86C00ABE68C /* FirebaseStorage */; };
 		2AF4E5DA2AA6418800ABE68C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF4E5D92AA6418800ABE68C /* HomeView.swift */; };
 		2AF4E5E02AA72DD800ABE68C /* ListTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF4E5DF2AA72DD800ABE68C /* ListTitleView.swift */; };
@@ -80,6 +80,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0BAE3CCAB9BAE32522425E5E /* Pods-Cinexandria.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cinexandria.release.xcconfig"; path = "Target Support Files/Pods-Cinexandria/Pods-Cinexandria.release.xcconfig"; sourceTree = "<group>"; };
 		2AC8BAE12AB4A04A00143D2D /* CustomEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEmptyView.swift; sourceTree = "<group>"; };
 		2AC8BAE32AB8AD8400143D2D /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		2AC8BAE52AB9FF5200143D2D /* GridScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridScreen.swift; sourceTree = "<group>"; };
@@ -104,6 +105,7 @@
 		2AC8BB122AC48AAB00143D2D /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		2AC8BB142AC5717600143D2D /* Cinexandria.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Cinexandria.entitlements; sourceTree = "<group>"; };
 		2AC8BB152AC57D7700143D2D /* AppleSignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleSignIn.swift; sourceTree = "<group>"; };
+		2AC8BB172AC7249F00143D2D /* NaverInfoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverInfoResponse.swift; sourceTree = "<group>"; };
 		2AF4E5772AA5D6A900ABE68C /* Cinexandria.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cinexandria.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AF4E57A2AA5D6A900ABE68C /* CinexandriaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinexandriaApp.swift; sourceTree = "<group>"; };
 		2AF4E57E2AA5D6AA00ABE68C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -144,6 +146,8 @@
 		2AF4E61F2AB206E700ABE68C /* CreditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditViewModel.swift; sourceTree = "<group>"; };
 		2AF4E6212AB2ECE700ABE68C /* AllReviewList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllReviewList.swift; sourceTree = "<group>"; };
 		2AF4E6232AB2EE0600ABE68C /* AllReviewCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllReviewCard.swift; sourceTree = "<group>"; };
+		4A2BC0949F564496A27DA503 /* Pods-Cinexandria.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cinexandria.debug.xcconfig"; path = "Target Support Files/Pods-Cinexandria/Pods-Cinexandria.debug.xcconfig"; sourceTree = "<group>"; };
+		66FD7126E202110B6B27110D /* Pods_Cinexandria.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cinexandria.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,8 +158,7 @@
 				2AC8BB102AC486E700143D2D /* GoogleSignInSwift in Frameworks */,
 				2AF4E61A2AB1B0DD00ABE68C /* YouTubePlayerKit in Frameworks */,
 				2AC8BB0E2AC486E700143D2D /* GoogleSignIn in Frameworks */,
-				2AF4E5D42AA5F86C00ABE68C /* FirebaseFirestoreSwift in Frameworks */,
-				2AF4E5D02AA5F86C00ABE68C /* FirebaseDatabaseSwift in Frameworks */,
+				2AC8BB192AC72FB400143D2D /* Pods_Cinexandria.framework in Frameworks */,
 				2AF4E5D22AA5F86C00ABE68C /* FirebaseFirestore in Frameworks */,
 				2AF4E5CE2AA5F86C00ABE68C /* FirebaseDatabase in Frameworks */,
 				2AF4E5CC2AA5F86C00ABE68C /* FirebaseAuth in Frameworks */,
@@ -180,6 +183,8 @@
 			children = (
 				2AF4E5792AA5D6A900ABE68C /* Cinexandria */,
 				2AF4E5782AA5D6A900ABE68C /* Products */,
+				2C2BFE2EB1D52F8924C4A034 /* Pods */,
+				E2D163F73188DD7646158030 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -284,6 +289,7 @@
 				2AF4E5F42AA8D3EF00ABE68C /* TV.swift */,
 				2AF4E6042AAA1DAA00ABE68C /* Review.swift */,
 				2AC8BAF12ABEEE2200143D2D /* Search.swift */,
+				2AC8BB172AC7249F00143D2D /* NaverInfoResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -348,6 +354,23 @@
 			path = Sections;
 			sourceTree = "<group>";
 		};
+		2C2BFE2EB1D52F8924C4A034 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4A2BC0949F564496A27DA503 /* Pods-Cinexandria.debug.xcconfig */,
+				0BAE3CCAB9BAE32522425E5E /* Pods-Cinexandria.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		E2D163F73188DD7646158030 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				66FD7126E202110B6B27110D /* Pods_Cinexandria.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -355,9 +378,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2AF4E5852AA5D6AA00ABE68C /* Build configuration list for PBXNativeTarget "Cinexandria" */;
 			buildPhases = (
+				7A0F8AE6E0E1BF6BBEA8C455 /* [CP] Check Pods Manifest.lock */,
 				2AF4E5732AA5D6A900ABE68C /* Sources */,
 				2AF4E5742AA5D6A900ABE68C /* Frameworks */,
 				2AF4E5752AA5D6A900ABE68C /* Resources */,
+				4983F0C99D78C0912735FD16 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -367,9 +392,7 @@
 			packageProductDependencies = (
 				2AF4E5CB2AA5F86C00ABE68C /* FirebaseAuth */,
 				2AF4E5CD2AA5F86C00ABE68C /* FirebaseDatabase */,
-				2AF4E5CF2AA5F86C00ABE68C /* FirebaseDatabaseSwift */,
 				2AF4E5D12AA5F86C00ABE68C /* FirebaseFirestore */,
-				2AF4E5D32AA5F86C00ABE68C /* FirebaseFirestoreSwift */,
 				2AF4E5D52AA5F86C00ABE68C /* FirebaseStorage */,
 				2AF4E6192AB1B0DD00ABE68C /* YouTubePlayerKit */,
 				2AC8BB0D2AC486E700143D2D /* GoogleSignIn */,
@@ -430,6 +453,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4983F0C99D78C0912735FD16 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Cinexandria/Pods-Cinexandria-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Cinexandria/Pods-Cinexandria-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Cinexandria/Pods-Cinexandria-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7A0F8AE6E0E1BF6BBEA8C455 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Cinexandria-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2AF4E5732AA5D6A900ABE68C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -450,9 +515,9 @@
 				2AF4E6202AB206E800ABE68C /* CreditViewModel.swift in Sources */,
 				2AF4E5C32AA5D70B00ABE68C /* HomeScreen.swift in Sources */,
 				2AF4E5C12AA5D70B00ABE68C /* ImageLoader.swift in Sources */,
+				2AC8BB132AC48AAB00143D2D /* Utils.swift in Sources */,
 				2AC8BB002AC2C52B00143D2D /* LocalData.swift in Sources */,
 				2AF4E5ED2AA7892200ABE68C /* Movie.swift in Sources */,
-				2AC8BB132AC48AAB00143D2D /* Utils.swift in Sources */,
 				2AF4E5DA2AA6418800ABE68C /* HomeView.swift in Sources */,
 				2AF4E5E42AA72DF700ABE68C /* ReviewList.swift in Sources */,
 				2AF4E5C72AA5D70B00ABE68C /* Constants.swift in Sources */,
@@ -467,6 +532,7 @@
 				2AC8BB092AC4606000143D2D /* SocialLoginButton.swift in Sources */,
 				2AF4E6012AAA193300ABE68C /* ReviewListViewModel.swift in Sources */,
 				2AF4E57B2AA5D6A900ABE68C /* CinexandriaApp.swift in Sources */,
+				2AC8BB182AC7249F00143D2D /* NaverInfoResponse.swift in Sources */,
 				2AC8BAE42AB8AD8400143D2D /* AppState.swift in Sources */,
 				2AF4E6032AAA1BEE00ABE68C /* ReviewViewModel.swift in Sources */,
 				2AC8BB162AC57D7700143D2D /* AppleSignIn.swift in Sources */,
@@ -615,6 +681,7 @@
 		};
 		2AF4E5862AA5D6AA00ABE68C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A2BC0949F564496A27DA503 /* Pods-Cinexandria.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -647,6 +714,7 @@
 		};
 		2AF4E5872AA5D6AA00ABE68C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0BAE3CCAB9BAE32522425E5E /* Pods-Cinexandria.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -713,8 +781,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
 			requirement = {
-				branch = master;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
 			};
 		};
 		2AF4E6182AB1B0DD00ABE68C /* XCRemoteSwiftPackageReference "YouTubePlayerKit" */ = {
@@ -748,20 +816,10 @@
 			package = 2AF4E5CA2AA5F86C00ABE68C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseDatabase;
 		};
-		2AF4E5CF2AA5F86C00ABE68C /* FirebaseDatabaseSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 2AF4E5CA2AA5F86C00ABE68C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseDatabaseSwift;
-		};
 		2AF4E5D12AA5F86C00ABE68C /* FirebaseFirestore */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2AF4E5CA2AA5F86C00ABE68C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestore;
-		};
-		2AF4E5D32AA5F86C00ABE68C /* FirebaseFirestoreSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 2AF4E5CA2AA5F86C00ABE68C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseFirestoreSwift;
 		};
 		2AF4E5D52AA5F86C00ABE68C /* FirebaseStorage */ = {
 			isa = XCSwiftPackageProductDependency;

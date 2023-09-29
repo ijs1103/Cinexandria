@@ -30,6 +30,8 @@ struct SocialLoginButton: View {
                 }
             case .apple:
                 loginVM.appleSignIn()
+            case .naver:
+                loginVM.naverSignIn()
             default:
                 break
             }
