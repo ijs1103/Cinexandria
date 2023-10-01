@@ -33,6 +33,9 @@
 		2AC8BB162AC57D7700143D2D /* AppleSignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC8BB152AC57D7700143D2D /* AppleSignIn.swift */; };
 		2AC8BB182AC7249F00143D2D /* NaverInfoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC8BB172AC7249F00143D2D /* NaverInfoResponse.swift */; };
 		2AC8BB192AC72FB400143D2D /* Pods_Cinexandria.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FD7126E202110B6B27110D /* Pods_Cinexandria.framework */; };
+		2AC8BB1E2AC8338400143D2D /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 2AC8BB1D2AC8338400143D2D /* KakaoSDKAuth */; };
+		2AC8BB202AC8338400143D2D /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 2AC8BB1F2AC8338400143D2D /* KakaoSDKCommon */; };
+		2AC8BB222AC8338400143D2D /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = 2AC8BB212AC8338400143D2D /* KakaoSDKUser */; };
 		2AF4E57B2AA5D6A900ABE68C /* CinexandriaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF4E57A2AA5D6A900ABE68C /* CinexandriaApp.swift */; };
 		2AF4E57F2AA5D6AA00ABE68C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AF4E57E2AA5D6AA00ABE68C /* Assets.xcassets */; };
 		2AF4E5822AA5D6AA00ABE68C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AF4E5812AA5D6AA00ABE68C /* Preview Assets.xcassets */; };
@@ -156,6 +159,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2AC8BB102AC486E700143D2D /* GoogleSignInSwift in Frameworks */,
+				2AC8BB222AC8338400143D2D /* KakaoSDKUser in Frameworks */,
 				2AF4E61A2AB1B0DD00ABE68C /* YouTubePlayerKit in Frameworks */,
 				2AC8BB0E2AC486E700143D2D /* GoogleSignIn in Frameworks */,
 				2AC8BB192AC72FB400143D2D /* Pods_Cinexandria.framework in Frameworks */,
@@ -163,6 +167,8 @@
 				2AF4E5CE2AA5F86C00ABE68C /* FirebaseDatabase in Frameworks */,
 				2AF4E5CC2AA5F86C00ABE68C /* FirebaseAuth in Frameworks */,
 				2AF4E5D62AA5F86C00ABE68C /* FirebaseStorage in Frameworks */,
+				2AC8BB202AC8338400143D2D /* KakaoSDKCommon in Frameworks */,
+				2AC8BB1E2AC8338400143D2D /* KakaoSDKAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,6 +403,9 @@
 				2AF4E6192AB1B0DD00ABE68C /* YouTubePlayerKit */,
 				2AC8BB0D2AC486E700143D2D /* GoogleSignIn */,
 				2AC8BB0F2AC486E700143D2D /* GoogleSignInSwift */,
+				2AC8BB1D2AC8338400143D2D /* KakaoSDKAuth */,
+				2AC8BB1F2AC8338400143D2D /* KakaoSDKCommon */,
+				2AC8BB212AC8338400143D2D /* KakaoSDKUser */,
 			);
 			productName = Cinexandria;
 			productReference = 2AF4E5772AA5D6A900ABE68C /* Cinexandria.app */;
@@ -430,6 +439,7 @@
 				2AF4E5CA2AA5F86C00ABE68C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				2AF4E6182AB1B0DD00ABE68C /* XCRemoteSwiftPackageReference "YouTubePlayerKit" */,
 				2AC8BB0C2AC486E700143D2D /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				2AC8BB1C2AC8338400143D2D /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
 			);
 			productRefGroup = 2AF4E5782AA5D6A900ABE68C /* Products */;
 			projectDirPath = "";
@@ -777,6 +787,14 @@
 				minimumVersion = 7.0.0;
 			};
 		};
+		2AC8BB1C2AC8338400143D2D /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kakao/kakao-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		2AF4E5CA2AA5F86C00ABE68C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -805,6 +823,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2AC8BB0C2AC486E700143D2D /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
 			productName = GoogleSignInSwift;
+		};
+		2AC8BB1D2AC8338400143D2D /* KakaoSDKAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2AC8BB1C2AC8338400143D2D /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKAuth;
+		};
+		2AC8BB1F2AC8338400143D2D /* KakaoSDKCommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2AC8BB1C2AC8338400143D2D /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKCommon;
+		};
+		2AC8BB212AC8338400143D2D /* KakaoSDKUser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2AC8BB1C2AC8338400143D2D /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKUser;
 		};
 		2AF4E5CB2AA5F86C00ABE68C /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;

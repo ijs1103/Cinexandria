@@ -9,6 +9,8 @@ import SwiftUI
 import FirebaseCore
 import FirebaseAuth
 import NaverThirdPartyLogin
+import KakaoSDKCommon
+import KakaoSDKAuth
 
 class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication,
@@ -39,6 +41,7 @@ struct CinexandriaApp: App {
         NaverThirdPartyLoginConnection.getSharedInstance().consumerKey = kConsumerKey
         NaverThirdPartyLoginConnection.getSharedInstance().consumerSecret = kConsumerSecret
         NaverThirdPartyLoginConnection.getSharedInstance().appName = kServiceAppName
+        KakaoSDK.initSDK(appKey: Constants.kakaoAppKey)
     }
     
     
@@ -48,9 +51,14 @@ struct CinexandriaApp: App {
                 NavigationStack(path: $appState.routes) {
                     HomeScreen().onOpenURL { url in
                         // Token 발급 요청
-                        NaverThirdPartyLoginConnection
-                            .getSharedInstance()
-                            .receiveAccessToken(url)
+                        if let naverInstance = NaverThirdPartyLoginConnection
+                            .getSharedInstance() {
+                            naverInstance.receiveAccessToken(url)
+                        }
+                        
+                        if (AuthApi.isKakaoTalkLoginUrl(url)) {
+                            _ = AuthController.handleOpenUrl(url: url)
+                        }
                     }
                 }.navigationDestination(for: Route.self) { route in
                     switch route {

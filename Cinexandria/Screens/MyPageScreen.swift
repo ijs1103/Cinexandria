@@ -9,9 +9,11 @@ import SwiftUI
 import FirebaseAuth
 
 struct MyPageScreen: View {
+    @ObservedObject private var loginVM = LoginViewModel.shared
+    
     var body: some View {
         ZStack {
-            if Auth.auth().currentUser != nil {
+            if loginVM.isLoggined {
                 MyPageView()
             } else {
                 LoginView()

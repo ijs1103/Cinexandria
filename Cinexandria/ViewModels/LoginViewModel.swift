@@ -10,7 +10,8 @@ import FirebaseCore
 import FirebaseAuth
 import GoogleSignIn
 import NaverThirdPartyLogin
-
+import KakaoSDKUser
+import KakaoSDKAuth
 
 struct AuthProfileViewModel {
     let name: String
@@ -21,17 +22,18 @@ struct AuthProfileViewModel {
 final class LoginViewModel: NSObject, ObservableObject {
     
     static let shared = LoginViewModel()
-    //private init() {}
     
     @Published var authProfile: AuthProfileViewModel?
+    @Published var isLoggined: Bool = false
     
     private var currentNonce: String?
-    
+
     func logOut() {
-        // 구글, 애플 로그아웃
+        // Firebase(구글, 애플) 로그아웃
         if Auth.auth().currentUser != nil {
             do {
                 try Auth.auth().signOut()
+                self.isLoggined = false
             } catch let signOutError as NSError {
                 print("Error signing out - Firebase", signOutError)
             }
@@ -39,6 +41,17 @@ final class LoginViewModel: NSObject, ObservableObject {
         // 네이버 로그아웃
         if ((NaverThirdPartyLoginConnection.getSharedInstance()?.accessToken) != nil) {
             NaverThirdPartyLoginConnection.getSharedInstance().resetToken()
+            self.isLoggined = false
+        }
+        // 카카오 로그아웃
+        if AuthApi.hasToken() {
+            UserApi.shared.logout { error in
+                if let error = error {
+                    print("카카오 로그아웃 에러: \(error.localizedDescription)")
+                } else {
+                    self.isLoggined = false
+                }
+            }
         }
     }
     
@@ -61,6 +74,7 @@ final class LoginViewModel: NSObject, ObservableObject {
             throw NetworkError.badCredential
         }
         DispatchQueue.main.async {
+            self.isLoggined = true
             self.authProfile = AuthProfileViewModel(name: displayName, photoURL: photoURL)
         }
     }
@@ -68,6 +82,7 @@ final class LoginViewModel: NSObject, ObservableObject {
     func appleSignIn() {
         AppleSignIn.shared.appleSignIn()
         DispatchQueue.main.async {
+            self.isLoggined = true
             self.authProfile = AuthProfileViewModel(name: "애플 유저", photoURL: nil)
         }
     }
@@ -79,6 +94,38 @@ final class LoginViewModel: NSObject, ObservableObject {
             .requestThirdPartyLogin()
     }
     
+    func kakaoSignIn() {
+        if (UserApi.isKakaoTalkLoginAvailable()) {
+            UserApi.shared.loginWithKakaoTalk {(_, error) in
+                if let error = error {
+                    print("카카오 로그인 에러: \(error.localizedDescription)")
+                } else {
+                    UserApi.shared.me { User, Error in
+                        let name = User?.kakaoAccount?.profile?.nickname ?? "카카오 유저"
+                        let photoURL = User?.kakaoAccount?.profile?.profileImageUrl
+                        DispatchQueue.main.async {
+                            self.isLoggined = true
+                            self.authProfile = AuthProfileViewModel(name: name, photoURL: photoURL)
+                        }
+                    }
+                }
+            }
+        } else {
+            UserApi.shared.loginWithKakaoAccount {(_, error) in
+                if let error = error {
+                    print("카카오 로그인 에러: \(error.localizedDescription)")
+                } else {
+                    UserApi.shared.me { User, Error in
+                        let name = User?.kakaoAccount?.profile?.nickname ?? "카카오 유저"
+                        let photoURL = User?.kakaoAccount?.profile?.profileImageUrl
+                        DispatchQueue.main.async {
+                            self.authProfile = AuthProfileViewModel(name: name, photoURL: photoURL)
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 extension LoginViewModel: UIApplicationDelegate, NaverThirdPartyLoginConnectionDelegate {
@@ -119,6 +166,7 @@ extension LoginViewModel: UIApplicationDelegate, NaverThirdPartyLoginConnectionD
                 let info = try await getNaverUserInfo()
                 let photoURL = URL(string: info!.profileImage) ?? nil
                 DispatchQueue.main.async {
+                    self.isLoggined = true
                     self.authProfile = AuthProfileViewModel(name: info?.nickname ?? "네이버 유저", photoURL: photoURL)
                 }
             } catch NetworkError.badDecoding {

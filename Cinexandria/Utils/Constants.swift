@@ -9,6 +9,8 @@ import Foundation
 
 struct Constants {
     
+    static let kakaoAppKey = "a94940bee0e181ef1c1667613063b505"
+    
     static let mainTitle = "🍿 Cinexandria"
     
     static let PAGE_LIMIT = 5

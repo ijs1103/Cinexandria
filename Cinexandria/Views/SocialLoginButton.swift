@@ -32,8 +32,8 @@ struct SocialLoginButton: View {
                 loginVM.appleSignIn()
             case .naver:
                 loginVM.naverSignIn()
-            default:
-                break
+            case .kakao:
+                loginVM.kakaoSignIn()
             }
         }) {
             HStack(alignment: .center) {
