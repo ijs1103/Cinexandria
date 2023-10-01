@@ -18,6 +18,8 @@ struct MyPageScreen: View {
             } else {
                 LoginView()
             }
+        }.padding().background(.black).task {
+            loginVM.loginCheck()
         }
     }
 }

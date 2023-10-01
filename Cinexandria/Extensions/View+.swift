@@ -29,6 +29,16 @@ extension View {
     func BackDropFilter() -> some View {
         return self.overlay(LinearGradient(gradient: Gradient(colors: [.clear, .black]), startPoint: .top, endPoint: .bottom)).overlay(.black.opacity(0.35))
     }
+    // List의 scroll을 disable <= iOS 15
+    func listScrollDisable() -> some View {
+        if #available(iOS 16.0, *) {
+            return self
+                .scrollDisabled(true)
+        } else {
+            return self
+                .simultaneousGesture(DragGesture(minimumDistance: 0), including: .all)
+        }
+    }
 }
 
 struct RoundedCorner: Shape {

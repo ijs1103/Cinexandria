@@ -25,6 +25,12 @@ final class LoginViewModel: NSObject, ObservableObject {
     
     @Published var authProfile: AuthProfileViewModel?
     @Published var isLoggined: Bool = false
+
+    func loginCheck() {
+        DispatchQueue.main.async {
+            self.isLoggined = Auth.auth().currentUser != nil || NaverThirdPartyLoginConnection.getSharedInstance()?.accessToken != nil || AuthApi.hasToken()
+        }
+    }
     
     private var currentNonce: String?
 
