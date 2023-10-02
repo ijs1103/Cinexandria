@@ -23,7 +23,7 @@ final class LoginViewModel: NSObject, ObservableObject {
     
     static let shared = LoginViewModel()
     
-    @Published var authProfile: AuthProfileViewModel?
+    @Published var authProfile: AuthProfileViewModel? // 유저정보를 로컬에 저장해서 authProfile로 초기화하는 로직 구현
     @Published var isLoggined: Bool = false
 
     func loginCheck() {
@@ -87,10 +87,6 @@ final class LoginViewModel: NSObject, ObservableObject {
     
     func appleSignIn() {
         AppleSignIn.shared.appleSignIn()
-        DispatchQueue.main.async {
-            self.isLoggined = true
-            self.authProfile = AuthProfileViewModel(name: "애플 유저", photoURL: nil)
-        }
     }
     
     func naverSignIn() {

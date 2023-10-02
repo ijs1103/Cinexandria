@@ -107,6 +107,10 @@ extension AppleSignIn: ASAuthorizationControllerDelegate {
                     print(error.localizedDescription)
                     return
                 }
+                DispatchQueue.main.async {
+                    LoginViewModel.shared.isLoggined = true
+                    LoginViewModel.shared.authProfile = AuthProfileViewModel(name: "애플 유저", photoURL: nil)
+                }
                 // User is signed in to Firebase with Apple.
                 print("User is now connected")
             }

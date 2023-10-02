@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SocialLoginButton: View {
     
+    @EnvironmentObject private var appState: AppState
     @ObservedObject private var loginVM = LoginViewModel.shared
     
     let provider: Provider
