@@ -19,11 +19,11 @@ struct MyPageView: View {
     let myContents: [MyPageListCellViewModel] = [ MyPageListCellViewModel(title: "작성한 리뷰", count: "5"), MyPageListCellViewModel(title: "찜한 작품", count: "3")]
     
     let infoContents: [MyPageListCellViewModel] = [ MyPageListCellViewModel(title: "정보 수정", count: nil), MyPageListCellViewModel(title: "회원 탈퇴", count: nil)]
-
+    
     var body: some View {
         
         VStack {
-            AvatarView(authProfile: loginVM.authProfile ?? AuthProfileViewModel(name: "Anonymous", photoURL: nil))
+            AvatarView(profile: loginVM.profile)
             List {
                 Section() {
                     ForEach(myContents, id: \.title) { content in
@@ -43,12 +43,8 @@ struct MyPageView: View {
                     }.listRowBackground(Color("BgDarkGray"))
                 }
             }.listScrollDisable()
+        }.task {
+            await loginVM.getProfile()
         }
-    }
-}
-
-struct MyPageView_Previews: PreviewProvider {
-    static var previews: some View {
-        MyPageView()
     }
 }

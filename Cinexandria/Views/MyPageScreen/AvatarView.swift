@@ -9,23 +9,26 @@ import SwiftUI
 
 struct AvatarView: View {
     
-    let authProfile: AuthProfileViewModel
+    let profile: User?
+    
+    var url: URL? {
+        guard let photoURL = profile?.photoURL else { return nil }
+        return URL(string: photoURL)
+    }
     
     var body: some View {
         VStack(spacing: 16) {
-            AsyncImage(url: authProfile.photoURL
+            AsyncImage(url: url
                        , content: { phase in
                 if let image = phase.image {
                     image.resizable().scaledToFill()
-                } else if phase.error != nil {
-                    Image(systemName: "person.fill").resizable().scaledToFill()
                 } else {
-                    ProgressView()
+                    Image(systemName: "person.fill").resizable().scaledToFill()
                 }
             }).frame(width: 120, height: 120)
                 .clipShape(Circle()).overlay(Circle().stroke(Color("BgThird"), lineWidth: 4))
 
-            Text(authProfile.name).customFont(color: .white, size: 24, weight: .bold)
+            Text(profile?.nickname ?? "unknown").customFont(color: .white, size: 24, weight: .bold)
         }
     }
 }

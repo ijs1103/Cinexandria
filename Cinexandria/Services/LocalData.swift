@@ -12,6 +12,9 @@ final class LocalData {
     static let shared = LocalData()
     private init(){}
     
+    @AppStorage("userId")
+    var userId: String?
+    
     @AppStorage("searchedWords")
     var searchedWords: Data = Data()
     

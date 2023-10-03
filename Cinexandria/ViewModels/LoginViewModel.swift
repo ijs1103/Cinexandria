@@ -13,18 +13,13 @@ import NaverThirdPartyLogin
 import KakaoSDKUser
 import KakaoSDKAuth
 
-struct AuthProfileViewModel {
-    let name: String
-    let photoURL: URL?
-}
-
 @MainActor
 final class LoginViewModel: NSObject, ObservableObject {
     
     static let shared = LoginViewModel()
-    
-    @Published var authProfile: AuthProfileViewModel? // 유저정보를 로컬에 저장해서 authProfile로 초기화하는 로직 구현
+    @Published var profile: User?
     @Published var isLoggined: Bool = false
+    private var currentNonce: String?
 
     func loginCheck() {
         DispatchQueue.main.async {
@@ -32,8 +27,21 @@ final class LoginViewModel: NSObject, ObservableObject {
         }
     }
     
-    private var currentNonce: String?
-
+    func getProfile() async {
+        // 로컬에 저장된 uid를 통해 firebase에서 유저 정보를 fetch
+        guard let uid = LocalData.shared.userId else { return }
+        do {
+            let profile = try await UserService.getUser(uid: uid)
+            DispatchQueue.main.async {
+                self.profile = profile
+            }
+        } catch FirebaseError.dataEmpty {
+            print("no data - getProfile")
+        } catch {
+            print("unknown error - getProfile")
+        }
+    }
+    
     func logOut() {
         // Firebase(구글, 애플) 로그아웃
         if Auth.auth().currentUser != nil {
@@ -59,6 +67,13 @@ final class LoginViewModel: NSObject, ObservableObject {
                 }
             }
         }
+        // 로컬에서 uid 삭제
+        LocalData.shared.userId = nil
+    }
+    
+    func setUserToFirebaseAndLocal(data: [String : Any]) {
+        UserService.setUser(data: data as [String : Any])
+        LocalData.shared.userId = data["uid"] as? String
     }
     
     func setupGoogleConfig() {
@@ -79,9 +94,14 @@ final class LoginViewModel: NSObject, ObservableObject {
         guard let displayName = authResult.user.displayName, let photoURL = authResult.user.photoURL else {
             throw NetworkError.badCredential
         }
+        guard let uid = Auth.auth().currentUser?.uid else {
+            print("empty uid - firebaseauth")
+            return
+        }
+        let data = ["uid": uid, "photoURL": photoURL.absoluteString, "nickname": displayName]
+        self.setUserToFirebaseAndLocal(data: data)
         DispatchQueue.main.async {
             self.isLoggined = true
-            self.authProfile = AuthProfileViewModel(name: displayName, photoURL: photoURL)
         }
     }
     
@@ -95,36 +115,35 @@ final class LoginViewModel: NSObject, ObservableObject {
             .getSharedInstance()
             .requestThirdPartyLogin()
     }
-    
+    private func kakaoWork(_ error: Error?) {
+        if let error = error {
+            print("카카오 로그인 에러: \(error.localizedDescription)")
+        } else {
+            UserApi.shared.me { User, Error in
+                guard let kakaoAccount = User?.kakaoAccount else {
+                    print("cannot get kakao user info")
+                    return
+                }
+                let nickname = kakaoAccount.profile?.nickname ?? "카카오 유저"
+                let photoURL = kakaoAccount.profile?.profileImageUrl?.absoluteString
+                let email = kakaoAccount.email
+                let data = ["uid": email, "photoURL": photoURL, "nickname": nickname]
+                self.setUserToFirebaseAndLocal(data: data as [String : Any])
+                DispatchQueue.main.async {
+                    self.isLoggined = true
+                }
+            }
+        }
+    }
     func kakaoSignIn() {
+        
         if (UserApi.isKakaoTalkLoginAvailable()) {
             UserApi.shared.loginWithKakaoTalk {(_, error) in
-                if let error = error {
-                    print("카카오 로그인 에러: \(error.localizedDescription)")
-                } else {
-                    UserApi.shared.me { User, Error in
-                        let name = User?.kakaoAccount?.profile?.nickname ?? "카카오 유저"
-                        let photoURL = User?.kakaoAccount?.profile?.profileImageUrl
-                        DispatchQueue.main.async {
-                            self.isLoggined = true
-                            self.authProfile = AuthProfileViewModel(name: name, photoURL: photoURL)
-                        }
-                    }
-                }
+                self.kakaoWork(error)
             }
         } else {
             UserApi.shared.loginWithKakaoAccount {(_, error) in
-                if let error = error {
-                    print("카카오 로그인 에러: \(error.localizedDescription)")
-                } else {
-                    UserApi.shared.me { User, Error in
-                        let name = User?.kakaoAccount?.profile?.nickname ?? "카카오 유저"
-                        let photoURL = User?.kakaoAccount?.profile?.profileImageUrl
-                        DispatchQueue.main.async {
-                            self.authProfile = AuthProfileViewModel(name: name, photoURL: photoURL)
-                        }
-                    }
-                }
+                self.kakaoWork(error)
             }
         }
     }
@@ -165,20 +184,21 @@ extension LoginViewModel: UIApplicationDelegate, NaverThirdPartyLoginConnectionD
         print("[Success] : Success Naver Login")
         Task {
             do {
-                let info = try await getNaverUserInfo()
-                let photoURL = URL(string: info!.profileImage) ?? nil
+                guard let info = try await getNaverUserInfo() else {
+                    print("cannot get naver user info")
+                    return
+                }
+                let data = ["uid": info.email, "photoURL": info.profileImage, "nickname": info.nickname]
+                self.setUserToFirebaseAndLocal(data: data)
                 DispatchQueue.main.async {
                     self.isLoggined = true
-                    self.authProfile = AuthProfileViewModel(name: info?.nickname ?? "네이버 유저", photoURL: photoURL)
                 }
             } catch NetworkError.badDecoding {
-                print("trending movie error - badDecoding")
+                print("naver user info error - badDecoding")
             } catch NetworkError.badServer {
-                print("trending movie error - badServer")
+                print("naver user info error - badServer")
             }
         }
-        
-        
     }
     
     // 토큰 갱신시

@@ -107,12 +107,19 @@ extension AppleSignIn: ASAuthorizationControllerDelegate {
                     print(error.localizedDescription)
                     return
                 }
+                // User is signed in to Firebase with Apple.
+                guard let uid = Auth.auth().currentUser?.uid else {
+                    print("empty uid - firebaseauth")
+                    return
+                }
+                let data = ["uid": uid, "photoURL": "", "nickname": "애플 유저"]
+                Task {
+                    await LoginViewModel.shared.setUserToFirebaseAndLocal(data: data)
+                }
                 DispatchQueue.main.async {
                     LoginViewModel.shared.isLoggined = true
-                    LoginViewModel.shared.authProfile = AuthProfileViewModel(name: "애플 유저", photoURL: nil)
                 }
-                // User is signed in to Firebase with Apple.
-                print("User is now connected")
+                
             }
         }
     }

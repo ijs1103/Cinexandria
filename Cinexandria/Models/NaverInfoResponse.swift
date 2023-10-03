@@ -16,10 +16,11 @@ struct Response: Codable {
     let nickname: String
     let profileImage: String
     let id: String
-
+    let email: String
     enum CodingKeys: String, CodingKey {
         case nickname
         case profileImage = "profile_image"
         case id
+        case email
     }
 }
