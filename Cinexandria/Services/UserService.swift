@@ -30,7 +30,7 @@ struct UserService {
             do {
                 try await db.document(uid).setData(data)
             } catch {
-                print("firebase error - setData")
+                print("firebase error - setUser")
             }
         }
     }
@@ -41,5 +41,14 @@ struct UserService {
         guard let dictionary = snapshot.data() else { throw FirebaseError.dataEmpty }
         let user = User(dictionary: dictionary)
         return user
+    }
+    
+    static func updateUser(uid: String, data: [String: Any]) async throws {
+        let db = Firestore.firestore().collection("users")
+        do {
+            try await db.document(uid).updateData(data)
+        } catch {
+            print("firebase error - updateUser")
+        }
     }
 }

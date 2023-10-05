@@ -26,9 +26,9 @@ struct DetailScreen: View {
                            , content: { phase in
                     
                     if let image = phase.image {
-                        image.resizable().scaledToFill().BackDropFilter()
+                        image.imageFill().BackDropFilter()
                     } else if phase.error != nil {
-                        Image("NoPoster").resizable().scaledToFill().BackDropFilter()
+                        Image("NoPoster").imageFill().BackDropFilter()
                     } else {
                         ProgressView()
                     }
@@ -58,9 +58,9 @@ struct DetailScreen: View {
                     AsyncImage(url: detailVM.workDetail?.poster
                                , content: { phase in
                         if let image = phase.image {
-                            image.ImageModifier().cornerRadius(10, corners: .allCorners)
+                            image.imageFit().cornerRadius(10, corners: .allCorners)
                         } else if phase.error != nil {
-                            Image("NoPoster").ImageModifier().cornerRadius(10, corners: .allCorners)
+                            Image("NoPoster").imageFit().cornerRadius(10, corners: .allCorners)
                         } else {
                             ProgressView()
                         }

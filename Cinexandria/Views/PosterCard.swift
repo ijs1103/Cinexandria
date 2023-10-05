@@ -25,9 +25,9 @@ struct PosterCard: View {
                        , content: { phase in
                 
                 if let image = phase.image {
-                    image.resizable().scaledToFill().cornerRadius(10, corners: .topLeft).cornerRadius(10, corners: .topRight).clipped()
+                    image.imageFill().cornerRadius(10, corners: .topLeft).cornerRadius(10, corners: .topRight).clipped()
                 } else if phase.error != nil {
-                    Image("NoPoster").scaledToFill().cornerRadius(10, corners: .topLeft).cornerRadius(10, corners: .topRight).clipped() // Indicates an error.
+                    Image("NoPoster").imageFill().cornerRadius(10, corners: .topLeft).cornerRadius(10, corners: .topRight).clipped() // Indicates an error.
                 } else {
                     ProgressView() // Acts as a placeholder.
                 }

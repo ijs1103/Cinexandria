@@ -20,9 +20,9 @@ struct AllReviewCard: View {
                     AsyncImage(url: review.reviewerAvatar
                                , content: { phase in
                         if let image = phase.image {
-                            image.ImageModifier().clipShape(Circle()).clipped()
+                            image.imageFit().clipShape(Circle()).clipped()
                         } else {
-                            Image("NoPoster").ImageModifier().clipShape(Circle()).clipped()
+                            Image("NoPoster").imageFit().clipShape(Circle()).clipped()
                         }
                     }).frame(width: 40, height: 40)
                 }

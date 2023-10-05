@@ -38,7 +38,7 @@ struct SocialLoginButton: View {
             }
         }) {
             HStack(alignment: .center) {
-                Image(provider.buttonImageName).ImageModifier().frame(height: 36)
+                Image(provider.buttonImageName).imageFit().frame(height: 36)
                 Spacer()
                 Text(provider.buttonTitle)
                     .fontWeight(.semibold)

@@ -8,9 +8,14 @@
 import SwiftUI
 
 extension Image {
-    func ImageModifier() -> some View {
+    func imageFit() -> some View {
         self
             .resizable()
             .scaledToFit()
+    }
+    func imageFill() -> some View {
+        self
+            .resizable()
+            .scaledToFill()
     }
 }

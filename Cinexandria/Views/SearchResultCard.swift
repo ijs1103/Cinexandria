@@ -16,9 +16,9 @@ struct SearchResultCard: View {
             AsyncImage(url: work.poster
                        , content: { phase in
                 if let image = phase.image {
-                    image.resizable().scaledToFill().cornerRadius(8)
+                    image.imageFill().cornerRadius(8)
                 } else if phase.error != nil {
-                    Image("NoPoster").resizable().scaledToFill().cornerRadius(8)
+                    Image("NoPoster").imageFill().cornerRadius(8)
                 } else {
                     ProgressView()
                 }

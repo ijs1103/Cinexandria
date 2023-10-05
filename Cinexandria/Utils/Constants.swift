@@ -73,4 +73,8 @@ struct Constants {
         }
         static let reviews = "최신 한줄평 ✍️"
     }
+    
+    struct NavigationTitle {
+        static let profileEdit = "프로필 수정"
+    }
 }

@@ -21,7 +21,7 @@ struct AllReviewList: View {
                 if reviews.count > 3 {
                     HStack(spacing: 8) {
                         Text("리뷰 \(reviews.count)개 모두 보기").customFont(size: 16, weight: .bold)
-                        Image(systemName: "chevron.right").ImageModifier().frame(width: 12, height: 12).foregroundColor(.gray)
+                        Image(systemName: "chevron.right").imageFit().frame(width: 12, height: 12).foregroundColor(.gray)
                     }.padding(.top, 16)
                 }
             } else {

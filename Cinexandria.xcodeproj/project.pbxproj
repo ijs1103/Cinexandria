@@ -40,6 +40,12 @@
 		2AC8BB262AC9B6A600143D2D /* MyPageListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC8BB252AC9B6A600143D2D /* MyPageListCell.swift */; };
 		2AC8BB2C2ACAB85D00143D2D /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC8BB2B2ACAB85D00143D2D /* UserService.swift */; };
 		2AC8BB2E2ACACED100143D2D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC8BB2D2ACACED100143D2D /* User.swift */; };
+		2AC8BB302ACC19C700143D2D /* ProfileEditScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC8BB2F2ACC19C700143D2D /* ProfileEditScreen.swift */; };
+		2AC8BB332ACC202300143D2D /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC8BB322ACC202300143D2D /* CustomTextField.swift */; };
+		2AC8BB352ACD61DF00143D2D /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC8BB342ACD61DF00143D2D /* ImagePicker.swift */; };
+		2AC8BB372ACEE3CF00143D2D /* ProfileEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC8BB362ACEE3CF00143D2D /* ProfileEditViewModel.swift */; };
+		2AC8BB392ACEF66300143D2D /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC8BB382ACEF66300143D2D /* UIImage+.swift */; };
+		2AC8BB3B2ACF0E4700143D2D /* Storage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC8BB3A2ACF0E4700143D2D /* Storage+.swift */; };
 		2AF4E57B2AA5D6A900ABE68C /* CinexandriaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF4E57A2AA5D6A900ABE68C /* CinexandriaApp.swift */; };
 		2AF4E57F2AA5D6AA00ABE68C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AF4E57E2AA5D6AA00ABE68C /* Assets.xcassets */; };
 		2AF4E5822AA5D6AA00ABE68C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AF4E5812AA5D6AA00ABE68C /* Preview Assets.xcassets */; };
@@ -117,6 +123,12 @@
 		2AC8BB252AC9B6A600143D2D /* MyPageListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageListCell.swift; sourceTree = "<group>"; };
 		2AC8BB2B2ACAB85D00143D2D /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		2AC8BB2D2ACACED100143D2D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		2AC8BB2F2ACC19C700143D2D /* ProfileEditScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditScreen.swift; sourceTree = "<group>"; };
+		2AC8BB322ACC202300143D2D /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		2AC8BB342ACD61DF00143D2D /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		2AC8BB362ACEE3CF00143D2D /* ProfileEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditViewModel.swift; sourceTree = "<group>"; };
+		2AC8BB382ACEF66300143D2D /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
+		2AC8BB3A2ACF0E4700143D2D /* Storage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Storage+.swift"; sourceTree = "<group>"; };
 		2AF4E5772AA5D6A900ABE68C /* Cinexandria.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cinexandria.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AF4E57A2AA5D6A900ABE68C /* CinexandriaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinexandriaApp.swift; sourceTree = "<group>"; };
 		2AF4E57E2AA5D6AA00ABE68C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -282,6 +294,7 @@
 				2AC8BAF92AC0452E00143D2D /* SearchResultCard.swift */,
 				2AC8BAFD2AC1F52500143D2D /* RecentSearchView.swift */,
 				2AC8BB082AC4606000143D2D /* SocialLoginButton.swift */,
+				2AC8BB322ACC202300143D2D /* CustomTextField.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -295,6 +308,7 @@
 				2AC8BAEF2ABEE66900143D2D /* SearchScreen.swift */,
 				2AC8BAFB2AC191CE00143D2D /* SearchGridScreen.swift */,
 				2AC8BB012AC444D700143D2D /* MyPageScreen.swift */,
+				2AC8BB2F2ACC19C700143D2D /* ProfileEditScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -321,6 +335,8 @@
 				2AF4E5FC2AA9CE9F00ABE68C /* Image+.swift */,
 				2AF4E6142AADD46C00ABE68C /* UINavigationController+.swift */,
 				2AF4E6162AB09A5200ABE68C /* Text+.swift */,
+				2AC8BB382ACEF66300143D2D /* UIImage+.swift */,
+				2AC8BB3A2ACF0E4700143D2D /* Storage+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -348,6 +364,7 @@
 				2AC8BAF32ABEEF2C00143D2D /* SearchViewModel.swift */,
 				2AC8BAF52ABF049100143D2D /* SearchResultViewModel.swift */,
 				2AC8BB0A2AC4790000143D2D /* LoginViewModel.swift */,
+				2AC8BB362ACEE3CF00143D2D /* ProfileEditViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -358,6 +375,7 @@
 				2AF4E5BF2AA5D70B00ABE68C /* Constants.swift */,
 				2AC8BAE72ABB4B2300143D2D /* Theme.swift */,
 				2AC8BB122AC48AAB00143D2D /* Utils.swift */,
+				2AC8BB342ACD61DF00143D2D /* ImagePicker.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -541,6 +559,7 @@
 				2AC8BB132AC48AAB00143D2D /* Utils.swift in Sources */,
 				2AC8BB002AC2C52B00143D2D /* LocalData.swift in Sources */,
 				2AF4E5ED2AA7892200ABE68C /* Movie.swift in Sources */,
+				2AC8BB372ACEE3CF00143D2D /* ProfileEditViewModel.swift in Sources */,
 				2AF4E5DA2AA6418800ABE68C /* HomeView.swift in Sources */,
 				2AF4E5E42AA72DF700ABE68C /* ReviewList.swift in Sources */,
 				2AF4E5C72AA5D70B00ABE68C /* Constants.swift in Sources */,
@@ -558,11 +577,14 @@
 				2AC8BB182AC7249F00143D2D /* NaverInfoResponse.swift in Sources */,
 				2AC8BAE42AB8AD8400143D2D /* AppState.swift in Sources */,
 				2AF4E6032AAA1BEE00ABE68C /* ReviewViewModel.swift in Sources */,
+				2AC8BB392ACEF66300143D2D /* UIImage+.swift in Sources */,
 				2AC8BB162AC57D7700143D2D /* AppleSignIn.swift in Sources */,
 				2AF4E6072AAA258C00ABE68C /* ReviewCard.swift in Sources */,
 				2AF4E60D2AAB1DFD00ABE68C /* WorkDetailViewModel.swift in Sources */,
+				2AC8BB332ACC202300143D2D /* CustomTextField.swift in Sources */,
 				2AF4E6242AB2EE0600ABE68C /* AllReviewCard.swift in Sources */,
 				2AC8BB262AC9B6A600143D2D /* MyPageListCell.swift in Sources */,
+				2AC8BB302ACC19C700143D2D /* ProfileEditScreen.swift in Sources */,
 				2AC8BB2E2ACACED100143D2D /* User.swift in Sources */,
 				2AF4E6132AAB902C00ABE68C /* DetailScreen.swift in Sources */,
 				2AC8BAEE2ABDA3DA00143D2D /* ScrollTopButton.swift in Sources */,
@@ -571,6 +593,7 @@
 				2AF4E6052AAA1DAA00ABE68C /* Review.swift in Sources */,
 				2AC8BAEA2ABC386D00143D2D /* GridViewModel.swift in Sources */,
 				2AC8BB042AC45B4B00143D2D /* MyPageView.swift in Sources */,
+				2AC8BB352ACD61DF00143D2D /* ImagePicker.swift in Sources */,
 				2AC8BAF02ABEE66900143D2D /* SearchScreen.swift in Sources */,
 				2AC8BAF22ABEEE2200143D2D /* Search.swift in Sources */,
 				2AC8BAF62ABF049100143D2D /* SearchResultViewModel.swift in Sources */,
@@ -579,6 +602,7 @@
 				2AC8BAE62AB9FF5200143D2D /* GridScreen.swift in Sources */,
 				2AF4E5FD2AA9CE9F00ABE68C /* Image+.swift in Sources */,
 				2AF4E60B2AAB048C00ABE68C /* TopRatedViewModel.swift in Sources */,
+				2AC8BB3B2ACF0E4700143D2D /* Storage+.swift in Sources */,
 				2AC8BB072AC45B8600143D2D /* LoginView.swift in Sources */,
 				2AF4E6092AAB01FC00ABE68C /* TopRatedSection.swift in Sources */,
 				2AF4E5FF2AAA164C00ABE68C /* ReviewSection.swift in Sources */,

@@ -39,7 +39,24 @@ extension View {
                 .simultaneousGesture(DragGesture(minimumDistance: 0), including: .all)
         }
     }
+    
+    // 조건부 modifier
+    @ViewBuilder func `if`<Content: View>(_ condition: Bool, transform: (Self) -> Content) -> some View {
+        if condition {
+            transform(self)
+        } else {
+            self
+        }
+    }
 }
+
+#if canImport(UIKit)
+extension View {
+    func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+}
+#endif
 
 struct RoundedCorner: Shape {
     var radius: CGFloat = .infinity

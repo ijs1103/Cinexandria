@@ -25,9 +25,9 @@ struct CreditList: View {
                                        , content: { phase in
                                 
                                 if let image = phase.image {
-                                    image.ImageModifier().clipShape(Circle()).overlay(Circle().stroke(Color("BgPrimary"), lineWidth: 2)).clipped()
+                                    image.imageFit().clipShape(Circle()).overlay(Circle().stroke(Color("BgPrimary"), lineWidth: 2)).clipped()
                                 } else {
-                                    Image("NoPoster").ImageModifier().clipShape(Circle()).overlay(Circle().stroke(Color("BgPrimary"), lineWidth: 2)).clipped()
+                                    Image("NoPoster").imageFit().clipShape(Circle()).overlay(Circle().stroke(Color("BgPrimary"), lineWidth: 2)).clipped()
                                 }
                             })
                             Text(credit.name).customFont(size: 14, weight: .bold).lineLimit(1).padding(.bottom, 4)
