@@ -24,8 +24,7 @@ struct ErrorWrapper: Identifiable {
 
 enum Route: Hashable {
     case main
-    case login
-    case signup
+    case mypage
 }
 
 class AppState: ObservableObject {

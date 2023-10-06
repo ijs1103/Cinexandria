@@ -64,15 +64,23 @@ struct CinexandriaApp: App {
                     switch route {
                     case .main:
                         HomeScreen()
-                    case .login:
-                        EmptyView()
-                    case .signup:
-                        EmptyView()
+                    case .mypage:
+                        MyPageScreen()
                     }
                 }.tint(.white).foregroundColor(Color("FontPrimary")).environmentObject(appState)
             }
             else {
-                HomeScreen()
+                HomeScreen().onOpenURL { url in
+                    // Token 발급 요청
+                    if let naverInstance = NaverThirdPartyLoginConnection
+                        .getSharedInstance() {
+                        naverInstance.receiveAccessToken(url)
+                    }
+                    
+                    if (AuthApi.isKakaoTalkLoginUrl(url)) {
+                        _ = AuthController.handleOpenUrl(url: url)
+                    }
+                }
             }
         }
         
