@@ -16,6 +16,7 @@ final class DetailViewModel: ObservableObject {
     @Published var reviews: [ReviewViewModel] = []
     @Published var imdbRating: String?
     @Published var youTubePlayer: YouTubePlayer?
+    @Published var isLiked: Bool = false
     
     func load(media: MediaType, id: Int) async {
         await MainActor.run {
@@ -23,6 +24,7 @@ final class DetailViewModel: ObservableObject {
         }
         await fetchWorkDetail(media: media, id: id)
         await fetchReviews(media: media, id: id)
+        await likeCheck(id: id)
     }
     
     private func clear() {
@@ -119,6 +121,39 @@ final class DetailViewModel: ObservableObject {
         // 초기 호출에는 최신 3개의 리뷰만 get, 더보기 페이지 들어갈때엔 모든 리뷰를 get
         await MainActor.run {
             self.reviews = [ReviewViewModel(review: Review(reviewerId: "1", reviewerName: "귀요미", reviewerAvatarString: "", workId: 1, workTitle: "스타워즈: 라스트 제다이", title: "흠잡을데 없는 완성도의 오락", rating: "4.5", text: "장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽", createdAt: "1년전")), ReviewViewModel(review: Review(reviewerId: "1", reviewerName: "귀요미", reviewerAvatarString: "", workId: 1, workTitle: "스타워즈: 라스트 제다이", title: "흠잡을데 없는 완성도의 오락", rating: "4.5", text: "장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽", createdAt: "1년전")), ReviewViewModel(review: Review(reviewerId: "1", reviewerName: "귀요미", reviewerAvatarString: "", workId: 1, workTitle: "스타워즈: 라스트 제다이", title: "흠잡을데 없는 완성도의 오락", rating: "4.5", text: "장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽", createdAt: "1년전")), ReviewViewModel(review: Review(reviewerId: "1", reviewerName: "귀요미", reviewerAvatarString: "", workId: 1, workTitle: "스타워즈: 라스트 제다이", title: "흠잡을데 없는 완성도의 오락", rating: "4.5", text: "장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽", createdAt: "1년전")) ]
+        }
+    }
+    
+    func likeWork() async {
+        guard let uid = LocalData.shared.userId, let workId = workDetail?.id, let media = workDetail?.media else {
+            print("no authorization - likeWork")
+            return
+        }
+        UserService.likeWork(uid: uid, workId: String(workId), media: media)
+        await MainActor.run {
+            self.isLiked = true
+        }
+    }
+    
+    func likeCancel() async {
+        guard let uid = LocalData.shared.userId, let workId = workDetail?.id else {
+            print("no authorization - likeCancel")
+            return
+        }
+        UserService.likeCancel(uid: uid, workId: String(workId))
+        await MainActor.run {
+            self.isLiked = false
+        }
+    }
+    
+    func likeCheck(id: Int) async {
+        guard let uid = LocalData.shared.userId else {
+            print("no authorization - likeWork")
+            return
+        }
+        let isLiked = await UserService.likeCheck(uid: uid, workId: String(id))
+        DispatchQueue.main.async {
+            self.isLiked = isLiked
         }
     }
 }
