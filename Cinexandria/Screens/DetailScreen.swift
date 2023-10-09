@@ -39,6 +39,10 @@ struct DetailScreen: View {
         self.likeLabel = isLiked ? LikeLabel(text: "찜해제", iconColor: .yellow) : LikeLabel(text: "찜하기", iconColor: .gray)
     }
     
+    private func reviewLabelTapped() {
+        
+    }
+    
     var body: some View {
         
         ScrollView(showsIndicators: false) {
@@ -97,11 +101,15 @@ struct DetailScreen: View {
                             await likeLabelTapped()
                         }
                     }
-                    Label {
-                        Text("리뷰작성").customFont(size: 14, weight: .bold)
-                    } icon: {
-                        Image(systemName: "pencil").imageFill().frame(width: 18, height: 18)
-                    }.labelStyle(VerticalLabelStyle()).foregroundColor(.gray)
+                    
+                    NavigationLink(destination: ReviewWriteScreen(work: detailVM.workDetail)) {
+                        Label {
+                            Text("리뷰작성").customFont(size: 14, weight: .bold)
+                        } icon: {
+                            Image(systemName: "pencil").imageFill().frame(width: 18, height: 18)
+                        }.labelStyle(VerticalLabelStyle()).foregroundColor(.gray)
+                    }
+                    
                     Spacer()
                 }
                 Group {

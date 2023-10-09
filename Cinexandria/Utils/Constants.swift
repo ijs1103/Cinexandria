@@ -77,5 +77,6 @@ struct Constants {
     struct NavigationTitle {
         static let profileEdit = "프로필 수정"
         static let likedWorks = "찜한 작품"
+        static let reviewWrite = "리뷰 작성"
     }
 }

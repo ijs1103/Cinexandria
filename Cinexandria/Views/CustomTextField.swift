@@ -13,6 +13,7 @@ struct TextFieldConfig {
     let defaultTextCount: Int
     let isDisabled: Bool
     let limit: Int?
+    let placeholder: String
 }
 
 struct CustomTextField: View {
@@ -35,20 +36,28 @@ struct CustomTextField: View {
                     Text("\(textCount)/\(limit)").customFont(size: 14, weight: .semibold)
                 }
             }
-            TextField("변경할 닉네임을 입력.", text: $text).disableAutocorrection(true).disabled(config.isDisabled).frame(height: 45)
-                .foregroundColor(config.isDisabled ? .gray : .white)
-                .padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 8))
-                .cornerRadius(10)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 10).stroke(config.isDisabled ? .gray : .white ,lineWidth: 1.0)
-                ).onChange(of: text) { value in
-                    guard let limit = config.limit else { return }
-                    if text.count > limit {
-                        text = String(text.prefix(limit))
-                        textCount = limit
+            
+            ZStack(alignment: .topLeading) {
+                TextField("", text: $text).customFont(size: 16, weight: .semibold).disableAutocorrection(true).disabled(config.isDisabled).frame(height: 45)
+                    .foregroundColor(config.isDisabled ? .gray : .white)
+                    .padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 8))
+                    .cornerRadius(10)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10).stroke(config.isDisabled ? .gray : .white ,lineWidth: 1.0)
+                    ).onChange(of: text) { value in
+                        guard let limit = config.limit else { return }
+                        if text.count > limit {
+                            text = String(text.prefix(limit))
+                            textCount = limit
+                        }
+                        textCount = value.count
                     }
-                    textCount = value.count
+                
+                if text.isEmpty {
+                    Text(config.placeholder).customFont(color: .gray, size: 16, weight: .semibold).padding(.top, 12).padding(.horizontal, 9)
                 }
+            }
+            
         }
     }
 }

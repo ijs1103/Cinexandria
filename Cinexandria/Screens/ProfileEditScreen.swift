@@ -50,8 +50,8 @@ struct ProfileEditScreen: View {
                     self.buttonDisabled = false
                 }
             }
-            CustomTextField(config: TextFieldConfig(label: "ID (이메일)", defaultText: $uid, defaultTextCount: uid.count, isDisabled: true, limit: nil)).padding(.bottom, 12)
-            CustomTextField(config: TextFieldConfig(label: "닉네임", defaultText: $nickname, defaultTextCount: nickname.count, isDisabled: false, limit: 20)).onChange(of: nickname) { value in
+            CustomTextField(config: TextFieldConfig(label: "ID (이메일)", defaultText: $uid, defaultTextCount: uid.count, isDisabled: true, limit: nil, placeholder: "")).padding(.bottom, 12)
+            CustomTextField(config: TextFieldConfig(label: "닉네임", defaultText: $nickname, defaultTextCount: nickname.count, isDisabled: false, limit: 20, placeholder: "변경할 닉네임을 입력")).onChange(of: nickname) { value in
                 self.buttonDisabled = (value.count > 0) ? false : true
             }
             Spacer()
