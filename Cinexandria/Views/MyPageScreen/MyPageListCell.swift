@@ -17,7 +17,7 @@ struct MyPageListCell: View {
             Spacer()
             HStack {
                 if let count = content.count {
-                    Text(count).customFont(size: 16, weight: .bold)
+                    Text(String(count)).customFont(size: 16, weight: .bold)
                 }
                 Image(systemName: "chevron.forward").customFont(color: .gray, size: 12, weight: .semibold)
             }

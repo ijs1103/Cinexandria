@@ -52,9 +52,9 @@ struct UserService {
         }
     }
     
-    static func likeWork(uid: String, workId: String, media: MediaType) {
+    static func likeWork(uid: String, work: WorkDetailViewModel) {
         let db = Firestore.firestore().collection("users").document(uid)
-        db.collection("likedWorks").document(workId).setData(["id": workId, "media": media.rawValue])
+        db.collection("likedWorks").document(String(work.id)).setData(work.toDictionary())
         // 좋아요 1 증가
         db.updateData([
             "likeCount": FieldValue.increment(Int64(1))
@@ -72,22 +72,37 @@ struct UserService {
     static func likeCheck(uid: String, workId: String) async -> Bool {
         let db = Firestore.firestore().collection("users").document(uid)
         do {
-            let likeSnapshot = try await db.collection("likedWorks").document(workId).getDocument()
-            return likeSnapshot.exists
+            let snapshot = try await db.collection("likedWorks").document(workId).getDocument()
+            return snapshot.exists
         } catch {
             print("firebase error - likeCheck")
             return false
         }
     }
     
-    static func getLikedWorks(uid: String) async -> [String]? {
+    static func getLikedWorks(uid: String) async -> [[String : Any]]? {
         let db = Firestore.firestore().collection("users").document(uid)
         do {
-            let likedWorksRef = try await db.collection("likedWorks").getDocuments()
-            return likedWorksRef.documents.map { $0.documentID }
+            let snapshot = try await db.collection("likedWorks").getDocuments()
+            return snapshot.documents.map { $0.data() }
         } catch {
-            print("firebase error - likeCheck")
+            print("firebase error - getLikedWorks")
             return nil
+        }
+    }
+    
+    static func getLikeCount(uid: String) async -> Int {
+        let db = Firestore.firestore().collection("users").document(uid)
+        do {
+            guard let data = try await db.getDocument().data() else { return 0 }
+            if let likeCount = data["likeCount"] as? Int {
+                return likeCount
+            } else {
+                return 0
+            }
+        } catch {
+            print("firebase error - getLikeCount")
+            return 0
         }
     }
 }

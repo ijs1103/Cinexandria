@@ -22,7 +22,9 @@ final class SearchViewModel: ObservableObject {
         Task {
             do {
                 let results = try await Webservice.shared.getSearching(keyword: keyword)
-                self.isResultsEmpty = results.isEmpty
+                await MainActor.run {
+                    self.isResultsEmpty = results.isEmpty
+                }
                 if isResultsEmpty { return }
                 let movies = results.filter { $0.mediaType == .movie }.map { SearchResultViewModel(work: $0) }
                 let tvs = results.filter { $0.mediaType == .tv }.map { SearchResultViewModel(work: $0) }

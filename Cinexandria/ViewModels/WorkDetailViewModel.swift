@@ -130,3 +130,15 @@ struct WorkDetailViewModel {
     
     var tvStaffs: [CreditViewModel]?
 }
+
+extension WorkDetailViewModel {
+    func toDictionary() -> [String: Any] {
+        return [
+            "id": id,
+            "mediaType": media.rawValue,
+            "poster": poster?.absoluteString ?? "",
+            "title": title,
+            "rating": rating
+        ]
+    }
+}

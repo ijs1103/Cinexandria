@@ -125,11 +125,15 @@ final class DetailViewModel: ObservableObject {
     }
     
     func likeWork() async {
-        guard let uid = LocalData.shared.userId, let workId = workDetail?.id, let media = workDetail?.media else {
+        guard let uid = LocalData.shared.userId else {
             print("no authorization - likeWork")
             return
         }
-        UserService.likeWork(uid: uid, workId: String(workId), media: media)
+        guard let workDetail = workDetail else {
+            print("no data - likeWork")
+            return
+        }
+        UserService.likeWork(uid: uid, work: workDetail)
         await MainActor.run {
             self.isLiked = true
         }
