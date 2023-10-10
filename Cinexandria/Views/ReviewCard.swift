@@ -17,11 +17,11 @@ struct ReviewCard: View {
                 Spacer()
                 HStack(spacing: 4) {
                     Image(systemName: "star.fill").resizable().frame(width: 14, height: 14)
-                    Text(review.rating).font(.system(size: 14, weight: .semibold))
+                    Text(String(review.rating)).font(.system(size: 14, weight: .semibold))
                 }.foregroundColor(.teal)
             }
             Text(review.title).font(.system(size: 16, weight: .bold)).foregroundColor(.white).padding(EdgeInsets(top: 4, leading: 0, bottom: 10, trailing: 0)).lineLimit(2)
-            Text("\(review.reviewerName)님의 리뷰").font(.system(size: 12, weight: .semibold)).lineLimit(1).foregroundColor(.gray)
+            Text("\(review.nickname)님의 리뷰").font(.system(size: 12, weight: .semibold)).lineLimit(1).foregroundColor(.gray)
         }
         .frame(maxWidth: 250)
         .padding()

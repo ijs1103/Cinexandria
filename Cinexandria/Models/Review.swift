@@ -6,15 +6,35 @@
 //
 
 import Foundation
+import FirebaseFirestore
 
-struct Review: Codable {
-    let reviewerId: String
-    let reviewerName: String
-    let reviewerAvatarString: String
+struct Review {
+    let id: String
     let workId: Int
+    let mediaType: MediaType
+    let nickname: String
+    let photoURL: String
+    let rating: Int
     let workTitle: String
     let title: String
-    let rating: String
     let text: String
-    let createdAt: String
+    let createdAt: Date
+}
+
+extension Review {
+    
+    func toDictionary() -> [String: Any] {
+        return [
+            "id": id,
+            "workId": workId,
+            "mediaType": mediaType.rawValue,
+            "nickname": nickname,
+            "photoURL": photoURL,
+            "rating": rating,
+            "workTitle": workTitle,
+            "title": title,
+            "text": text,
+            "createdAt": createdAt
+        ]
+    }
 }

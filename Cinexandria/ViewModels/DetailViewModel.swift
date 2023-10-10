@@ -14,6 +14,7 @@ final class DetailViewModel: ObservableObject {
     
     @Published var workDetail: WorkDetailViewModel?
     @Published var reviews: [ReviewViewModel] = []
+    @Published var reviewCount: Int = 0
     @Published var imdbRating: String?
     @Published var youTubePlayer: YouTubePlayer?
     @Published var isLiked: Bool = false
@@ -23,7 +24,8 @@ final class DetailViewModel: ObservableObject {
             clear()
         }
         await fetchWorkDetail(media: media, id: id)
-        await fetchReviews(media: media, id: id)
+        await fetchReviews(id: id)
+        await fetchReviewCount(id: id)
         await likeCheck(id: id)
     }
     
@@ -116,11 +118,21 @@ final class DetailViewModel: ObservableObject {
         }
     }
     
-    private func fetchReviews(media: MediaType, id: Int) async {
-        // get reviews by 작품 id
+    func fetchReviews(id: Int, isAll: Bool = false) async {
         // 초기 호출에는 최신 3개의 리뷰만 get, 더보기 페이지 들어갈때엔 모든 리뷰를 get
-        await MainActor.run {
-            self.reviews = [ReviewViewModel(review: Review(reviewerId: "1", reviewerName: "귀요미", reviewerAvatarString: "", workId: 1, workTitle: "스타워즈: 라스트 제다이", title: "흠잡을데 없는 완성도의 오락", rating: "4.5", text: "장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽", createdAt: "1년전")), ReviewViewModel(review: Review(reviewerId: "1", reviewerName: "귀요미", reviewerAvatarString: "", workId: 1, workTitle: "스타워즈: 라스트 제다이", title: "흠잡을데 없는 완성도의 오락", rating: "4.5", text: "장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽", createdAt: "1년전")), ReviewViewModel(review: Review(reviewerId: "1", reviewerName: "귀요미", reviewerAvatarString: "", workId: 1, workTitle: "스타워즈: 라스트 제다이", title: "흠잡을데 없는 완성도의 오락", rating: "4.5", text: "장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽", createdAt: "1년전")), ReviewViewModel(review: Review(reviewerId: "1", reviewerName: "귀요미", reviewerAvatarString: "", workId: 1, workTitle: "스타워즈: 라스트 제다이", title: "흠잡을데 없는 완성도의 오락", rating: "4.5", text: "장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽 장자의 호접몽", createdAt: "1년전")) ]
+        guard let response = await ReviewService.getReviewsByWork(workId: id, isAll: isAll) else {
+            return
+        }
+        let reviews = response.map { ReviewViewModel(review: $0) }
+        DispatchQueue.main.async {
+            self.reviews = reviews
+        }
+    }
+    
+    func fetchReviewCount(id: Int) async {
+        let reviewCount = await ReviewService.getReviewCountByWork(workId: id)
+        DispatchQueue.main.async {
+            self.reviewCount = reviewCount
         }
     }
     

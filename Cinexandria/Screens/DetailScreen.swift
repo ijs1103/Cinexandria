@@ -38,11 +38,7 @@ struct DetailScreen: View {
     private func configLikeLabel(isLiked: Bool) {
         self.likeLabel = isLiked ? LikeLabel(text: "찜해제", iconColor: .yellow) : LikeLabel(text: "찜하기", iconColor: .gray)
     }
-    
-    private func reviewLabelTapped() {
-        
-    }
-    
+
     var body: some View {
         
         ScrollView(showsIndicators: false) {
@@ -175,7 +171,7 @@ struct DetailScreen: View {
                 
                 Group {
                     Text("모든 리뷰").SubTitleView()
-                    AllReviewList(reviews: detailVM.reviews)
+                    AllReviewList(reviews: detailVM.reviews, reviewCount: detailVM.reviewCount, workId: id).padding(.horizontal, 10)
                     Divider().background(Color.gray)
                 }.padding(.bottom, 20)
             }

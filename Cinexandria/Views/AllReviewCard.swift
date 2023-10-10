@@ -12,12 +12,12 @@ struct AllReviewCard: View {
     let review: ReviewViewModel
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 6) {
+        VStack(alignment: .leading, spacing: 10) {
             HStack {
                 Label {
-                    Text("\(review.reviewerName)").customFont(size: 16, weight: .bold)
+                    Text("\(review.nickname)").customFont(size: 16, weight: .bold)
                 } icon: {
-                    AsyncImage(url: review.reviewerAvatar
+                    AsyncImage(url: review.photoURL
                                , content: { phase in
                         if let image = phase.image {
                             image.imageFit().clipShape(Circle()).clipped()
@@ -35,7 +35,8 @@ struct AllReviewCard: View {
                 Image(systemName: "star.fill").resizable().frame(width: 18, height: 18).foregroundColor(.yellow)
             }.padding(6).overlay(RoundedRectangle(cornerRadius: 8, style: .continuous).stroke(.gray, lineWidth: 1))
             Text(review.title).customFont(color: Color("BgThird"), size: 18, weight: .bold).padding(.top, 10)
-            Text(review.text).customFont(color: .gray, size: 16, weight: .semibold).lineLimit(4)
-        }.padding(8).background(Color("BgPrimary")).clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+            Text(review.text).customFont(color: .gray, size: 16, weight: .semibold).lineLimit(2)
+            Spacer()
+        }.frame(height: 190).padding(.horizontal).padding(.vertical, 8).background(Color("BgPrimary")).clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
     }
 }

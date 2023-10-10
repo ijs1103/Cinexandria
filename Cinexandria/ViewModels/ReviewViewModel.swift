@@ -8,24 +8,27 @@
 import Foundation
 
 struct ReviewViewModel {
+
     let review: Review
     
-    let id = UUID()
-    
-    var reviewerId: String {
-        return review.reviewerId
+    var id: String {
+        return review.id
     }
     
-    var reviewerAvatar: URL? {
-        return URL(string: review.reviewerAvatarString) ?? nil
+    var photoURL: URL? {
+        return URL(string: review.photoURL)
     }
     
-    var reviewerName: String {
-        return review.reviewerName
+    var nickname: String {
+        return review.nickname
     }
     
     var workId: Int {
         return review.workId
+    }
+    
+    var mediaType: MediaType {
+        return review.mediaType
     }
     
     var workTitle: String {
@@ -36,7 +39,7 @@ struct ReviewViewModel {
         return review.title
     }
     
-    var rating: String {
+    var rating: Int {
         return review.rating
     }
     
@@ -45,7 +48,7 @@ struct ReviewViewModel {
     }
     
     var createdAt: String {
-        return review.createdAt
+        return review.createdAt.snsStyleDate()
     }
     
 }

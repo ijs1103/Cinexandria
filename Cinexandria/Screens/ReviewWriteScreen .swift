@@ -22,14 +22,13 @@ struct ReviewWriteScreen: View {
             print("no authorization - ReviewWriteScreen")
             return
         }
-        guard let rating = rating, let workId = work?.id else {
+        guard let rating = rating, let workId = work?.id, let mediaType = work?.media, let workTitle = work?.title else {
             return
         }
-        let reviewId = UUID().uuidString
         do {
             let user = try await UserService.getUser(uid: uid)
-            let data = ["id": reviewId, "uid": uid, "nickname": user.nickname, "photoURL": user.photoURL, "title": reviewTitle, "text": reviewText, "rating": rating] as [String : Any]
-            await ReviewService.setReview(uid: uid, workId: String(workId), data: data)
+            let data = Review(id: UUID().uuidString, workId: workId, mediaType: mediaType, nickname: user.nickname, photoURL: user.photoURL, rating: rating, workTitle: workTitle, title: reviewTitle, text: reviewText, createdAt: Date()).toDictionary()
+            await ReviewService.setReview(uid: uid, workId: workId, data: data)
         } catch {
             print("firebase error - ReviewWriteScreen")
             return
