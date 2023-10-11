@@ -13,7 +13,7 @@ enum DataType {
 
 struct ListTitleView: View {
     let title: String
-    let contents: Any
+    let contents: Any?
     var dataType: DataType {
         switch self.title {
         case Constants.SectionTitle.trending.movie:
@@ -29,11 +29,13 @@ struct ListTitleView: View {
         }
     }
     
-    private func getDestination(from contents: Any) -> AnyView {
+    private func getDestination(from contents: Any?) -> AnyView {
         if contents is [WorkViewModel] {
             return AnyView(GridScreen(title: title, dataType: dataType))
         } else if contents is [SearchResultViewModel] {
             return AnyView(SearchGridScreen(title: title, works: contents as! [SearchResultViewModel]))
+        } else if contents == nil {
+            return AnyView(RecentReviewScreen())
         }
         return AnyView(EmptyView())
     }

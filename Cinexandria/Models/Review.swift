@@ -10,6 +10,7 @@ import FirebaseFirestore
 
 struct Review {
     let id: String
+    let uid: String
     let workId: Int
     let mediaType: MediaType
     let nickname: String
@@ -26,6 +27,7 @@ extension Review {
     func toDictionary() -> [String: Any] {
         return [
             "id": id,
+            "uid": uid,
             "workId": workId,
             "mediaType": mediaType.rawValue,
             "nickname": nickname,

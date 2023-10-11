@@ -27,8 +27,8 @@ struct ReviewWriteScreen: View {
         }
         do {
             let user = try await UserService.getUser(uid: uid)
-            let data = Review(id: UUID().uuidString, workId: workId, mediaType: mediaType, nickname: user.nickname, photoURL: user.photoURL, rating: rating, workTitle: workTitle, title: reviewTitle, text: reviewText, createdAt: Date()).toDictionary()
-            await ReviewService.setReview(uid: uid, workId: workId, data: data)
+            let data = Review(id: UUID().uuidString, uid: uid, workId: workId, mediaType: mediaType, nickname: user.nickname, photoURL: user.photoURL, rating: rating, workTitle: workTitle, title: reviewTitle, text: reviewText, createdAt: Date()).toDictionary()
+            await ReviewService.setReview(data: data)
         } catch {
             print("firebase error - ReviewWriteScreen")
             return

@@ -10,16 +10,14 @@ import SwiftUI
 struct ReviewSection: View {
     
     @ObservedObject private var reviewListVM = ReviewListViewModel()
-    
-    init() {
-        reviewListVM.load()
-    }
-    
+        
     var body: some View {
         return VStack {
-            ListTitleView(title: Constants.SectionTitle.reviews, contents: reviewListVM.reviews)
+            ListTitleView(title: Constants.SectionTitle.reviews, contents: nil)
             Spacer(minLength: 30)
             ReviewList(reviews: reviewListVM.reviews)
+        }.task {
+            await reviewListVM.load()
         }
     }
 }
