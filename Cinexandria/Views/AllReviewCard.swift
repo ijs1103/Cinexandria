@@ -17,7 +17,7 @@ struct AllReviewCard: View {
                 Label {
                     Text("\(review.nickname)").customFont(size: 16, weight: .bold)
                 } icon: {
-                    AsyncImage(url: review.photoURL
+                    AsyncImage(url: review.avatarURL
                                , content: { phase in
                         if let image = phase.image {
                             image.imageFit().clipShape(Circle()).clipped()

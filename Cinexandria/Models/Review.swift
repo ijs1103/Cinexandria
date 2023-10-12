@@ -14,7 +14,8 @@ struct Review {
     let workId: Int
     let mediaType: MediaType
     let nickname: String
-    let photoURL: String
+    let avatarURL: String
+    let posterURL: String
     let rating: Int
     let workTitle: String
     let title: String
@@ -31,7 +32,8 @@ extension Review {
             "workId": workId,
             "mediaType": mediaType.rawValue,
             "nickname": nickname,
-            "photoURL": photoURL,
+            "avatarURL": avatarURL,
+            "posterURL": posterURL,
             "rating": rating,
             "workTitle": workTitle,
             "title": title,

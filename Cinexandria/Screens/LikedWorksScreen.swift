@@ -29,28 +29,27 @@ struct LikedWorksScreen: View {
         
         ScrollViewReader { proxyReader in
             ScrollView(showsIndicators: false) {
-                LazyVGrid(columns: [GridItem(.fixed(180), spacing: 20), GridItem(.fixed(180), spacing: 20)], spacing: 20) {
-                    
-                    if likedWorksVM.works.isEmpty {
-                        CustomEmptyView()
-                    } else {
+                if likedWorksVM.works.isEmpty {
+                    CustomEmptyView()
+                } else {
+                    LazyVGrid(columns: [GridItem(.fixed(180), spacing: 20), GridItem(.fixed(180), spacing: 20)], spacing: 20) {
                         ForEach(likedWorksVM.works, id: \.id) { work in
                             NavigationLink(destination: DetailScreen(media: work.mediaType, id: work.id)) {
                                 LikedPosterCard(likedWork: work)
                             }
                         }
-                    }
-                }.padding().id("ScrollToTop")
-                    .overlay(
-                        GeometryReader { proxy -> Color in
-                            DispatchQueue.main.async {
-                                calcOffset(proxy)
+                    }.padding().id("ScrollToTop")
+                        .overlay(
+                            GeometryReader { proxy -> Color in
+                                DispatchQueue.main.async {
+                                    calcOffset(proxy)
+                                }
+                                return Color.clear
                             }
-                            return Color.clear
-                        }
-                            .frame(width: 0, height: 0)
-                        ,alignment: .top
-                    )
+                                .frame(width: 0, height: 0)
+                            ,alignment: .top
+                        )
+                }
             }.padding(.top, 10)
                 .background(.black)
                 .navigationBarTitleDisplayMode(.inline)

@@ -95,19 +95,18 @@ struct ReviewService {
         }
     }
     
-    static func getMyReviewAndCount() async -> (reviews: [Review], count: Int)? {
+    static func getMyReviewAndCount() async -> (reviews: [ReviewViewModel], count: Int)? {
         guard let uid = LocalData.shared.userId else {
-            print("no authorization - ReviewWriteScreen")
+            print("no authorization - getMyReviewAndCount")
             return nil
         }
         let db = Firestore.firestore().collection("reviews").whereField("uid", isEqualTo: uid).order(by: "createdAt", descending: true)
         do {
             let snapshot = try await db.getDocuments()
-            let reviews = snapshot.documents.compactMap { decodeSnapshot(dict: $0.data()) }
-            
+            let reviews = snapshot.documents.compactMap { decodeSnapshot(dict: $0.data()) }.compactMap{ ReviewViewModel(review: $0) }
             return (reviews: reviews, count: snapshot.count)
         } catch {
-            print("firebase error - getMyReviewCount")
+            print("firebase error - getMyReviewAndCount")
             return nil
         }
     }
@@ -117,7 +116,8 @@ struct ReviewService {
               let uid = dict["uid"] as? String,
               let mediaType = MediaType(rawValue: (dict["mediaType"] as! String)),
               let nickname = dict["nickname"] as? String,
-              let photoURL = dict["photoURL"] as? String,
+              let avatarURL = dict["avatarURL"] as? String,
+              let posterURL = dict["posterURL"] as? String,
               let title = dict["title"] as? String,
               let rating = dict["rating"] as? Int,
               let workId = dict["workId"] as? Int,
@@ -126,6 +126,6 @@ struct ReviewService {
               let createdAt = (dict["createdAt"] as? Timestamp)?.dateValue()
         else { return nil }
         
-        return Review(id: id, uid: uid, workId: workId, mediaType: mediaType, nickname: nickname, photoURL: photoURL, rating: rating, workTitle: workTitle, title: title, text: text, createdAt: createdAt)
+        return Review(id: id, uid: uid, workId: workId, mediaType: mediaType, nickname: nickname, avatarURL: avatarURL, posterURL: posterURL, rating: rating, workTitle: workTitle, title: title, text: text, createdAt: createdAt)
     }
 }

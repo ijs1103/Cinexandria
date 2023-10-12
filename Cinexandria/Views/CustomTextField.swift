@@ -30,7 +30,7 @@ struct CustomTextField: View {
     var body: some View {
         VStack(spacing: 10) {
             HStack {
-                Text(config.label).customFont(size: 14, weight: .semibold)
+                Text(config.label).customFont(color: .teal, size: 14, weight: .semibold)
                 Spacer()
                 if let limit = config.limit {
                     Text("\(textCount)/\(limit)").customFont(size: 14, weight: .semibold)
@@ -38,7 +38,7 @@ struct CustomTextField: View {
             }
             
             ZStack(alignment: .topLeading) {
-                TextField("", text: $text).customFont(size: 16, weight: .semibold).disableAutocorrection(true).disabled(config.isDisabled).frame(height: 45)
+                TextField("", text: $text).customFont(color: config.isDisabled ? .gray : .white , size: 16, weight: .semibold).disableAutocorrection(true).disabled(config.isDisabled).frame(height: 45)
                     .foregroundColor(config.isDisabled ? .gray : .white)
                     .padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 8))
                     .cornerRadius(10)
