@@ -81,5 +81,6 @@ struct Constants {
         static let allReview = "모든 리뷰"
         static let recentReview = "최신 리뷰 모두보기"
         static let myReview = "작성한 리뷰"
+        static let reviewDetail = "리뷰 상세"
     }
 }

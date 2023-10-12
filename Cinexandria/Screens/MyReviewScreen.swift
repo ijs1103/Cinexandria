@@ -34,7 +34,9 @@ struct MyReviewScreen: View {
                 } else {
                     VStack(spacing: 12) {
                         ForEach(reviews, id: \.id) { review in
-                            MyReviewCard(review: review)
+                            NavigationLink(destination: ReviewDetailScreen(review: review)) {
+                                MyReviewCard(review: review)
+                            }
                         }
                     }
                     .padding().id("ScrollToTop")
