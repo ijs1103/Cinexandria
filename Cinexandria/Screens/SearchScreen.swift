@@ -32,7 +32,7 @@ struct SearchScreen: View {
         }
         .padding()
         .background(.black)
-        .searchable(text: $searchedText, placement: .navigationBarDrawer, prompt: "영화/TV 제목 검색")
+        .searchable(text: $searchedText, placement: .navigationBarDrawer, prompt: "영화·시리즈 제목으로 검색")
         .onSubmit(of: .search) {
             if isKeywordValid(keyword: searchedText.trimmed()) {
                 Task {

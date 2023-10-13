@@ -111,7 +111,7 @@ struct DetailScreen: View {
                 Group {
                     if let hashTagItems = detailVM.workDetail?.hashTagItems {
                         ScrollView {
-                            LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())],alignment: .leading,  spacing: 10) {
+                            LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], alignment: .leading, spacing: 10) {
                                 ForEach(hashTagItems, id: \.self) { item in
                                     Text(item).customFont(color: .teal, size: 14, weight: .bold).fixedSize()
                                 }

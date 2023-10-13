@@ -35,11 +35,15 @@ struct WorkDetailViewModel {
     }
     
     var poster: URL? {
-        return (media == .movie) ? URL(string: "\(Constants.Urls.imageBase())\(movie!.posterPath)") : URL(string: "\(Constants.Urls.imageBase())\(tv!.posterPath)")
+        guard let posterPath = (media == .movie) ? movie?.posterPath : tv?.posterPath else { return nil }
+        let urlString = "\(Constants.Urls.imageBase())\(posterPath)"
+        return URL(string: urlString)
     }
     
     var backdrop: URL? {
-        return (media == .movie) ? URL(string: "\(Constants.Urls.imageBase(width: 500))\(movie!.backdropPath)") : URL(string: "\(Constants.Urls.imageBase(width: 500))\(tv!.backdropPath)")
+        guard let backdropPath = (media == .movie) ? movie?.backdropPath : tv?.backdropPath else { return nil }
+        let urlString = "\(Constants.Urls.imageBase(width: 500))\(backdropPath)"
+        return URL(string: urlString)
     }
     
     var title: String {

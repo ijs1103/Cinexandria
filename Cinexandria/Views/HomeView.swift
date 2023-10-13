@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     var body: some View {
-        ScrollView {
+        ScrollView(showsIndicators: false) {
             VStack {
                 TrendingSection()
                 Spacer(minLength: 30)
@@ -18,7 +18,6 @@ struct HomeView: View {
                 TopRatedSection()
             }
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding()
         .background(.black)
         .navigationTitle(Constants.mainTitle)

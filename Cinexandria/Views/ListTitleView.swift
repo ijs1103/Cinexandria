@@ -35,7 +35,7 @@ struct ListTitleView: View {
         } else if contents is [SearchResultViewModel] {
             return AnyView(SearchGridScreen(title: title, works: contents as! [SearchResultViewModel]))
         } else if contents == nil {
-            return AnyView(RecentReviewScreen())
+            return AnyView(RecentReviewScreen(navigationViewActive: false))
         }
         return AnyView(EmptyView())
     }

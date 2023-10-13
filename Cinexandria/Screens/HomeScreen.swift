@@ -16,8 +16,8 @@ struct HomeScreen: View {
             SearchScreen().tabItem {
                 Label("검색", systemImage: "magnifyingglass")
             }
-            EmptyView().tabItem {
-                Label("한줄평", systemImage: "bubble.left.fill")
+            RecentReviewScreen().tabItem {
+                Label("리뷰", systemImage: "bubble.left.fill")
             }
             MyPageScreen().tabItem {
                 Label("마이페이지", systemImage: "person.fill")

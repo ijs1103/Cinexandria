@@ -63,7 +63,7 @@ struct ReviewDetailScreen: View {
             Text(review.title).customFont(color: Color("BgThird"), size: 20, weight: .bold).padding(.top, 10)
             Text(review.text).customFont(size: 18, weight: .semibold).padding(.top, 12)
             Spacer()
-        }.background(.black).padding()
+        }.padding().background(Color("BgPrimary"))
             .navigationBarTitleDisplayMode(.inline)
             .navigationTitle(Constants.NavigationTitle.reviewDetail)
             .if(isMyReview) { view in

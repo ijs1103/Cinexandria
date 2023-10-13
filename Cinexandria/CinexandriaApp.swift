@@ -27,9 +27,9 @@ struct CinexandriaApp: App {
     @StateObject private var appState = AppState()
     
     init() {
-        Theme.navigationBarColors(background: UIColor(Color("BgPrimary")), titleColor: UIColor(Color("FontPrimary")))
-        Theme.tabBarColors(background: UIColor(Color("BgPrimary")), tintColor: UIColor(Color("FontPrimary")))
-        Theme.searchBarColors(background: UIColor(Color("BgThird")), tintColor: .white)
+        Theme.navigationBarColors(background: UIColor(red: 0.12, green: 0.25, blue: 0.45, alpha: 1.0), titleColor: UIColor(Color("FontPrimary")))
+        Theme.tabBarColors(background: UIColor(red: 0.12, green: 0.25, blue: 0.45, alpha: 1.0), tintColor: UIColor(Color("FontPrimary")))
+        Theme.searchBarColors(background: UIColor.black, tintColor: .white)
         // 네이버 앱으로 로그인 허용
         NaverThirdPartyLoginConnection.getSharedInstance()?.isNaverAppOauthEnable = true
         // 브라우저 로그인 허용

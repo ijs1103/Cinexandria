@@ -15,6 +15,14 @@ struct RecentReviewScreen: View {
     @State private var ScrollViewOffset: CGFloat = 0
     
     @State private var StartOffset: CGFloat = 0
+    
+    // NavigtionLink를 통해 현재 화면으로 이동해올때 navigationview를 toggle 하기 위한 flag 변수
+    // NavigtionLink를 통해 현재 화면으로 이동해오면 navigationview을 off 해야한다. 그렇지 않으면 navigationTitle이 한블럭 아래에 위치하게 된다.
+    let navigationViewActive: Bool
+    
+    init(navigationViewActive: Bool = true) {
+        self.navigationViewActive = navigationViewActive
+    }
         
     private func shouldFetchMore(id: String) -> Bool {
         return recentReviewVM.reviews[recentReviewVM.reviews.endIndex-1].id == id
@@ -60,6 +68,9 @@ struct RecentReviewScreen: View {
                 .background(.black)
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationTitle(Constants.NavigationTitle.recentReview)
+                .if(navigationViewActive) { view in
+                    view.navigationWrapper()
+                }
                 .tint(.white)
                 .loadingWrapper(appState.loadingState).task {
                     appState.loadingState = .loading
