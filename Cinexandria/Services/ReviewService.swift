@@ -28,6 +28,19 @@ struct ReviewService {
         }
     }
     
+    static func updateReview(data: [String: Any]) async {
+        let workId = data["workId"] as! Int
+        let uid = data["uid"] as! String
+        let docId = "\(workId)\(uid)"
+        let db = Firestore.firestore().collection("reviews")
+        do {
+            try await db.document(docId).updateData(data)
+        } catch {
+            print("firebase error - updateReview")
+            return
+        }
+    }
+    
     static func deleteReview(uid: String, workId: Int) async {
         let docId = "\(workId)\(uid)"
         let db = Firestore.firestore().collection("reviews")

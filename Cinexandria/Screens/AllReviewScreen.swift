@@ -33,7 +33,9 @@ struct AllReviewScreen: View {
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 12) {
                     ForEach(allReviewVM.reviews, id: \.id) { review in
-                        AllReviewCard(review: review)
+                        NavigationLink(destination: ReviewDetailScreen(review: review)) {
+                            AllReviewCard(review: review)
+                        }
                     }
                 }
                 .padding().id("ScrollToTop")

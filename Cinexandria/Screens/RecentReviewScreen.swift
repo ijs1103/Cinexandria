@@ -34,7 +34,9 @@ struct RecentReviewScreen: View {
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 12) {
                     ForEach(recentReviewVM.reviews, id: \.id) { review in
-                        AllReviewCard(review: review).onAppear(perform: {
+                        NavigationLink(destination: ReviewDetailScreen(review: review)) {
+                            AllReviewCard(review: review)
+                        }.onAppear(perform: {
                             if shouldFetchMore(id: review.id) {
                                 Task {
                                     await recentReviewVM.fetchMore()

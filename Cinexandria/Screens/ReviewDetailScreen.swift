@@ -15,6 +15,11 @@ struct ReviewDetailScreen: View {
     
     let review: ReviewViewModel
     
+    var isMyReview: Bool {
+        guard let uid = LocalData.shared.userId else { return false }
+        return (uid == review.uid)
+    }
+    
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
@@ -24,11 +29,11 @@ struct ReviewDetailScreen: View {
                     AsyncImage(url: review.avatarURL
                                , content: { phase in
                         if let image = phase.image {
-                            image.imageFit().clipShape(Circle()).clipped()
+                            image.imageFill().frame(width: 40, height: 40).clipShape(Circle()).clipped()
                         } else {
-                            Image("NoPoster").imageFit().clipShape(Circle()).clipped()
+                            Image("NoPoster").imageFill().frame(width: 40, height: 40).clipShape(Circle()).clipped()
                         }
-                    }).frame(width: 40, height: 40)
+                    })
                 }
                 Spacer()
                 Text(review.createdAt).customFont(color: .gray, size: 16, weight: .medium)
@@ -61,22 +66,25 @@ struct ReviewDetailScreen: View {
         }.background(.black).padding()
             .navigationBarTitleDisplayMode(.inline)
             .navigationTitle(Constants.NavigationTitle.reviewDetail)
-            .navigationBarItems(trailing: Image(systemName: "square.and.pencil").onTapGesture {
-                self.actionsheetActive = true
-            }.confirmationDialog("title", isPresented: $actionsheetActive, actions: {
-                Button("수정", role: .destructive) {
-                    // 수정화면으로 이동
-                }
-                Button("삭제", role: .destructive) {
-                    guard let uid = LocalData.shared.userId else {
-                        print("no authorization - ReviewDetailScreen")
-                        return
+            .if(isMyReview) { view in
+                view.navigationBarItems(trailing: Image(systemName: "square.and.pencil").onTapGesture {
+                    self.actionsheetActive = true
+                }.confirmationDialog("title", isPresented: $actionsheetActive, actions: {
+                    NavigationLink(destination: ReviewUpdateScreen(review: review)) {
+                        Button("리뷰 수정", role: .destructive) {}
                     }
-                    Task {
-                        await ReviewService.deleteReview(uid: uid, workId: review.workId)
+                    Button("리뷰 삭제", role: .destructive) {
+                        guard let uid = LocalData.shared.userId else {
+                            print("no authorization - ReviewDetailScreen")
+                            return
+                        }
+                        Task {
+                            await ReviewService.deleteReview(uid: uid, workId: review.workId)
+                        }
+                        presentationMode.wrappedValue.dismiss()
                     }
-                    presentationMode.wrappedValue.dismiss()
-                }
-            }))
+                    Button("취소", role: .cancel) {}
+                }))
+            }
     }
 }

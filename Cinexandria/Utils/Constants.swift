@@ -71,7 +71,7 @@ struct Constants {
             static let movie = "검색영화"
             static let tv = "검색TV"
         }
-        static let reviews = "최신 한줄평 ✍️"
+        static let reviews = "최신 리뷰 ✍️"
     }
     
     struct NavigationTitle {
@@ -82,5 +82,6 @@ struct Constants {
         static let recentReview = "최신 리뷰 모두보기"
         static let myReview = "작성한 리뷰"
         static let reviewDetail = "리뷰 상세"
+        static let reviewUpdate = "리뷰 수정"
     }
 }

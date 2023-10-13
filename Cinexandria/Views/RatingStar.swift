@@ -22,7 +22,7 @@ struct RatingStar: View {
     var body: some View {
         VStack(spacing: 10) {
             HStack {
-                Text("별점").customFont(size: 14, weight: .semibold)
+                Text("별점").customFont(color: .teal, size: 14, weight: .semibold)
                 Spacer()
             }
             HStack {

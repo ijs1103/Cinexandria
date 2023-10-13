@@ -30,7 +30,7 @@ struct CustomTextEditor: View {
     var body: some View {
         VStack(spacing: 10) {
             HStack {
-                Text(config.label).customFont(size: 14, weight: .semibold)
+                Text(config.label).customFont(color: .teal, size: 14, weight: .semibold)
                 Spacer()
                 Text("\(textCount)/\(config.limit)").customFont(size: 14, weight: .semibold)
             }

@@ -15,7 +15,9 @@ struct ReviewList: View {
         ScrollView(.horizontal, showsIndicators: false) {
             LazyHStack(spacing: 10) {
                 ForEach(reviews, id: \.id) { review in
-                    ReviewCard(review: review)
+                    NavigationLink(destination: ReviewDetailScreen(review: review)) {
+                        ReviewCard(review: review)
+                    }
                 }
             }
         }

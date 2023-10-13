@@ -15,6 +15,10 @@ struct ReviewViewModel {
         return review.id
     }
     
+    var uid: String {
+        return review.uid
+    }
+    
     var avatarURL: URL? {
         return URL(string: review.avatarURL)
     }

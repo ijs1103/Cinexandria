@@ -20,11 +20,11 @@ struct AllReviewCard: View {
                     AsyncImage(url: review.avatarURL
                                , content: { phase in
                         if let image = phase.image {
-                            image.imageFit().clipShape(Circle()).clipped()
+                            image.imageFill().frame(width: 40, height: 40).clipShape(Circle()).clipped()
                         } else {
-                            Image("NoPoster").imageFit().clipShape(Circle()).clipped()
+                            Image("NoPoster").imageFill().frame(width: 40, height: 40).clipShape(Circle()).clipped()
                         }
-                    }).frame(width: 40, height: 40)
+                    })
                 }
                 Spacer()
                 Text(review.createdAt).customFont(color: .gray, size: 16, weight: .medium)
