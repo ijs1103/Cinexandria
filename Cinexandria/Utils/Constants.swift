@@ -83,5 +83,6 @@ struct Constants {
         static let myReview = "작성한 리뷰"
         static let reviewDetail = "리뷰 상세"
         static let reviewUpdate = "리뷰 수정"
+        static let withDraw = "회원 탈퇴"
     }
 }

@@ -147,6 +147,25 @@ final class LoginViewModel: NSObject, ObservableObject {
             }
         }
     }
+    
+    func unlink() {
+        // Firebase(구글, 애플) 연동해제
+        if let user = Auth.auth().currentUser {
+            user.delete()
+        }
+        // 네이버 연동해제
+        if ((NaverThirdPartyLoginConnection.getSharedInstance()?.accessToken) != nil) {
+            NaverThirdPartyLoginConnection.getSharedInstance().requestDeleteToken()
+        }
+        // 카카오 연동해제
+        if AuthApi.hasToken() {
+            UserApi.shared.unlink { error in
+                if let error = error {
+                    print("카카오 연동해제 에러: \(error.localizedDescription)")
+                }
+            }
+        }
+    }
 }
 
 extension LoginViewModel: UIApplicationDelegate, NaverThirdPartyLoginConnectionDelegate {

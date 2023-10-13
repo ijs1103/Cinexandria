@@ -23,7 +23,7 @@ final class MyPageViewModel: ObservableObject {
         }
     }
     
-    let infoContents: [MyPageListCellViewModel] = [ MyPageListCellViewModel(title: "정보 수정", count: nil, destination: AnyView(ProfileEditScreen())), MyPageListCellViewModel(title: "회원 탈퇴", count: nil, destination: AnyView(EmptyView()))]
+    let infoContents: [MyPageListCellViewModel] = [ MyPageListCellViewModel(title: "정보 수정", count: nil, destination: AnyView(ProfileEditScreen())), MyPageListCellViewModel(title: "회원 탈퇴", count: nil, destination: AnyView(WithDrawScreen()))]
 
     func fetchLikeCount() async {
         guard let uid = LocalData.shared.userId else {

@@ -105,4 +105,9 @@ struct UserService {
             return 0
         }
     }
+    
+    static func deleteUser(uid: String) {
+        let db = Firestore.firestore().collection("users").document(uid)
+        db.delete()
+    }
 }
