@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import PopupView
 
 struct ReviewDetailScreen: View {
     
     @Environment(\.presentationMode) var presentationMode
     @State private var actionsheetActive: Bool = false
     @State private var alertActive: Bool = false
+    @State private var floatActive: Bool = false
     
     let review: ReviewViewModel
     
@@ -66,6 +68,18 @@ struct ReviewDetailScreen: View {
         }.padding().background(Color("BgPrimary"))
             .navigationBarTitleDisplayMode(.inline)
             .navigationTitle(Constants.NavigationTitle.reviewDetail)
+            .popup(isPresented: $floatActive) {
+                SuccessFloat(message: Constants.message.reviewDelete)
+            } customize: {
+                $0
+                    .type(.floater())
+                    .position(.top)
+                    .animation(.spring())
+                    .autohideIn(3)
+                    .dismissSourceCallback { _ in
+                        presentationMode.wrappedValue.dismiss()
+                    }
+            }
             .if(isMyReview) { view in
                 view.navigationBarItems(trailing: Image(systemName: "square.and.pencil").onTapGesture {
                     self.actionsheetActive = true
@@ -81,7 +95,7 @@ struct ReviewDetailScreen: View {
                         Task {
                             await ReviewService.deleteReview(uid: uid, workId: review.workId)
                         }
-                        presentationMode.wrappedValue.dismiss()
+                        self.floatActive = true
                     }
                     Button("취소", role: .cancel) {}
                 }))

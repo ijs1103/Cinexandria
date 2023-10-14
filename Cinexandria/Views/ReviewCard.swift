@@ -21,11 +21,12 @@ struct ReviewCard: View {
                 }.foregroundColor(.teal)
             }
             Text(review.title).font(.system(size: 16, weight: .bold)).foregroundColor(.white).padding(EdgeInsets(top: 4, leading: 0, bottom: 10, trailing: 0)).lineLimit(2)
-            Text("\(review.nickname)님의 리뷰").font(.system(size: 12, weight: .semibold)).lineLimit(1).foregroundColor(.gray)
+            Text("\(review.nickname)님의 리뷰").customFont(color: Color("BgThird"), size: 12, weight: .semibold).lineLimit(1)
         }
         .frame(width: 200)
         .padding()
-        .background(Color("BgPrimary"))
+        .background(Color("BgSecond"))
         .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+        .shadowedStyle()
     }
 }

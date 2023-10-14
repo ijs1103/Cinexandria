@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PopupView
 
 struct ReviewWriteScreen: View {
     
@@ -14,6 +15,7 @@ struct ReviewWriteScreen: View {
     @State private var reviewTitle: String = ""
     @State private var reviewText: String = ""
     @State private var buttonDisabled: Bool = true
+    @State private var floatActive: Bool = false
 
     let work: WorkDetailViewModel?
     
@@ -35,8 +37,8 @@ struct ReviewWriteScreen: View {
         }
         await MainActor.run {
             hideKeyboard()
-            presentationMode.wrappedValue.dismiss()
         }
+        self.floatActive = true 
     }
     
     var body: some View {
@@ -81,6 +83,17 @@ struct ReviewWriteScreen: View {
             .navigationTitle(Constants.NavigationTitle.reviewWrite)
             .onTapGesture {
                 hideKeyboard()
+            }.popup(isPresented: $floatActive) {
+                SuccessFloat(message: Constants.message.reviewWrite)
+            } customize: {
+                $0
+                    .type(.floater())
+                    .position(.top)
+                    .animation(.spring())
+                    .autohideIn(3)
+                    .dismissSourceCallback { _ in
+                        presentationMode.wrappedValue.dismiss()
+                    }
             }
     }
 }

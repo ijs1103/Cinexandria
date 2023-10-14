@@ -19,6 +19,8 @@ final class LoginViewModel: NSObject, ObservableObject {
     static let shared = LoginViewModel()
     @Published var profile: User?
     @Published var isLoggined: Bool = false
+    @Published var loginFloatActive: Bool = false
+    @Published var logoutFloatActive: Bool = false
     private var currentNonce: String?
 
     func loginCheck() {
@@ -69,6 +71,7 @@ final class LoginViewModel: NSObject, ObservableObject {
         }
         // 로컬에서 uid 삭제
         LocalData.shared.userId = nil
+        self.logoutFloatActive = true
     }
     
     func setUserToFirebaseAndLocal(data: [String : Any]) {
@@ -82,25 +85,36 @@ final class LoginViewModel: NSObject, ObservableObject {
         GIDSignIn.sharedInstance.configuration = config
     }
     
-    func googleSignIn() async throws {
-        guard let rootVC = Utils.shared.getRootVC() else { throw URLError(.cannotFindHost) }
-        let result = try await GIDSignIn.sharedInstance.signIn(withPresenting: rootVC)
-        guard let idToken = result.user.idToken?.tokenString else {
-            throw URLError(.badServerResponse)
-        }
-        let accessToken = result.user.accessToken.tokenString
-        let credential = GoogleAuthProvider.credential(withIDToken: idToken, accessToken: accessToken)
-        let authResult = try await Auth.auth().signIn(with: credential)
-        guard let displayName = authResult.user.displayName, let photoURL = authResult.user.photoURL else {
-            throw NetworkError.badCredential
-        }
-        guard let uid = Auth.auth().currentUser?.uid else {
-            print("empty uid - firebaseauth")
+    func googleSignIn() async {
+        guard let rootVC = Utils.shared.getRootVC() else {
+            print("Cannot get ViewController")
             return
         }
-        let data = ["uid": uid, "photoURL": photoURL.absoluteString, "nickname": displayName]
-        self.setUserToFirebaseAndLocal(data: data)
+        do {
+            let result = try await GIDSignIn.sharedInstance.signIn(withPresenting: rootVC)
+            guard let idToken = result.user.idToken?.tokenString else {
+                print("Cannot get id token")
+                return
+            }
+            let accessToken = result.user.accessToken.tokenString
+            let credential = GoogleAuthProvider.credential(withIDToken: idToken, accessToken: accessToken)
+            let authResult = try await Auth.auth().signIn(with: credential)
+            guard let displayName = authResult.user.displayName, let photoURL = authResult.user.photoURL else {
+                print("Cannot get credential")
+                return
+            }
+            guard let uid = Auth.auth().currentUser?.uid else {
+                print("empty uid - firebaseauth")
+                return
+            }
+            let data = ["uid": uid, "photoURL": photoURL.absoluteString, "nickname": displayName]
+            self.setUserToFirebaseAndLocal(data: data)
+        } catch {
+            print("firebase error - googleSignIn")
+            return
+        }
         DispatchQueue.main.async {
+            self.loginFloatActive = true
             self.isLoggined = true
         }
     }
@@ -115,6 +129,7 @@ final class LoginViewModel: NSObject, ObservableObject {
             .getSharedInstance()
             .requestThirdPartyLogin()
     }
+    
     private func kakaoWork(_ error: Error?) {
         if let error = error {
             print("카카오 로그인 에러: \(error.localizedDescription)")
@@ -130,6 +145,7 @@ final class LoginViewModel: NSObject, ObservableObject {
                 let data = ["uid": email, "photoURL": photoURL, "nickname": nickname]
                 self.setUserToFirebaseAndLocal(data: data as [String : Any])
                 DispatchQueue.main.async {
+                    self.loginFloatActive = true
                     self.isLoggined = true
                 }
             }
@@ -210,6 +226,7 @@ extension LoginViewModel: UIApplicationDelegate, NaverThirdPartyLoginConnectionD
                 let data = ["uid": info.email, "photoURL": info.profileImage, "nickname": info.nickname]
                 self.setUserToFirebaseAndLocal(data: data)
                 DispatchQueue.main.async {
+                    self.loginFloatActive = true
                     self.isLoggined = true
                 }
             } catch NetworkError.badDecoding {

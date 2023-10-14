@@ -40,6 +40,6 @@ struct MyReviewCard: View {
             Text(review.title).customFont(color: Color("BgThird"), size: 18, weight: .bold).padding(.top, 10)
             Text(review.text).customFont(size: 16, weight: .semibold).lineLimit(2)
             Spacer()
-        }.frame(height: 200).padding(.horizontal).padding(.vertical, 8).background(Color("BgPrimary")).clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+        }.frame(height: 200).padding(.horizontal).padding(.vertical, 8).background(Color("BgPrimary")).clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous)).shadowedStyle()
     }
 }

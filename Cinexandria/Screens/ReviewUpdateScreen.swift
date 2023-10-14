@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PopupView
 
 struct ReviewUpdateScreen: View {
     @Environment(\.presentationMode) var presentationMode
@@ -13,7 +14,8 @@ struct ReviewUpdateScreen: View {
     @State private var reviewTitle: String
     @State private var reviewText: String
     @State private var buttonDisabled: Bool = true
-
+    @State private var floatActive: Bool = false
+    
     let review: ReviewViewModel
     
     init(review: ReviewViewModel) {
@@ -31,10 +33,7 @@ struct ReviewUpdateScreen: View {
         guard let rating = rating else { return }
         let data = ["uid": uid, "workId": review.workId, "rating": rating, "title": reviewTitle, "text": reviewText] as [String: Any]
         await ReviewService.updateReview(data: data)
-        await MainActor.run {
-            hideKeyboard()
-            presentationMode.wrappedValue.dismiss()
-        }
+        self.floatActive = true
     }
     
     var body: some View {
@@ -91,6 +90,18 @@ struct ReviewUpdateScreen: View {
             .navigationTitle(Constants.NavigationTitle.reviewUpdate)
             .onTapGesture {
                 hideKeyboard()
+            }
+            .popup(isPresented: $floatActive) {
+                SuccessFloat(message: Constants.message.reviewUpdate)
+            } customize: {
+                $0
+                    .type(.floater())
+                    .position(.top)
+                    .animation(.spring())
+                    .autohideIn(3)
+                    .dismissSourceCallback { _ in
+                        presentationMode.wrappedValue.dismiss()
+                    }
             }
     }
 }

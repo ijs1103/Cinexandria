@@ -65,6 +65,9 @@
 		2AC8BB5F2AD83DB400143D2D /* ReviewDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC8BB5E2AD83DB400143D2D /* ReviewDetailScreen.swift */; };
 		2AC8BB612AD9260600143D2D /* ReviewUpdateScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC8BB602AD9260600143D2D /* ReviewUpdateScreen.swift */; };
 		2AC8BB632AD993C700143D2D /* WithDrawScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC8BB622AD993C700143D2D /* WithDrawScreen.swift */; };
+		2AC8BB662AD9ACA300143D2D /* PopupView in Frameworks */ = {isa = PBXBuildFile; productRef = 2AC8BB652AD9ACA300143D2D /* PopupView */; };
+		2AC8BB682AD9B19900143D2D /* SuccessFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC8BB672AD9B19900143D2D /* SuccessFloat.swift */; };
+		2AC8BB6A2ADA960D00143D2D /* LoginPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC8BB692ADA960D00143D2D /* LoginPopup.swift */; };
 		2AF4E57B2AA5D6A900ABE68C /* CinexandriaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF4E57A2AA5D6A900ABE68C /* CinexandriaApp.swift */; };
 		2AF4E57F2AA5D6AA00ABE68C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AF4E57E2AA5D6AA00ABE68C /* Assets.xcassets */; };
 		2AF4E5822AA5D6AA00ABE68C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AF4E5812AA5D6AA00ABE68C /* Preview Assets.xcassets */; };
@@ -167,6 +170,8 @@
 		2AC8BB5E2AD83DB400143D2D /* ReviewDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewDetailScreen.swift; sourceTree = "<group>"; };
 		2AC8BB602AD9260600143D2D /* ReviewUpdateScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewUpdateScreen.swift; sourceTree = "<group>"; };
 		2AC8BB622AD993C700143D2D /* WithDrawScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithDrawScreen.swift; sourceTree = "<group>"; };
+		2AC8BB672AD9B19900143D2D /* SuccessFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessFloat.swift; sourceTree = "<group>"; };
+		2AC8BB692ADA960D00143D2D /* LoginPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPopup.swift; sourceTree = "<group>"; };
 		2AF4E5772AA5D6A900ABE68C /* Cinexandria.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cinexandria.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AF4E57A2AA5D6A900ABE68C /* CinexandriaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinexandriaApp.swift; sourceTree = "<group>"; };
 		2AF4E57E2AA5D6AA00ABE68C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -216,6 +221,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AC8BB662AD9ACA300143D2D /* PopupView in Frameworks */,
 				2AC8BB102AC486E700143D2D /* GoogleSignInSwift in Frameworks */,
 				2AC8BB222AC8338400143D2D /* KakaoSDKUser in Frameworks */,
 				2AF4E61A2AB1B0DD00ABE68C /* YouTubePlayerKit in Frameworks */,
@@ -338,6 +344,8 @@
 				2AC8BB4C2AD4191F00143D2D /* RatingStar.swift */,
 				2AC8BB4E2AD43A3E00143D2D /* CustomTextEditor.swift */,
 				2AC8BB5C2AD7E08400143D2D /* MyReviewCard.swift */,
+				2AC8BB672AD9B19900143D2D /* SuccessFloat.swift */,
+				2AC8BB692ADA960D00143D2D /* LoginPopup.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -493,6 +501,7 @@
 				2AC8BB1D2AC8338400143D2D /* KakaoSDKAuth */,
 				2AC8BB1F2AC8338400143D2D /* KakaoSDKCommon */,
 				2AC8BB212AC8338400143D2D /* KakaoSDKUser */,
+				2AC8BB652AD9ACA300143D2D /* PopupView */,
 			);
 			productName = Cinexandria;
 			productReference = 2AF4E5772AA5D6A900ABE68C /* Cinexandria.app */;
@@ -527,6 +536,7 @@
 				2AF4E6182AB1B0DD00ABE68C /* XCRemoteSwiftPackageReference "YouTubePlayerKit" */,
 				2AC8BB0C2AC486E700143D2D /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				2AC8BB1C2AC8338400143D2D /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
+				2AC8BB642AD9ACA300143D2D /* XCRemoteSwiftPackageReference "PopupView" */,
 			);
 			productRefGroup = 2AF4E5782AA5D6A900ABE68C /* Products */;
 			projectDirPath = "";
@@ -660,6 +670,7 @@
 				2AF4E6172AB09A5200ABE68C /* Text+.swift in Sources */,
 				2AC8BB2C2ACAB85D00143D2D /* UserService.swift in Sources */,
 				2AF4E6052AAA1DAA00ABE68C /* Review.swift in Sources */,
+				2AC8BB682AD9B19900143D2D /* SuccessFloat.swift in Sources */,
 				2AC8BAEA2ABC386D00143D2D /* GridViewModel.swift in Sources */,
 				2AC8BB042AC45B4B00143D2D /* MyPageView.swift in Sources */,
 				2AC8BB352ACD61DF00143D2D /* ImagePicker.swift in Sources */,
@@ -682,6 +693,7 @@
 				2AF4E6092AAB01FC00ABE68C /* TopRatedSection.swift in Sources */,
 				2AF4E5FF2AAA164C00ABE68C /* ReviewSection.swift in Sources */,
 				2AF4E5F92AA8E81D00ABE68C /* PosterCard.swift in Sources */,
+				2AC8BB6A2ADA960D00143D2D /* LoginPopup.swift in Sources */,
 				2AC8BB592AD6E36200143D2D /* RecentReviewViewModel.swift in Sources */,
 				2AF4E5E02AA72DD800ABE68C /* ListTitleView.swift in Sources */,
 				2AF4E6222AB2ECE700ABE68C /* AllReviewList.swift in Sources */,
@@ -911,6 +923,14 @@
 				kind = branch;
 			};
 		};
+		2AC8BB642AD9ACA300143D2D /* XCRemoteSwiftPackageReference "PopupView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/exyte/PopupView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		2AF4E5CA2AA5F86C00ABE68C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -954,6 +974,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2AC8BB1C2AC8338400143D2D /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
 			productName = KakaoSDKUser;
+		};
+		2AC8BB652AD9ACA300143D2D /* PopupView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2AC8BB642AD9ACA300143D2D /* XCRemoteSwiftPackageReference "PopupView" */;
+			productName = PopupView;
 		};
 		2AF4E5CB2AA5F86C00ABE68C /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;

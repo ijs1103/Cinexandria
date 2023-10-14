@@ -18,22 +18,24 @@ final class DetailViewModel: ObservableObject {
     @Published var imdbRating: String?
     @Published var youTubePlayer: YouTubePlayer?
     @Published var isLiked: Bool = false
+    @Published var isLoggined: Bool = false
     
     func load(media: MediaType, id: Int) async {
-        await MainActor.run {
-            clear()
-        }
+        await clear()
         await fetchWorkDetail(media: media, id: id)
         await fetchReviews(id: id)
         await fetchReviewCount(id: id)
         await likeCheck(id: id)
+        await loginCheck()
     }
     
-    private func clear() {
-        workDetail = nil
-        reviews = []
-        imdbRating = nil
-        youTubePlayer = nil
+    private func clear() async  {
+        DispatchQueue.main.async {
+            self.workDetail = nil
+            self.reviews = []
+            self.imdbRating = nil
+            self.youTubePlayer = nil
+        }
     }
     
     private func fetchWorkDetail(media: MediaType, id: Int) async {
@@ -170,6 +172,12 @@ final class DetailViewModel: ObservableObject {
         let isLiked = await UserService.likeCheck(uid: uid, workId: String(id))
         DispatchQueue.main.async {
             self.isLiked = isLiked
+        }
+    }
+    
+    func loginCheck() async {
+        DispatchQueue.main.async {
+            self.isLoggined = (LocalData.shared.userId != nil)
         }
     }
 }

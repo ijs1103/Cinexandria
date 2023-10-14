@@ -28,7 +28,7 @@ struct SearchResultCard: View {
                 Text(work.subtitle).customFont(color: .gray, size: 14, weight: .semibold)
             }.padding(.top, 12)
             Spacer()
-        }
+        }.shadowedStyle()
     }
 }
 

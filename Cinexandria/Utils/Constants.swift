@@ -85,4 +85,16 @@ struct Constants {
         static let reviewUpdate = "리뷰 수정"
         static let withDraw = "회원 탈퇴"
     }
+    
+    struct message {
+        static let withdraw = "회원탈퇴 되었습니다."
+        static let reviewWrite = "성공적으로 리뷰를 작성하였습니다."
+        static let likeWork = "찜 성공!"
+        static let likeCancel = "찜 해제!"
+        static let reviewDelete = "성공적으로 리뷰를 삭제하였습니다."
+        static let reviewUpdate = "성공적으로 리뷰를 수정하였습니다."
+        static let profileEdit = "성공적으로 프로필을 수정하였습니다."
+        static let signIn = "로그인 성공!"
+        static let signOut = "로그아웃 성공!"
+    }
 }

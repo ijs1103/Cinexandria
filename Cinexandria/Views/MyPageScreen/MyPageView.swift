@@ -19,7 +19,6 @@ struct MyPageView: View {
     @ObservedObject private var myPageVM = MyPageViewModel()
     
     var body: some View {
-        //ProfileEditScreen
         VStack {
             AvatarView(profile: loginVM.profile)
             List {

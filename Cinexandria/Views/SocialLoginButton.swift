@@ -8,34 +8,27 @@
 import SwiftUI
 
 struct SocialLoginButton: View {
-    
-    @EnvironmentObject private var appState: AppState
     @ObservedObject private var loginVM = LoginViewModel.shared
-    
     let provider: Provider
+
+    private func handleLogin() {
+        switch provider {
+        case .google:
+            Task {
+                await loginVM.googleSignIn()
+            }
+        case .apple:
+            loginVM.appleSignIn()
+        case .naver:
+            loginVM.naverSignIn()
+        case .kakao:
+            loginVM.kakaoSignIn()
+        }
+    }
     
     var body: some View {
         Button(action: {
-            switch provider {
-            case .google:
-                Task {
-                    do {
-                        try await loginVM.googleSignIn()
-                    } catch URLError.cannotFindHost {
-                        print("Cannot get ViewController")
-                    } catch URLError.badServerResponse {
-                        print("Cannot get id token")
-                    } catch NetworkError.badCredential {
-                        print("Cannot get credential")
-                    }
-                }
-            case .apple:
-                loginVM.appleSignIn()
-            case .naver:
-                loginVM.naverSignIn()
-            case .kakao:
-                loginVM.kakaoSignIn()
-            }
+            handleLogin()
         }) {
             HStack(alignment: .center) {
                 Image(provider.buttonImageName).imageFit().frame(height: 36)

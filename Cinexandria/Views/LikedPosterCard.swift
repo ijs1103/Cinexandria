@@ -40,6 +40,7 @@ struct LikedPosterCard: View {
             .background(Color("BgSecond"))
             .cornerRadius(10, corners: .bottomLeft)
             .cornerRadius(10, corners: .bottomRight)
+            .shadowedStyle()
         }
     }
 }

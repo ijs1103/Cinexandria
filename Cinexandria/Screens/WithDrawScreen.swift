@@ -6,20 +6,26 @@
 //
 
 import SwiftUI
+import PopupView
 
 struct WithDrawScreen: View {
     
     @Environment(\.presentationMode) var presentationMode
+    @State private var floatActive: Bool = false
     
     private func handleButtonClick() async {
         guard let uid = LocalData.shared.userId else {
             print("no authorization - WithDrawScreen")
             return
         }
+        // 소셜로그인 연동해제
         await LoginViewModel.shared.unlink()
+        // firestore에서 유저정보 삭제
         UserService.deleteUser(uid: uid)
+        // 로컬에서 uid 삭제
+        LocalData.shared.userId = nil
         DispatchQueue.main.async {
-            presentationMode.wrappedValue.dismiss()
+            self.floatActive = true
         }
     }
     
@@ -38,6 +44,18 @@ struct WithDrawScreen: View {
         }.background(.black).padding()
             .navigationBarTitleDisplayMode(.inline)
             .navigationTitle(Constants.NavigationTitle.withDraw)
+            .popup(isPresented: $floatActive) {
+                SuccessFloat(message: Constants.message.withdraw)
+            } customize: {
+                $0
+                    .type(.floater())
+                    .position(.top)
+                    .animation(.spring())
+                    .autohideIn(3)
+                    .dismissSourceCallback { _ in
+                        presentationMode.wrappedValue.dismiss()
+                    }
+            }
     }
 }
 

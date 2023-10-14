@@ -17,10 +17,12 @@ struct AllReviewList: View {
     let workId: Int
     
     var body: some View {
-        VStack(alignment: .center, spacing: 10) {
+        VStack(spacing: 10) {
             if reviewCount > 0 {
                 ForEach(reviews, id: \.id) { review in
-                    AllReviewCard(review: review)
+                    NavigationLink(destination: ReviewDetailScreen(review: review)) {
+                        AllReviewCard(review: review)
+                    }
                 }
                 if reviewCount > 3 {
                     NavigationLink(destination: AllReviewScreen(workId: workId)) {

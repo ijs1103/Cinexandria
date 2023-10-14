@@ -20,6 +20,26 @@ struct MyPageScreen: View {
             }
         }.padding().background(.black).task {
             loginVM.loginCheck()
+        }.popup(isPresented: $loginVM.loginFloatActive) {
+            SuccessFloat(message: Constants.message.signIn)
+        } customize: {
+            $0.type(.floater())
+                .position(.top)
+                .animation(.spring())
+                .autohideIn(1)
+                .dismissCallback {
+                    loginVM.loginFloatActive = false
+                }
+        }.popup(isPresented: $loginVM.logoutFloatActive) {
+            SuccessFloat(message: Constants.message.signOut)
+        } customize: {
+            $0.type(.floater())
+                .position(.top)
+                .animation(.spring())
+                .autohideIn(1)
+                .dismissCallback {
+                    loginVM.logoutFloatActive = false
+                }
         }
     }
 }

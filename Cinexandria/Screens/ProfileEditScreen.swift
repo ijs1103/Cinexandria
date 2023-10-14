@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PopupView
 
 struct ProfileEditScreen: View {
     
@@ -17,6 +18,7 @@ struct ProfileEditScreen: View {
     @State private var uid: String
     @State private var nickname: String
     @State private var buttonDisabled: Bool = true
+    @State private var floatActive: Bool = false
     
     init(loginVM: LoginViewModel = LoginViewModel.shared, profileEditVM: ProfileEditViewModel = ProfileEditViewModel()) {
         self.loginVM = loginVM
@@ -36,7 +38,7 @@ struct ProfileEditScreen: View {
             profileEditVM.updateProfile(data: ["nickname": nickname])
         }
         hideKeyboard()
-        presentationMode.wrappedValue.dismiss()
+        self.floatActive = true 
     }
     
     var body: some View {
@@ -65,6 +67,18 @@ struct ProfileEditScreen: View {
             .navigationTitle(Constants.NavigationTitle.profileEdit)
             .onTapGesture {
                 hideKeyboard()
+            }
+            .popup(isPresented: $floatActive) {
+                SuccessFloat(message: Constants.message.profileEdit)
+            } customize: {
+                $0
+                    .type(.floater())
+                    .position(.top)
+                    .animation(.spring())
+                    .autohideIn(3)
+                    .dismissSourceCallback { _ in
+                        presentationMode.wrappedValue.dismiss()
+                    }
             }
     }
 }

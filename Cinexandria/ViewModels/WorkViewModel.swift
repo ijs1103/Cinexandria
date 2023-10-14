@@ -26,8 +26,9 @@ struct WorkViewModel {
     }
     
     var poster: URL? {
-        let baseUrl = "https://image.tmdb.org/t/p/w200"
-        return (mediaType == .movie) ? URL(string: "\(baseUrl)\(movie!.posterPath)") : URL(string: "\(baseUrl)\(tv!.posterPath)")
+        guard let posterPath = (mediaType == .movie) ? movie?.posterPath : tv?.posterPath else { return nil }
+        let urlString = "https://image.tmdb.org/t/p/w200\(posterPath)"
+        return URL(string: urlString)
     }
     
     var title: String {
