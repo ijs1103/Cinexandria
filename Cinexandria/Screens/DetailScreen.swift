@@ -234,7 +234,7 @@ struct DetailScreen: View {
                     .type(.floater())
                     .position(.top)
                     .animation(.spring())
-                    .autohideIn(3)
+                    .autohideIn(2)
             }
     }
 }

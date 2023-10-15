@@ -75,7 +75,7 @@ struct ProfileEditScreen: View {
                     .type(.floater())
                     .position(.top)
                     .animation(.spring())
-                    .autohideIn(3)
+                    .autohideIn(2)
                     .dismissSourceCallback { _ in
                         presentationMode.wrappedValue.dismiss()
                     }
