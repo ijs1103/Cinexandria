@@ -21,7 +21,7 @@ struct AllReviewList: View {
             if reviewCount > 0 {
                 ForEach(reviews, id: \.id) { review in
                     NavigationLink(destination: ReviewDetailScreen(review: review)) {
-                        AllReviewCard(review: review)
+                        DetailReviewCard(review: review)
                     }
                 }
                 if reviewCount > 3 {

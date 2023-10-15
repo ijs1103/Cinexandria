@@ -166,8 +166,11 @@ struct DetailScreen: View {
                     
                     Group {
                         Text("예고편").SubTitleView()
-                        if let player = self.detailVM.youTubePlayer {
-                            YouTubePlayerView(player) { state in
+                        if let videoSource = self.detailVM.videoSource {
+                            YouTubePlayerView(YouTubePlayer(
+                                source: videoSource,
+                                configuration: .init()
+                            )) { state in
                                 // Overlay ViewBuilder closure to place an overlay View
                                 // for the current `YouTubePlayer.State`
                                 switch state {

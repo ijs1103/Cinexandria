@@ -17,6 +17,7 @@ final class DetailViewModel: ObservableObject {
     @Published var reviewCount: Int = 0
     @Published var imdbRating: String?
     @Published var youTubePlayer: YouTubePlayer?
+    @Published var videoSource: YouTubePlayer.Source?
     @Published var isLiked: Bool = false
     @Published var isLoggined: Bool = false
     @Published var myReview: ReviewViewModel?
@@ -99,11 +100,8 @@ final class DetailViewModel: ObservableObject {
     
     private func configYoutube(id: String?) async {
         guard let youtubeId = id else { return }
-        await MainActor.run {
-            self.youTubePlayer = YouTubePlayer(
-                source: .video(id: youtubeId),
-                configuration: .init()
-            )
+        DispatchQueue.main.async {
+            self.videoSource = .video(id: youtubeId)
         }
     }
     

@@ -29,6 +29,6 @@ struct ScrollTopButton: View {
                 .overlay(Circle().stroke(.white, lineWidth: 4))
                 .shadow(color: Color.black.opacity(0.1), radius: 5, x: 5, y: 5)
         }).padding(.trailing)
-            .padding(.bottom, Theme.getSafeArea().bottom == 0 ? 12 : 0)
+            .padding(.bottom, Theme.getSafeArea().bottom == 0 ? 36 : 24)
     }
 }

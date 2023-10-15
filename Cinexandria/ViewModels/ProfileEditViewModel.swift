@@ -14,7 +14,7 @@ final class ProfileEditViewModel: ObservableObject {
     func updateProfile(data: [String: Any]) {
         guard let uid = LocalData.shared.userId else { return }
         Task {
-            try await UserService.updateUser(uid: uid, data: data)
+            await UserService.updateUser(uid: uid, data: data)
         }
     }
     
