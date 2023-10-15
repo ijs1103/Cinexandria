@@ -8,7 +8,7 @@
 import SwiftUI
 import YouTubePlayerKit
 
-struct LikeLabel {
+struct LabelConfig {
     let text: String
     let iconColor: Color
 }
@@ -23,7 +23,8 @@ struct DetailScreen: View {
     
     let id: Int
     
-    @State var likeLabel: LikeLabel = LikeLabel(text: "찜하기", iconColor: .gray)
+    @State var likeLabel: LabelConfig = LabelConfig(text: "찜하기", iconColor: .gray)
+    @State var reviewLabel: LabelConfig = LabelConfig(text: "리뷰작성", iconColor: .gray)
     @State var popupActive: Bool = false
     @State private var floatActive: Bool = false
     @State private var floatMessage: String = ""
@@ -46,7 +47,19 @@ struct DetailScreen: View {
     }
     
     private func configLikeLabel(isLiked: Bool) {
-        self.likeLabel = isLiked ? LikeLabel(text: "찜해제", iconColor: .yellow) : LikeLabel(text: "찜하기", iconColor: .gray)
+        self.likeLabel = isLiked ? LabelConfig(text: "찜해제", iconColor: .yellow) : LabelConfig(text: "찜하기", iconColor: .gray)
+    }
+    
+    private func configReviewLabel(isReviewWritten: Bool) {
+        self.reviewLabel = isReviewWritten ? LabelConfig(text: "리뷰수정", iconColor: .yellow) : LabelConfig(text: "리뷰작성", iconColor: .gray)
+    }
+    
+    private func getReviewDestination() -> AnyView {
+        if let myReview = detailVM.myReview {
+            return AnyView(ReviewUpdateScreen(review: myReview))
+        } else {
+            return AnyView(ReviewWriteScreen(work: detailVM.workDetail))
+        }
     }
     
     var body: some View {
@@ -99,7 +112,7 @@ struct DetailScreen: View {
                     }
                     HStack(spacing: 24) {
                         Label {
-                            Text(likeLabel.text).customFont(size: 14, weight: .bold)
+                            Text(likeLabel.text).customFont(color: likeLabel.iconColor, size: 14, weight: .bold)
                         } icon: {
                             Image(systemName: "bookmark.fill").imageFill().frame(width: 18, height: 18)
                         }.labelStyle(VerticalLabelStyle()).foregroundColor(likeLabel.iconColor).onTapGesture {
@@ -109,19 +122,19 @@ struct DetailScreen: View {
                         }
                         
                         if detailVM.isLoggined {
-                            NavigationLink(destination: ReviewWriteScreen(work: detailVM.workDetail)) {
+                            NavigationLink(destination: getReviewDestination()) {
                                 Label {
-                                    Text("리뷰작성").customFont(size: 14, weight: .bold)
+                                    Text(reviewLabel.text).customFont(color: reviewLabel.iconColor, size: 14, weight: .bold)
                                 } icon: {
                                     Image(systemName: "pencil").imageFill().frame(width: 18, height: 18)
-                                }.labelStyle(VerticalLabelStyle()).foregroundColor(.gray)
+                                }.labelStyle(VerticalLabelStyle()).foregroundColor(reviewLabel.iconColor)
                             }
                         } else {
                             Label {
-                                Text("리뷰작성").customFont(size: 14, weight: .bold)
+                                Text(reviewLabel.text).customFont(size: 14, weight: .bold)
                             } icon: {
                                 Image(systemName: "pencil").imageFill().frame(width: 18, height: 18)
-                            }.labelStyle(VerticalLabelStyle()).foregroundColor(.gray).onTapGesture {
+                            }.labelStyle(VerticalLabelStyle()).foregroundColor(reviewLabel.iconColor).onTapGesture {
                                 self.popupActive = true
                             }
                         }
@@ -204,6 +217,7 @@ struct DetailScreen: View {
             appState.loadingState = .loading
             await detailVM.load(media: self.media, id: self.id)
             configLikeLabel(isLiked: detailVM.isLiked)
+            configReviewLabel(isReviewWritten: detailVM.myReview != nil)
             appState.loadingState = .idle
         }.loadingWrapper(appState.loadingState)
             .popup(isPresented: $popupActive) {

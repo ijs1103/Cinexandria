@@ -9,8 +9,8 @@ import SwiftUI
 
 struct LoginPopup: View {
     
-    @Binding var isPresented: Bool 
-
+    @Binding var isPresented: Bool
+    
     var body: some View {
         VStack(spacing: 12) {
             HStack(alignment: .top) {
@@ -24,32 +24,19 @@ struct LoginPopup: View {
                 .font(.system(size: 20))
                 .padding(.bottom, 20)
             
-            HStack(spacing: 10) {
-                Button("건너뛰기") {
-                    self.isPresented = false
-                }
-                .buttonStyle(.plain)
-                .font(.system(size: 18, weight: .bold))
-                .frame(maxWidth: .infinity)
-                .padding(.vertical, 14)
-                .padding(.horizontal, 24)
-                .foregroundColor(.gray)
-                .background(Color("BgDarkGray"))
-                .cornerRadius(12)
-                NavigationLink(destination: MyPageScreen()) {
-                    Button("로그인") {}
-                    .buttonStyle(.plain)
-                    .font(.system(size: 18, weight: .bold))
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, 14)
-                    .padding(.horizontal, 24)
-                    .foregroundColor(.white)
-                    .background(.blue)
-                    .cornerRadius(12)
-                }
+            Button("확인") {
+                self.isPresented = false
             }
+            .buttonStyle(.plain)
+            .font(.system(size: 18, weight: .bold))
+            .frame(maxWidth: 100)
+            .padding(.vertical, 14)
+            .padding(.horizontal, 24)
+            .foregroundColor(.white)
+            .background(.blue)
+            .cornerRadius(12)
         }
-        .frame(width: 250)
+        .frame(width: 200)
         .padding(EdgeInsets(top: 16, leading: 24, bottom: 40, trailing: 24))
         .background(Color.white.cornerRadius(20))
         .shadowedStyle()

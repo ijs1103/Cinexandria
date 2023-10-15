@@ -28,8 +28,3 @@ struct TrendingSection: View {
     }
 }
 
-struct TrendingSection_Previews: PreviewProvider {
-    static var previews: some View {
-        TrendingSection()
-    }
-}

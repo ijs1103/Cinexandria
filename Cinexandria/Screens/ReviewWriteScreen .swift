@@ -59,6 +59,7 @@ struct ReviewWriteScreen: View {
                     Text(work?.title ?? "무제").customFont(color: .white, size: 16, weight: .bold)
                     Text(work?.releaseYear ?? "xxxx").customFont(color: .gray, size: 14, weight: .semibold)
                 }.padding(.top, 12)
+                Spacer()
             }
             
             RatingStar(rating: $rating)

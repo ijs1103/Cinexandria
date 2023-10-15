@@ -24,9 +24,3 @@ struct HomeView: View {
         .navigationWrapper()
     }
 }
-
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView()
-    }
-}

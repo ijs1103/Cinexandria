@@ -124,6 +124,26 @@ struct ReviewService {
         }
     }
     
+    static func getMyReview(workId: Int, uid: String) async -> ReviewViewModel? {
+        let docId = "\(workId)\(uid)"
+        let db = Firestore.firestore().collection("reviews").document(docId)
+        do {
+            let snapshot = try await db.getDocument()
+            if let data = snapshot.data() {
+                if let decoded = decodeSnapshot(dict: data) {
+                    let myReview = ReviewViewModel(review: decoded)
+                    return myReview
+                }
+            } else {
+                return nil
+            }
+        } catch {
+            print("firebase error - getMyReview")
+            return nil
+        }
+        return nil
+    }
+    
     static func decodeSnapshot(dict: [String: Any]) -> Review? {
         guard let id = dict["id"] as? String,
               let uid = dict["uid"] as? String,

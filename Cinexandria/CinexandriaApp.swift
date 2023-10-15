@@ -80,7 +80,7 @@ struct CinexandriaApp: App {
                     if (AuthApi.isKakaoTalkLoginUrl(url)) {
                         _ = AuthController.handleOpenUrl(url: url)
                     }
-                }
+                }.tint(.white).foregroundColor(Color("FontPrimary")).environmentObject(appState)
             }
         }
         

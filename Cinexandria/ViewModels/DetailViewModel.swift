@@ -19,6 +19,7 @@ final class DetailViewModel: ObservableObject {
     @Published var youTubePlayer: YouTubePlayer?
     @Published var isLiked: Bool = false
     @Published var isLoggined: Bool = false
+    @Published var myReview: ReviewViewModel?
     
     func load(media: MediaType, id: Int) async {
         await clear()
@@ -26,6 +27,7 @@ final class DetailViewModel: ObservableObject {
         await fetchReviews(id: id)
         await fetchReviewCount(id: id)
         await likeCheck(id: id)
+        await reviewCheck(id: id)
         await loginCheck()
     }
     
@@ -178,6 +180,22 @@ final class DetailViewModel: ObservableObject {
     func loginCheck() async {
         DispatchQueue.main.async {
             self.isLoggined = (LocalData.shared.userId != nil)
+        }
+    }
+    
+    func reviewCheck(id: Int) async {
+        guard let uid = LocalData.shared.userId else {
+            print("no authorization - reviewCheck")
+            return
+        }
+        if let myReview = await ReviewService.getMyReview(workId: id, uid: uid) {
+            DispatchQueue.main.async {
+                self.myReview = myReview
+            }
+        } else {
+            DispatchQueue.main.async {
+                self.myReview = nil
+            }
         }
     }
 }
