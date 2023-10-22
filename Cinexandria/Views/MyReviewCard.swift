@@ -15,16 +15,18 @@ struct MyReviewCard: View {
         VStack(alignment: .leading, spacing: 10) {
             HStack(alignment: .top) {
                 HStack(alignment: .top, spacing: 12) {
-                    AsyncImage(url: review.posterURL
-                               , content: { phase in
-                        if let image = phase.image {
-                            image.imageFill().cornerRadius(8)
-                        } else if phase.error != nil {
-                            Image("NoPoster").imageFill().cornerRadius(8)
-                        } else {
-                            ProgressView()
-                        }
-                    }).frame(width: 60, height: 90)
+                    NavigationLink(destination: DetailScreen(media: review.mediaType, id: review.workId)) {
+                        AsyncImage(url: review.posterURL
+                                   , content: { phase in
+                            if let image = phase.image {
+                                image.imageFill().cornerRadius(8)
+                            } else if phase.error != nil {
+                                Image("NoPoster").imageFill().cornerRadius(8)
+                            } else {
+                                ProgressView()
+                            }
+                        }).frame(width: 60, height: 90)
+                    }
                     VStack(alignment: .leading, spacing: 8) {
                         Text(review.workTitle).customFont(color: .white, size: 14, weight: .bold)
                         Label {
