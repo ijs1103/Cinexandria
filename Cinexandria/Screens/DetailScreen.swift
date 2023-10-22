@@ -133,7 +133,7 @@ struct DetailScreen: View {
                             }
                         } else {
                             Label {
-                                Text(reviewLabel.text).customFont(size: 14, weight: .bold)
+                                Text(reviewLabel.text).customFont(color: reviewLabel.iconColor, size: 14, weight: .bold)
                             } icon: {
                                 Image(systemName: "pencil").imageFill().frame(width: 18, height: 18)
                             }.labelStyle(VerticalLabelStyle()).foregroundColor(reviewLabel.iconColor).onTapGesture {
