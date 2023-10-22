@@ -16,7 +16,6 @@ final class DetailViewModel: ObservableObject {
     @Published var reviews: [ReviewViewModel] = []
     @Published var reviewCount: Int = 0
     @Published var imdbRating: String?
-    @Published var youTubePlayer: YouTubePlayer?
     @Published var videoSource: YouTubePlayer.Source?
     @Published var isLiked: Bool = false
     @Published var isLoggined: Bool = false
@@ -37,7 +36,7 @@ final class DetailViewModel: ObservableObject {
             self.workDetail = nil
             self.reviews = []
             self.imdbRating = nil
-            self.youTubePlayer = nil
+            self.videoSource = nil
         }
     }
     
@@ -166,7 +165,7 @@ final class DetailViewModel: ObservableObject {
     
     func likeCheck(id: Int) async {
         guard let uid = LocalData.shared.userId else {
-            print("no authorization - likeWork")
+            print("no authorization - likeCheck")
             return
         }
         let isLiked = await UserService.likeCheck(uid: uid, workId: String(id))

@@ -10,7 +10,7 @@ import SwiftUI
 struct RecentReviewScreen: View {
     @EnvironmentObject private var appState: AppState
     
-    @ObservedObject var recentReviewVM = RecentReviewViewModel()
+    @ObservedObject var recentReviewVM = RecentReviewViewModel.shared
     
     @State private var ScrollViewOffset: CGFloat = 0
     

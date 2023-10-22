@@ -9,6 +9,10 @@ import Foundation
 import FirebaseFirestore
 
 final class RecentReviewViewModel: ObservableObject {
+    
+    static let shared = RecentReviewViewModel()
+    private init() {}
+    
     @Published var reviews: [ReviewViewModel] = []
     private var currentQuery: Query? = nil
     

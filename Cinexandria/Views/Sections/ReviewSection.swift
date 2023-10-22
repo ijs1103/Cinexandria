@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ReviewSection: View {
     
-    @ObservedObject private var reviewListVM = ReviewListViewModel()
+    @ObservedObject private var reviewListVM = RecentReviewViewModel.shared
         
     var body: some View {
         return VStack {
