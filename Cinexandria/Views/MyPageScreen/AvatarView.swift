@@ -31,14 +31,13 @@ struct AvatarView: View {
             if let previewImage = previewImage {
                 Image(uiImage: previewImage).imageFill().imageModifier(isEditing: isEditing)
             } else {
-                AsyncImage(url: url
-                           , content: { phase in
-                    if let image = phase.image {
-                        image.imageFill().imageModifier(isEditing: isEditing)
-                    } else {
-                        Image(systemName: "person.fill").imageFill().imageModifier(isEditing: isEditing)
-                    }
-                })
+                if let url = url {
+                    KfManager.downSampledImage(url: url,size: CGSize(width: 120, height: 120)).placeholder {
+                        ProgressView()
+                    }.imageFill().imageModifier(isEditing: isEditing)
+                } else {
+                    Image("person.fill").imageFill().imageModifier(isEditing: isEditing)
+                }
             }
             
             if !isEditing {

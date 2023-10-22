@@ -220,8 +220,8 @@ struct DetailScreen: View {
         .task {
             appState.loadingState = .loading
             await detailVM.load(media: self.media, id: self.id)
-            configLikeLabel(isLiked: detailVM.isLiked)
-            configReviewLabel(isReviewWritten: detailVM.myReview != nil)
+            configLikeLabel(isLiked: LocalData.shared.userId != nil && detailVM.isLiked)
+            configReviewLabel(isReviewWritten: LocalData.shared.userId != nil && detailVM.myReview != nil)
             appState.loadingState = .idle
         }.loadingWrapper(appState.loadingState)
             .popup(isPresented: $loginPopupActive) {

@@ -21,18 +21,13 @@ struct PosterCard: View {
     var body: some View {
         VStack(spacing: 0) {
             
-            AsyncImage(url: work.poster
-                       , content: { phase in
-                
-                if let image = phase.image {
-                    image.imageFill().cornerRadius(10, corners: .topLeft).cornerRadius(10, corners: .topRight).clipped()
-                } else if phase.error != nil {
-                    Image("NoPoster").imageFill().cornerRadius(10, corners: .topLeft).cornerRadius(10, corners: .topRight).clipped() // Indicates an error.
-                } else {
-                    ProgressView() // Acts as a placeholder.
-                }
-                
-            }).frame(width: isBig ? 180 : 120, height: isBig ? 270 : 180)
+            if let poster = work.poster {
+                KfManager.downSampledImage(url: poster, size: CGSize(width: isBig ? 180 : 120, height: isBig ? 270 : 180)).placeholder {
+                    ProgressView()
+                }.imageFill().frame(width: isBig ? 180 : 120, height: isBig ? 270 : 180).cornerRadius(10, corners: .topLeft).cornerRadius(10, corners: .topRight).clipped()
+            } else {
+                Image("NoPoster").imageFill().frame(width: isBig ? 180 : 120, height: isBig ? 270 : 180).cornerRadius(10, corners: .topLeft).cornerRadius(10, corners: .topRight).clipped()
+            }
             
             VStack(spacing: 0) {
                 Text("\(work.title)").font(.system(size: 14, weight: .semibold)).lineLimit(1).foregroundColor(.white).padding(EdgeInsets(top: 10, leading: 10, bottom: 0, trailing: 10))

@@ -14,16 +14,13 @@ struct LikedPosterCard: View {
     var body: some View {
         VStack(spacing: 0) {
             
-            AsyncImage(url: likedWork.posterUrl
-                       , content: { phase in
-                
-                if let image = phase.image {
-                    image.imageFill().cornerRadius(10, corners: .topLeft).cornerRadius(10, corners: .topRight).clipped()
-                } else {
-                    Image("NoPoster").imageFill().cornerRadius(10, corners: .topLeft).cornerRadius(10, corners: .topRight).clipped()
-                }
-                
-            }).frame(width: 160, height: 240)
+            if let posterURL = likedWork.posterUrl {
+                KfManager.downSampledImage(url: posterURL, size: CGSize(width: 160, height: 240)).placeholder {
+                    ProgressView()
+                }.imageFill().frame(width: 160, height: 240).cornerRadius(10, corners: .topLeft).cornerRadius(10, corners: .topRight).clipped()
+            } else {
+                Image("NoPoster").imageFill().frame(width: 160, height: 240).cornerRadius(10, corners: .topLeft).cornerRadius(10, corners: .topRight).clipped()
+            }
             
             VStack(spacing: 0) {
                 Text("\(likedWork.title)").font(.system(size: 16, weight: .semibold)).lineLimit(1).foregroundColor(.white).padding(EdgeInsets(top: 10, leading: 10, bottom: 0, trailing: 10))

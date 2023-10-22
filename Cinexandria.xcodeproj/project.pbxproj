@@ -70,6 +70,8 @@
 		2AC8BB6A2ADA960D00143D2D /* LoginPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC8BB692ADA960D00143D2D /* LoginPopup.swift */; };
 		2AC8BB6C2ADBF8D800143D2D /* DetailReviewCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC8BB6B2ADBF8D800143D2D /* DetailReviewCard.swift */; };
 		2AC8BB712AE5245200143D2D /* CreditPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC8BB702AE5245200143D2D /* CreditPopup.swift */; };
+		2AC8BB742AE566E200143D2D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 2AC8BB732AE566E200143D2D /* Kingfisher */; };
+		2AC8BB762AE578BF00143D2D /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC8BB752AE578BF00143D2D /* ImageCacheManager.swift */; };
 		2AF4E57B2AA5D6A900ABE68C /* CinexandriaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF4E57A2AA5D6A900ABE68C /* CinexandriaApp.swift */; };
 		2AF4E57F2AA5D6AA00ABE68C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AF4E57E2AA5D6AA00ABE68C /* Assets.xcassets */; };
 		2AF4E5822AA5D6AA00ABE68C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AF4E5812AA5D6AA00ABE68C /* Preview Assets.xcassets */; };
@@ -173,6 +175,7 @@
 		2AC8BB692ADA960D00143D2D /* LoginPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPopup.swift; sourceTree = "<group>"; };
 		2AC8BB6B2ADBF8D800143D2D /* DetailReviewCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailReviewCard.swift; sourceTree = "<group>"; };
 		2AC8BB702AE5245200143D2D /* CreditPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditPopup.swift; sourceTree = "<group>"; };
+		2AC8BB752AE578BF00143D2D /* ImageCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheManager.swift; sourceTree = "<group>"; };
 		2AF4E5772AA5D6A900ABE68C /* Cinexandria.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cinexandria.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AF4E57A2AA5D6A900ABE68C /* CinexandriaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinexandriaApp.swift; sourceTree = "<group>"; };
 		2AF4E57E2AA5D6AA00ABE68C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -227,6 +230,7 @@
 				2AC8BB192AC72FB400143D2D /* Pods_Cinexandria.framework in Frameworks */,
 				2AF4E5D22AA5F86C00ABE68C /* FirebaseFirestore in Frameworks */,
 				2AF4E5CE2AA5F86C00ABE68C /* FirebaseDatabase in Frameworks */,
+				2AC8BB742AE566E200143D2D /* Kingfisher in Frameworks */,
 				2AF4E5CC2AA5F86C00ABE68C /* FirebaseAuth in Frameworks */,
 				2AF4E5D62AA5F86C00ABE68C /* FirebaseStorage in Frameworks */,
 				2AC8BB202AC8338400143D2D /* KakaoSDKCommon in Frameworks */,
@@ -430,6 +434,7 @@
 				2AC8BB122AC48AAB00143D2D /* Utils.swift */,
 				2AC8BB342ACD61DF00143D2D /* ImagePicker.swift */,
 				2AC8BB3C2AD0686500143D2D /* VerticalLabelStyle.swift */,
+				2AC8BB752AE578BF00143D2D /* ImageCacheManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -491,6 +496,7 @@
 				2AC8BB1F2AC8338400143D2D /* KakaoSDKCommon */,
 				2AC8BB212AC8338400143D2D /* KakaoSDKUser */,
 				2AC8BB652AD9ACA300143D2D /* PopupView */,
+				2AC8BB732AE566E200143D2D /* Kingfisher */,
 			);
 			productName = Cinexandria;
 			productReference = 2AF4E5772AA5D6A900ABE68C /* Cinexandria.app */;
@@ -526,6 +532,7 @@
 				2AC8BB0C2AC486E700143D2D /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				2AC8BB1C2AC8338400143D2D /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
 				2AC8BB642AD9ACA300143D2D /* XCRemoteSwiftPackageReference "PopupView" */,
+				2AC8BB722AE566E200143D2D /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 2AF4E5782AA5D6A900ABE68C /* Products */;
 			projectDirPath = "";
@@ -598,6 +605,7 @@
 			files = (
 				2AC8BAFA2AC0452E00143D2D /* SearchResultCard.swift in Sources */,
 				2AC8BB4F2AD43A3E00143D2D /* CustomTextEditor.swift in Sources */,
+				2AC8BB762AE578BF00143D2D /* ImageCacheManager.swift in Sources */,
 				2AF4E6152AADD46C00ABE68C /* UINavigationController+.swift in Sources */,
 				2AF4E5C62AA5D70B00ABE68C /* Date+.swift in Sources */,
 				2AC8BAFC2AC191CE00143D2D /* SearchGridScreen.swift in Sources */,
@@ -925,6 +933,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		2AC8BB722AE566E200143D2D /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 		2AF4E5CA2AA5F86C00ABE68C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -973,6 +989,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2AC8BB642AD9ACA300143D2D /* XCRemoteSwiftPackageReference "PopupView" */;
 			productName = PopupView;
+		};
+		2AC8BB732AE566E200143D2D /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2AC8BB722AE566E200143D2D /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 		2AF4E5CB2AA5F86C00ABE68C /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;

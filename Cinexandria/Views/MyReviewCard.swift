@@ -17,16 +17,13 @@ struct MyReviewCard: View {
             HStack(alignment: .top) {
                 HStack(alignment: .top, spacing: 12) {
                     NavigationLink(destination: DetailScreen(media: review.mediaType, id: review.workId)) {
-                        AsyncImage(url: review.posterURL
-                                   , content: { phase in
-                            if let image = phase.image {
-                                image.imageFill().cornerRadius(8)
-                            } else if phase.error != nil {
-                                Image("NoPoster").imageFill().cornerRadius(8)
-                            } else {
+                        if let posterURL = review.posterURL {
+                            KfManager.downSampledImage(url: posterURL,size: CGSize(width: 60, height: 90)).placeholder {
                                 ProgressView()
-                            }
-                        }).frame(width: 60, height: 90)
+                            }.imageFill().frame(width: 60, height: 90).cornerRadius(8)
+                        } else {
+                            Image("NoPoster").imageFill().frame(width: 60, height: 90).cornerRadius(8)
+                        }
                     }
                     VStack(alignment: .leading, spacing: 8) {
                         Text(review.workTitle).customFont(color: .white, size: 14, weight: .bold)
