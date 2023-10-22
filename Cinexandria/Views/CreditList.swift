@@ -10,6 +10,8 @@ import SwiftUI
 struct CreditList: View {
     
     @State private var isMoreTapped: Bool = false
+    @Binding var popupActive: Bool
+    @Binding var selectedCredit: CreditViewModel?
 
     let credits: [CreditViewModel]?
     
@@ -29,7 +31,10 @@ struct CreditList: View {
                                 } else {
                                     Image("NoPoster").imageFit().clipShape(Circle()).overlay(Circle().stroke(Color("BgPrimary"), lineWidth: 2)).clipped()
                                 }
-                            })
+                            }).onTapGesture {
+                                self.selectedCredit = credit
+                                self.popupActive = true 
+                            }
                             Text(credit.name).customFont(size: 14, weight: .bold).lineLimit(1).padding(.bottom, 4)
                             Text(credit.role).customFont(color: .gray, size: 14, weight: .semibold).lineLimit(1)
                         }

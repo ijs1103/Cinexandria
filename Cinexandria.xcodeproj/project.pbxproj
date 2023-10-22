@@ -69,6 +69,7 @@
 		2AC8BB682AD9B19900143D2D /* SuccessFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC8BB672AD9B19900143D2D /* SuccessFloat.swift */; };
 		2AC8BB6A2ADA960D00143D2D /* LoginPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC8BB692ADA960D00143D2D /* LoginPopup.swift */; };
 		2AC8BB6C2ADBF8D800143D2D /* DetailReviewCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC8BB6B2ADBF8D800143D2D /* DetailReviewCard.swift */; };
+		2AC8BB712AE5245200143D2D /* CreditPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC8BB702AE5245200143D2D /* CreditPopup.swift */; };
 		2AF4E57B2AA5D6A900ABE68C /* CinexandriaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF4E57A2AA5D6A900ABE68C /* CinexandriaApp.swift */; };
 		2AF4E57F2AA5D6AA00ABE68C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AF4E57E2AA5D6AA00ABE68C /* Assets.xcassets */; };
 		2AF4E5822AA5D6AA00ABE68C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AF4E5812AA5D6AA00ABE68C /* Preview Assets.xcassets */; };
@@ -171,6 +172,7 @@
 		2AC8BB672AD9B19900143D2D /* SuccessFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessFloat.swift; sourceTree = "<group>"; };
 		2AC8BB692ADA960D00143D2D /* LoginPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPopup.swift; sourceTree = "<group>"; };
 		2AC8BB6B2ADBF8D800143D2D /* DetailReviewCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailReviewCard.swift; sourceTree = "<group>"; };
+		2AC8BB702AE5245200143D2D /* CreditPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditPopup.swift; sourceTree = "<group>"; };
 		2AF4E5772AA5D6A900ABE68C /* Cinexandria.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cinexandria.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AF4E57A2AA5D6A900ABE68C /* CinexandriaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinexandriaApp.swift; sourceTree = "<group>"; };
 		2AF4E57E2AA5D6AA00ABE68C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -333,6 +335,7 @@
 				2AC8BB672AD9B19900143D2D /* SuccessFloat.swift */,
 				2AC8BB692ADA960D00143D2D /* LoginPopup.swift */,
 				2AC8BB6B2ADBF8D800143D2D /* DetailReviewCard.swift */,
+				2AC8BB702AE5245200143D2D /* CreditPopup.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -626,6 +629,7 @@
 				2AC8BAE82ABB4B2300143D2D /* Theme.swift in Sources */,
 				2AC8BB432AD307F000143D2D /* LikedWorkViewModel.swift in Sources */,
 				2AC8BAF82ABF0B9F00143D2D /* SearchList.swift in Sources */,
+				2AC8BB712AE5245200143D2D /* CreditPopup.swift in Sources */,
 				2AC8BB022AC444D700143D2D /* MyPageScreen.swift in Sources */,
 				2AF4E5E92AA733B900ABE68C /* TrendingSection.swift in Sources */,
 				2AF4E5C42AA5D70B00ABE68C /* String+.swift in Sources */,

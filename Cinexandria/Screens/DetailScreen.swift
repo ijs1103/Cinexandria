@@ -23,15 +23,17 @@ struct DetailScreen: View {
     
     let id: Int
     
-    @State var likeLabel: LabelConfig = LabelConfig(text: "찜하기", iconColor: .gray)
-    @State var reviewLabel: LabelConfig = LabelConfig(text: "리뷰작성", iconColor: .gray)
-    @State var popupActive: Bool = false
+    @State private var likeLabel: LabelConfig = LabelConfig(text: "찜하기", iconColor: .gray)
+    @State private var reviewLabel: LabelConfig = LabelConfig(text: "리뷰작성", iconColor: .gray)
+    @State private var loginPopupActive: Bool = false
+    @State private var creditPopupActive: Bool = false
+    @State private var selectedCredit: CreditViewModel?
     @State private var floatActive: Bool = false
     @State private var floatMessage: String = ""
     
     private func likeLabelTapped() async {
         if !detailVM.isLoggined {
-            self.popupActive = true
+            self.loginPopupActive = true
             return
         }
         if detailVM.isLiked {
@@ -135,7 +137,7 @@ struct DetailScreen: View {
                             } icon: {
                                 Image(systemName: "pencil").imageFill().frame(width: 18, height: 18)
                             }.labelStyle(VerticalLabelStyle()).foregroundColor(reviewLabel.iconColor).onTapGesture {
-                                self.popupActive = true
+                                self.loginPopupActive = true
                             }
                         }
                         
@@ -197,11 +199,10 @@ struct DetailScreen: View {
                     
                     Group {
                         Text("출연진").SubTitleView()
-                        CreditList(credits: (detailVM.workDetail?.media == .movie) ? detailVM.workDetail?.movieActors : detailVM.workDetail?.tvActors)
+                        CreditList(popupActive: $creditPopupActive, selectedCredit: $selectedCredit, credits: (detailVM.workDetail?.media == .movie) ? detailVM.workDetail?.movieActors : detailVM.workDetail?.tvActors)
                         Divider().background(Color.gray)
-                        
                         Text("제작진").SubTitleView()
-                        CreditList(credits: (detailVM.workDetail?.media == .movie) ? detailVM.workDetail?.movieStaffs : detailVM.workDetail?.tvStaffs)
+                        CreditList(popupActive: $creditPopupActive, selectedCredit: $selectedCredit, credits: (detailVM.workDetail?.media == .movie) ? detailVM.workDetail?.movieStaffs : detailVM.workDetail?.tvStaffs)
                         Divider().background(Color.gray)
                     }
                     
@@ -223,8 +224,8 @@ struct DetailScreen: View {
             configReviewLabel(isReviewWritten: detailVM.myReview != nil)
             appState.loadingState = .idle
         }.loadingWrapper(appState.loadingState)
-            .popup(isPresented: $popupActive) {
-                LoginPopup(isPresented: $popupActive)
+            .popup(isPresented: $loginPopupActive) {
+                LoginPopup(isPresented: $loginPopupActive)
             } customize: {
                 $0
                     .closeOnTap(false)
@@ -238,6 +239,13 @@ struct DetailScreen: View {
                     .position(.top)
                     .animation(.spring())
                     .autohideIn(2)
+            }
+            .popup(isPresented: $creditPopupActive) {
+                if let selectedCredit = selectedCredit {
+                    CreditPopup(isPresented: $creditPopupActive, credit: selectedCredit)
+                }
+            } customize: {
+                $0.closeOnTap(false).closeOnTapOutside(true).backgroundColor(.black.opacity(0.4))
             }
     }
 }
